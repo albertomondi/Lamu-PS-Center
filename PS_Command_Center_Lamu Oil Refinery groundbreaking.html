@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PS Command Center | Lamu Oil Refinery Groundbreaking | Confidential</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class'
+}
+</script>
+
+<style>
+:root{
+  --navy:#0A1931;
+  --gold:#D4AF37;
+  --red:#B91C1C;
+  --green:#15803D;
+  --amber:#D97706;
+  --paper:#F5F3EF;
+}
+
+*{
+  font-family:Tahoma, Geneva, sans-serif !important;
+  font-size:12px !important;
+  line-height:1.45 !important;
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+}
+
+h1{
+  font-size:16px !important;
+  font-weight:800 !important;
+  line-height:1.25 !important;
+}
+
+h2{
+  font-size:13px !important;
+  font-weight:700 !important;
+}
+
+button{
+  transition:all .15s ease;
+}
+
+button:hover{
+  opacity:.9;
+  transform:translateY(-1px);
+}
+
+[contenteditable="true"]{
+  transition:background .15s ease, outline .15s ease;
+}
+
+[contenteditable="true"]:hover{
+  outline:1px dashed var(--gold);
+  background:rgba(212,175,55,.07);
+}
+
+[contenteditable="true"]:focus{
+  outline:2px solid var(--gold);
+  background:#fffbe6 !important;
+  color:#000 !important;
+}
+
+.dark [contenteditable="true"]:focus{
+  background:#1e293b !important;
+  color:#fff !important;
+}
+
+.status-pill{
+  display:inline-block;
+  min-width:82px;
+  text-align:center;
+  user-select:none;
+}
+
+.kpi-number{
+  font-size:22px !important;
+  line-height:1.1 !important;
+}
+
+.source-label{
+  font-size:9px !important;
+  letter-spacing:.08em;
+}
+
+.command-table th{
+  white-space:nowrap;
+}
+
+.command-table td,
+.command-table th{
+  border-bottom:1px solid rgba(148,163,184,.25);
+  vertical-align:top;
+}
+
+.command-table tbody tr:hover{
+  background:rgba(212,175,55,.06);
+}
+
+.deadline-red{
+  border-left:4px solid var(--red);
+}
+
+.deadline-amber{
+  border-left:4px solid var(--amber);
+}
+
+.deadline-green{
+  border-left:4px solid var(--green);
+}
+
+@media(max-width:900px){
+  .kpi-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .bottom-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+@media print{
+
+  @page{
+    size:A4 landscape;
+    margin:8mm;
+  }
+
+  html,
+  body{
+    background:white !important;
+    color:#0A1931 !important;
+  }
+
+  .no-print{
+    display:none !important;
+  }
+
+  .print-break-avoid{
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+
+  .dark,
+  .dark body{
+    background:white !important;
+    color:#0A1931 !important;
+  }
+
+  .dark .print-white{
+    background:white !important;
+    color:#0A1931 !important;
+  }
+
+  .command-table{
+    font-size:9px !important;
+  }
+
+  .command-table td,
+  .command-table th{
+    padding:4px !important;
+  }
+
+  .status-pill{
+    min-width:65px;
+  }
+}
+</style>
+</head>
+
+<body class="bg-[#F5F3EF] text-[#0A1931] dark:bg-[#07111f] dark:text-[#F8FAFC] transition-colors duration-300">
+
+<div class="max-w-[1450px] mx-auto p-3">
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="bg-[#0A1931] dark:bg-black text-white rounded-t-xl border-b-4 border-[#D4AF37] shadow-lg">
+
+  <div class="p-4 md:p-5 flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
+
+    <div class="flex-1">
+
+      <div class="text-[#D4AF37] font-bold tracking-[0.18em] uppercase">
+        Republic of Kenya
+      </div>
+
+      <div class="font-bold tracking-wide uppercase mt-1">
+        Ministry of Foreign and Diaspora Affairs
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 mt-3">
+
+        <span class="bg-[#B91C1C] text-white px-3 py-1 rounded font-bold tracking-wide">
+          CONFIDENTIAL — FOR PS ONLY
+        </span>
+
+        <span class="border border-[#D4AF37] text-[#D4AF37] px-3 py-1 rounded source-label">
+          SOURCE BASELINE — 23 SEPTEMBER 2026
+        </span>
+
+      </div>
+
+      <h1
+        id="mainTitle"
+        contenteditable="true"
+        class="mt-4 p-1">
+        LAMU OIL REFINERY GROUNDBREAKING | 30 SEPT 2026 — 13:00HRS
+      </h1>
+
+      <div class="mt-2 opacity-90">
+
+        Status as at
+        <span id="statusDate" contenteditable="true" class="font-bold">
+          23 September 2026
+        </span>
+
+        |
+
+        Overall Posture:
+        <span contenteditable="true" class="text-[#D4AF37] font-bold">
+          AMBER-GREEN — FINAL READINESS PHASE
+        </span>
+
+      </div>
+
+      <div class="mt-1 text-[10px] opacity-75">
+
+        Last Edited:
+        <span id="lastEdit">Not edited</span>
+
+        |
+
+        Economic/Commercial Figures:
+        <strong class="text-[#D4AF37]">
+          TBC UNTIL FORMALLY CLEARED
+        </strong>
+
+      </div>
+
+    </div>
+
+    <div class="no-print flex flex-col items-start lg:items-end gap-2">
+
+      <div class="flex gap-2 flex-wrap">
+
+        <button
+          onclick="toggleDark()"
+          id="darkBtn"
+          class="bg-[#D4AF37] text-black px-4 py-2 rounded font-bold">
+          🌙 DARK
+        </button>
+
+        <button
+          onclick="window.print()"
+          class="bg-white text-[#0A1931] px-4 py-2 rounded font-bold">
+          PRINT PDF FOR PS
+        </button>
+
+      </div>
+
+      <div class="text-[#D4AF37] text-[10px] text-right">
+        Editable operational dashboard • Source baseline protected by Reset to Source
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =========================================================
+     KPI CARDS
+========================================================= -->
+
+<section class="kpi-grid grid grid-cols-3 gap-3 my-3">
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-lg p-4 border-l-4 border-green-600 shadow">
+
+    <div class="opacity-60 font-bold">
+      CONFIRMED PRESIDENTIAL DELEGATIONS
+    </div>
+
+    <div id="kpiConfirmed" class="kpi-number font-black mt-1">
+      4
+    </div>
+
+    <div class="text-green-700 dark:text-green-400 mt-1">
+      Immediate presidential/VVIP checklist
+    </div>
+
+  </div>
+
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-lg p-4 border-l-4 border-amber-500 shadow">
+
+    <div class="opacity-60 font-bold">
+      PENDING DELEGATIONS
+    </div>
+
+    <div id="kpiPending" class="kpi-number font-black mt-1">
+      10
+    </div>
+
+    <div class="text-amber-700 dark:text-amber-400 mt-1">
+      Daily diplomatic confirmation required
+    </div>
+
+  </div>
+
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-lg p-4 border-l-4 border-red-700 shadow">
+
+    <div class="opacity-60 font-bold">
+      REGISTRATION HARD CLOSE
+    </div>
+
+    <div id="countdown" class="kpi-number font-black mt-1 text-red-700 dark:text-red-400">
+      CALCULATING
+    </div>
+
+    <div class="mt-1">
+      28 Sept 2026 — 23:59
+    </div>
+
+    <div class="text-[10px] opacity-70">
+      Protect ≥72hr firearms/radio and ≥48hr aircraft lead times
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SOURCE CONTROL STRIP
+========================================================= -->
+
+<section class="print-break-avoid bg-[#FFF8E1] dark:bg-[#2b2514] border border-[#D4AF37] rounded-lg p-3 mb-3">
+
+  <div class="font-bold text-[#0A1931] dark:text-[#F8FAFC]">
+    SOURCE CONTROL
+  </div>
+
+  <div class="mt-1">
+    The 14-country attendance position below is the documentary baseline as at
+    <strong>23 September 2026</strong>.
+    President/Head names and mobile numbers were not supplied in the source documents and therefore begin as
+    <strong>TBC / ENTER</strong>.
+    Operational edits do not alter the source baseline; use
+    <strong>Reset to Source</strong>
+    to restore it.
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     EDIT CONTROLS
+========================================================= -->
+
+<section class="no-print bg-white dark:bg-slate-800 rounded-lg p-2 mb-3 shadow flex flex-wrap gap-2 items-center">
+
+  <button
+    onclick="addRow()"
+    class="bg-[#0A1931] text-white px-3 py-2 rounded font-bold">
+    + ADD DELEGATION
+  </button>
+
+  <button
+    onclick="saveAll(true)"
+    class="bg-green-700 text-white px-3 py-2 rounded font-bold">
+    SAVE CHANGES
+  </button>
+
+  <button
+    onclick="exportCSV()"
+    class="bg-slate-600 text-white px-3 py-2 rounded font-bold">
+    EXPORT CSV
+  </button>
+
+  <button
+    onclick="resetAll()"
+    class="bg-red-700 text-white px-3 py-2 rounded font-bold">
+    RESET TO SOURCE
+  </button>
+
+  <button
+    onclick="window.print()"
+    class="bg-[#D4AF37] text-black px-3 py-2 rounded font-bold">
+    PRINT PDF
+  </button>
+
+  <span class="ml-auto opacity-60">
+    Click status pill to toggle • Click text to edit • Changes persist in this browser
+  </span>
+
+</section>
+
+
+<!-- =========================================================
+     DELEGATION TRACKER
+========================================================= -->
+
+<section class="print-white bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
+
+  <div class="bg-[#0A1931] text-white px-4 py-3 flex flex-wrap justify-between gap-2">
+
+    <div>
+      <h2>DELEGATION ATTENDANCE & VVIP ACTIVATION TRACKER</h2>
+      <div class="text-[10px] opacity-75">
+        Live operational layer over the 23 September source baseline
+      </div>
+    </div>
+
+    <div class="text-[#D4AF37] font-bold">
+      14-COUNTRY SOURCE BASELINE
+    </div>
+
+  </div>
+
+  <div class="overflow-x-auto">
+
+    <table class="command-table w-full border-collapse" id="mainTable">
+
+      <thead class="bg-[#0A1931] text-white">
+
+        <tr>
+          <th class="p-2 text-left">NO.</th>
+          <th class="p-2 text-left">COUNTRY</th>
+          <th class="p-2 text-left">PRESIDENT / HEAD</th>
+          <th class="p-2 text-left">LIAISON OFFICER</th>
+          <th class="p-2 text-left">MOBILE NO.</th>
+          <th class="p-2 text-left">STATUS</th>
+          <th class="p-2 text-left">CRITICAL ACTION</th>
+          <th class="no-print p-2 text-center">DEL</th>
+        </tr>
+
+      </thead>
+
+      <tbody id="tableBody"></tbody>
+
+    </table>
+
+  </div>
+
+
+  <div
+    id="footerNote"
+    contenteditable="true"
+    class="p-3 bg-amber-50 dark:bg-amber-950/30 border-t border-amber-300">
+
+    OPERATIONAL CONTROL: Confirmed presidential delegations — immediately lock delegation composition, arrival/departure, aircraft data, protection/firearms/radio requirements, liaison contact, accommodation/holding room, convoy and bilateral requirements. Pending delegations — maintain daily diplomatic confirmation; any confirmation must immediately trigger the same presidential/VVIP checklist. ACTION REQUIRED: 28 September is the registration HARD CLOSE; protect the ≥72-hour firearms/radio and ≥48-hour aircraft lead times.
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     DEADLINE CALENDAR + PS DECISIONS
+========================================================= -->
+
+<section class="bottom-grid grid md:grid-cols-2 gap-3 mt-3">
+
+  <!-- DEADLINE CALENDAR -->
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
+
+    <div class="bg-[#0A1931] text-white p-3">
+      <h2>CRITICAL DEADLINE CALENDAR | 22–30 SEPTEMBER</h2>
+    </div>
+
+    <div
+      id="calendar"
+      contenteditable="true"
+      class="p-3 whitespace-pre-line">
+22–24 SEPTEMBER
+Daily closure review; VVIP confirmation drive; accelerate accreditation and aircraft data.
+
+25–27 SEPTEMBER
+Lock core VVIP list; process ≥72-hour firearms/radio requirements; finalise protocol, transport, accommodation, luncheon, investor and communications allocations.
+
+28 SEPTEMBER — HARD CLOSE
+Registration closes; reconcile participant, media, vehicle and driver registers; protect ≥48-hour aircraft rule.
+
+29 SEPTEMBER — GO/NO-GO
+Full rehearsal; physical verification; final convoy matrix; venue, ICT, power, security, medical, media and holding-room sign-off; formal readiness determination.
+
+30 SEPTEMBER
+Ceremony; State Luncheon 13:00HRS; joint coordination; incident/decision log; controlled departures.
+    </div>
+
+  </div>
+
+
+  <!-- PS DECISIONS -->
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
+
+    <div class="bg-[#0A1931] text-white p-3">
+      <h2>5 IMMEDIATE DECISIONS REQUIRED FROM PS</h2>
+    </div>
+
+    <div
+      id="decisions"
+      contenteditable="true"
+      class="p-3 whitespace-pre-line">
+<b>1.</b> Direct one daily master readiness meeting and decision log through 30 September.
+<span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
+
+<b>2.</b> Order immediate presidential-movement case files for Togo, Rwanda, Ethiopia and South Sudan.
+<span class="bg-red-100 text-red-800 px-1 rounded font-bold">RED — PRIORITY</span>
+
+<b>3.</b> Require daily pursuit of the ten pending confirmations and lock the core VVIP list by 27–28 September.
+<span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
+
+<b>4.</b> Approve one authoritative economic/commercial diplomacy fact sheet and communications narrative by 27 September.
+<span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
+
+<b>5.</b> Confirm 29 September as the mandatory full rehearsal and GO/NO-GO gate; formally escalate residual RED risks.
+<span class="bg-red-100 text-red-800 px-1 rounded font-bold">RED — CRITICAL GATE</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     READINESS RAG
+========================================================= -->
+
+<section class="print-white bg-white dark:bg-slate-800 rounded-xl shadow mt-3 overflow-hidden print-break-avoid">
+
+  <div class="bg-[#0A1931] text-white p-3 flex justify-between">
+
+    <h2>READINESS RAG | EXECUTIVE CLOSURE VIEW</h2>
+
+    <span class="text-[#D4AF37]">
+      Verification evidence required before closure
+    </span>
+
+  </div>
+
+  <div class="grid md:grid-cols-5">
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold">SITE / VENUE</div>
+      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">
+        AMBER
+      </span>
+      <div class="mt-2 opacity-70">
+        Verification required
+      </div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold">AVIATION / SECURITY</div>
+      <span class="inline-block mt-2 bg-red-100 text-red-800 px-2 py-1 rounded font-bold">
+        RED — CRITICAL
+      </span>
+      <div class="mt-2 opacity-70">
+        Lead-time dependent
+      </div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold">VVIP TRANSPORT / PROTOCOL</div>
+      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">
+        AMBER
+      </span>
+      <div class="mt-2 opacity-70">
+        Closure evidence required
+      </div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold">ACCREDITATION / MEDICAL</div>
+      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">
+        AMBER
+      </span>
+      <div class="mt-2 opacity-70">
+        Registers to reconcile
+      </div>
+    </div>
+
+    <div class="p-3">
+      <div class="font-bold">COMMS / INVESTOR</div>
+      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">
+        AMBER
+      </span>
+      <div class="mt-2 opacity-70">
+        Figures TBC until cleared
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     ECONOMIC / COMMERCIAL DIPLOMACY
+========================================================= -->
+
+<section class="print-white bg-white dark:bg-slate-800 rounded-xl shadow mt-3 overflow-hidden print-break-avoid">
+
+  <div class="bg-[#0A1931] text-white p-3 flex flex-wrap justify-between gap-2">
+
+    <h2>ECONOMIC & COMMERCIAL DIPLOMACY CONTROL PANEL</h2>
+
+    <span class="bg-[#D4AF37] text-black px-2 py-1 rounded font-bold">
+      ALL PROJECT FIGURES TBC UNTIL FORMALLY CLEARED
+    </span>
+
+  </div>
+
+  <div class="grid md:grid-cols-3">
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold text-[#D4AF37]">
+        STRATEGIC FRAME
+      </div>
+
+      <div class="mt-2">
+        → Energy Security & Import Substitution
+      </div>
+
+      <div>
+        → LAPSSET Corridor Anchor
+      </div>
+
+      <div>
+        → FDI Magnet & Bankability Signal
+      </div>
+    </div>
+
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+
+      <div class="font-bold text-[#D4AF37]">
+        REGIONAL FRAME
+      </div>
+
+      <div class="mt-2">
+        → Regional Integration
+      </div>
+
+      <div>
+        → EAC / AfCFTA positioning
+      </div>
+
+      <div>
+        → Ethiopia / South Sudan regional linkages
+      </div>
+
+    </div>
+
+
+    <div class="p-3">
+
+      <div class="font-bold text-[#D4AF37]">
+        DIPLOMATIC FRAME
+      </div>
+
+      <div class="mt-2">
+        → Local Content & County Dividends
+      </div>
+
+      <div>
+        → Presidential diplomatic leverage
+      </div>
+
+      <div>
+        → Project value, capacity, jobs, feedstock and financing remain TBC
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     DAILY PS REPORTING FORMAT
+========================================================= -->
+
+<section class="print-white bg-white dark:bg-slate-800 rounded-xl shadow mt-3 overflow-hidden">
+
+  <div class="bg-[#0A1931] text-white p-3">
+    <h2>RECOMMENDED DAILY REPORT TO PS</h2>
+  </div>
+
+  <div
+    id="dailyReport"
+    contenteditable="true"
+    class="grid md:grid-cols-5 gap-0">
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <strong>1. CHANGE SINCE LAST REPORT</strong>
+      <div class="mt-2">Enter material changes only.</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <strong>2. VVIP POSITION</strong>
+      <div class="mt-2">Confirmed / pending / newly activated.</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <strong>3. RED / AMBER ITEMS</strong>
+      <div class="mt-2">State evidence required for closure.</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <strong>4. PS DECISION REQUIRED</strong>
+      <div class="mt-2">Decision, owner and deadline.</div>
+    </div>
+
+    <div class="p-3">
+      <strong>5. NEXT 24 HOURS</strong>
+      <div class="mt-2">Critical actions and hard deadlines.</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="mt-4 text-center opacity-60">
+
+  <div>
+    PS COMMAND CENTER V5 | SOURCE-CONTROLLED OPERATIONAL DASHBOARD
+  </div>
+
+  <div class="mt-1">
+    Republic of Kenya | Ministry of Foreign and Diaspora Affairs | Confidential — For PS Only
+  </div>
+
+</footer>
+
+</div>
+
+
+<!-- =========================================================
+     OPTIONAL PASSWORD PROTECTION
+     UNCOMMENT THE SCRIPT BELOW BEFORE PUBLIC HOSTING IF DESIRED
+
+<script>
+const CODE="LAMU2026";
+if(prompt("Enter PS Access Code:")!==CODE){
+  document.body.innerHTML=
+  "<h1 style='font-family:Tahoma;text-align:center;margin-top:20%'>ACCESS DENIED — PS ONLY</h1>";
+}
+</script>
+
+========================================================= -->
+
+
+<script>
+
+/* =========================================================
+   SOURCE-CONTROLLED BASELINE
+   23 SEPTEMBER 2026
+
+   IMPORTANT:
+   President/Head names and mobile numbers are NOT supplied
+   by the source documents. They therefore begin as TBC.
+========================================================= */
+
+const originalData = [
+
+{
+  no:1,
+  country:"Rwanda",
+  president:"TBC / ENTER",
+  liaison:"Mr. Timothy Mwalimu",
+  phone:"TBC / ENTER",
+  status:"CONFIRMED",
+  action:"Lock presidential/VVIP checklist immediately"
+},
+
+{
+  no:2,
+  country:"Republic of Congo",
+  president:"TBC / ENTER",
+  liaison:"Mr. Sam Kiptoo",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:3,
+  country:"Ethiopia",
+  president:"TBC / ENTER",
+  liaison:"Mr. Joshua Kariuki",
+  phone:"TBC / ENTER",
+  status:"CONFIRMED",
+  action:"Lock presidential/VVIP checklist immediately"
+},
+
+{
+  no:4,
+  country:"Nigeria",
+  president:"TBC / ENTER",
+  liaison:"Mr. Mike Maiyo",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:5,
+  country:"Uganda",
+  president:"TBC / ENTER",
+  liaison:"Mr. Brian Riechi",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:6,
+  country:"Mozambique",
+  president:"TBC / ENTER",
+  liaison:"Ms. Betty Karwitha",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:7,
+  country:"Burundi",
+  president:"TBC / ENTER",
+  liaison:"Mr. Holyfield Wafula",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:8,
+  country:"Benin",
+  president:"TBC / ENTER",
+  liaison:"Mr. Lester Omondi",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:9,
+  country:"DRC",
+  president:"TBC / ENTER",
+  liaison:"Mr. Titus Ngota",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:10,
+  country:"Ghana",
+  president:"TBC / ENTER",
+  liaison:"Mr. Nelson Kanja",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:11,
+  country:"Somalia",
+  president:"TBC / ENTER",
+  liaison:"Mr. Peter Mutui",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:12,
+  country:"South Sudan",
+  president:"TBC / ENTER",
+  liaison:"Ms. Tina Kendi",
+  phone:"TBC / ENTER",
+  status:"CONFIRMED",
+  action:"Lock presidential/VVIP checklist immediately"
+},
+
+{
+  no:13,
+  country:"Tanzania",
+  president:"TBC / ENTER",
+  liaison:"Mr. Saidi Omari",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:14,
+  country:"Togo",
+  president:"TBC / ENTER",
+  liaison:"Ms. Cynthia Njiru",
+  phone:"TBC / ENTER",
+  status:"CONFIRMED",
+  action:"Lock presidential/VVIP checklist immediately"
+}
+
+];
+
+
+const originalCalendar = `22–24 SEPTEMBER
+Daily closure review; VVIP confirmation drive; accelerate accreditation and aircraft data.
+
+25–27 SEPTEMBER
+Lock core VVIP list; process ≥72-hour firearms/radio requirements; finalise protocol, transport, accommodation, luncheon, investor and communications allocations.
+
+28 SEPTEMBER — HARD CLOSE
+Registration closes; reconcile participant, media, vehicle and driver registers; protect ≥48-hour aircraft rule.
+
+29 SEPTEMBER — GO/NO-GO
+Full rehearsal; physical verification; final convoy matrix; venue, ICT, power, security, medical, media and holding-room sign-off; formal readiness determination.
+
+30 SEPTEMBER
+Ceremony; State Luncheon 13:00HRS; joint coordination; incident/decision log; controlled departures.`;
+
+
+const originalDecisions = `
+<b>1.</b> Direct one daily master readiness meeting and decision log through 30 September.
+<span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
+
+<b>2.</b> Order immediate presidential-movement case files for Togo, Rwanda, Ethiopia and South Sudan.
+<span class="bg-red-100 text-red-800 px-1 rounded font-bold">RED — PRIORITY</span>
+
+<b>3.</b> Require daily pursuit of the ten pending confirmations and lock the core VVIP list by 27–28 September.
+<span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
+
+<b>4.</b> Approve one authoritative economic/commercial diplomacy fact sheet and communications narrative by 27 September.
+<span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
+
+<b>5.</b> Confirm 29 September as the mandatory full rehearsal and GO/NO-GO gate; formally escalate residual RED risks.
+<span class="bg-red-100 text-red-800 px-1 rounded font-bold">RED — CRITICAL GATE</span>
+`;
+
+
+const originalFooterNote =
+`OPERATIONAL CONTROL: Confirmed presidential delegations — immediately lock delegation composition, arrival/departure, aircraft data, protection/firearms/radio requirements, liaison contact, accommodation/holding room, convoy and bilateral requirements. Pending delegations — maintain daily diplomatic confirmation; any confirmation must immediately trigger the same presidential/VVIP checklist. ACTION REQUIRED: 28 September is the registration HARD CLOSE; protect the ≥72-hour firearms/radio and ≥48-hour aircraft lead times.`;
+
+
+let data = [];
+
+
+/* =========================================================
+   SAFE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(value ?? '')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#039;');
+
+}
+
+
+/* =========================================================
+   LOAD
+========================================================= */
+
+function load(){
+
+  try{
+
+    const saved =
+      localStorage.getItem('ps_data_v5');
+
+    data =
+      saved
+      ? JSON.parse(saved)
+      : JSON.parse(JSON.stringify(originalData));
+
+  }catch(e){
+
+    data =
+      JSON.parse(JSON.stringify(originalData));
+
+  }
+
+
+  const cal =
+    localStorage.getItem('ps_cal_v5');
+
+  document.getElementById('calendar').innerText =
+    cal || originalCalendar;
+
+
+  const dec =
+    localStorage.getItem('ps_dec_v5');
+
+  document.getElementById('decisions').innerHTML =
+    dec || originalDecisions;
+
+
+  const foot =
+    localStorage.getItem('ps_foot_v5');
+
+  document.getElementById('footerNote').innerText =
+    foot || originalFooterNote;
+
+
+  const daily =
+    localStorage.getItem('ps_daily_v5');
+
+  if(daily){
+    document.getElementById('dailyReport').innerHTML =
+      daily;
+  }
+
+
+  const title =
+    localStorage.getItem('ps_title_v5');
+
+  if(title){
+    document.getElementById('mainTitle').innerText =
+      title;
+  }
+
+
+  const statusDate =
+    localStorage.getItem('ps_statusdate_v5');
+
+  if(statusDate){
+    document.getElementById('statusDate').innerText =
+      statusDate;
+  }
+
+
+  const dark =
+    localStorage.getItem('ps_dark_v5');
+
+  if(dark === 'true'){
+    document.documentElement.classList.add('dark');
+  }
+
+
+  const last =
+    localStorage.getItem('ps_lastedit_v5');
+
+  if(last){
+    document.getElementById('lastEdit').innerText =
+      last;
+  }
+
+
+  updateDarkBtn();
+  render();
+  updateCountdown();
+
+}
+
+
+/* =========================================================
+   RENDER TABLE
+========================================================= */
+
+function render(){
+
+  const tbody =
+    document.getElementById('tableBody');
+
+  tbody.innerHTML = '';
+
+
+  data.forEach((row,i)=>{
+
+    const tr =
+      document.createElement('tr');
+
+
+    const confirmed =
+      row.status === 'CONFIRMED';
+
+
+    tr.innerHTML = `
+
+      <td class="p-2 font-bold">
+        ${row.no}
+      </td>
+
+      <td
+        class="p-2 font-bold"
+        contenteditable="true"
+        onblur="editCell(${i},'country',this.innerText)">
+        ${escapeHTML(row.country)}
+      </td>
+
+      <td
+        class="p-2"
+        contenteditable="true"
+        onblur="editCell(${i},'president',this.innerText)">
+        ${escapeHTML(row.president)}
+      </td>
+
+      <td
+        class="p-2"
+        contenteditable="true"
+        onblur="editCell(${i},'liaison',this.innerText)">
+        ${escapeHTML(row.liaison)}
+      </td>
+
+      <td
+        class="p-2"
+        contenteditable="true"
+        onblur="editCell(${i},'phone',this.innerText)">
+        ${escapeHTML(row.phone)}
+      </td>
+
+      <td class="p-2">
+
+        <span
+          onclick="toggleStatus(${i})"
+          title="Click to toggle CONFIRMED / PENDING"
+          class="status-pill cursor-pointer px-2 py-1 rounded-full font-bold ${
+            confirmed
+            ? 'bg-green-100 text-green-800'
+            : 'bg-amber-100 text-amber-800'
+          }">
+
+          ${escapeHTML(row.status)}
+
+        </span>
+
+      </td>
+
+      <td
+        class="p-2"
+        contenteditable="true"
+        onblur="editCell(${i},'action',this.innerText)">
+        ${escapeHTML(row.action)}
+      </td>
+
+      <td class="no-print p-2 text-center">
+
+        <button
+          onclick="delRow(${i})"
+          title="Delete working row"
+          class="text-red-700 font-bold">
+          ✕
+        </button>
+
+      </td>
+
+    `;
+
+
+    tbody.appendChild(tr);
+
+  });
+
+
+  updateKPI();
+
+}
+
+
+/* =========================================================
+   EDIT
+========================================================= */
+
+function editCell(i,key,value){
+
+  data[i][key] =
+    value.trim();
+
+  saveAll(false);
+
+}
+
+
+/* =========================================================
+   STATUS TOGGLE
+========================================================= */
+
+function toggleStatus(i){
+
+  const becomingConfirmed =
+    data[i].status !== 'CONFIRMED';
+
+
+  data[i].status =
+    becomingConfirmed
+    ? 'CONFIRMED'
+    : 'PENDING';
+
+
+  if(becomingConfirmed){
+
+    data[i].action =
+      'Lock presidential/VVIP checklist immediately';
+
+  }else{
+
+    data[i].action =
+      'Maintain daily diplomatic confirmation';
+
+  }
+
+
+  saveAll(false);
+  render();
+
+}
+
+
+/* =========================================================
+   ADD DELEGATION
+========================================================= */
+
+function addRow(){
+
+  data.push({
+
+    no:data.length + 1,
+
+    country:"TBC / ENTER",
+
+    president:"TBC / ENTER",
+
+    liaison:"TBC / ENTER",
+
+    phone:"TBC / ENTER",
+
+    status:"PENDING",
+
+    action:"Maintain daily diplomatic confirmation"
+
+  });
+
+
+  saveAll(false);
+  render();
+
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+function delRow(i){
+
+  if(
+    !confirm(
+      'Delete this delegation from the working dashboard? The source baseline can be restored using Reset to Source.'
+    )
+  ){
+    return;
+  }
+
+
+  data.splice(i,1);
+
+
+  data.forEach((row,index)=>{
+    row.no = index + 1;
+  });
+
+
+  saveAll(false);
+  render();
+
+}
+
+
+/* =========================================================
+   KPI
+========================================================= */
+
+function updateKPI(){
+
+  const confirmed =
+    data.filter(
+      d => d.status === 'CONFIRMED'
+    ).length;
+
+
+  const pending =
+    data.filter(
+      d => d.status === 'PENDING'
+    ).length;
+
+
+  document.getElementById('kpiConfirmed').innerText =
+    confirmed;
+
+
+  document.getElementById('kpiPending').innerText =
+    pending;
+
+}
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+function saveAll(showAlert=false){
+
+  localStorage.setItem(
+    'ps_data_v5',
+    JSON.stringify(data)
+  );
+
+
+  localStorage.setItem(
+    'ps_cal_v5',
+    document.getElementById('calendar').innerText
+  );
+
+
+  localStorage.setItem(
+    'ps_dec_v5',
+    document.getElementById('decisions').innerHTML
+  );
+
+
+  localStorage.setItem(
+    'ps_foot_v5',
+    document.getElementById('footerNote').innerText
+  );
+
+
+  localStorage.setItem(
+    'ps_daily_v5',
+    document.getElementById('dailyReport').innerHTML
+  );
+
+
+  localStorage.setItem(
+    'ps_title_v5',
+    document.getElementById('mainTitle').innerText
+  );
+
+
+  localStorage.setItem(
+    'ps_statusdate_v5',
+    document.getElementById('statusDate').innerText
+  );
+
+
+  touch();
+
+
+  if(showAlert){
+    alert('PS Command Center changes saved.');
+  }
+
+}
+
+
+/* =========================================================
+   RESET TO DOCUMENTARY SOURCE BASELINE
+========================================================= */
+
+function resetAll(){
+
+  const ok =
+    confirm(
+      'Reset all operational changes to the authoritative 23 September 2026 documentary baseline: 4 CONFIRMED / 10 PENDING?'
+    );
+
+
+  if(!ok){
+    return;
+  }
+
+
+  [
+    'ps_data_v5',
+    'ps_cal_v5',
+    'ps_dec_v5',
+    'ps_foot_v5',
+    'ps_daily_v5',
+    'ps_title_v5',
+    'ps_statusdate_v5',
+    'ps_lastedit_v5'
+  ].forEach(key =>
+    localStorage.removeItem(key)
+  );
+
+
+  data =
+    JSON.parse(
+      JSON.stringify(originalData)
+    );
+
+
+  document.getElementById('calendar').innerText =
+    originalCalendar;
+
+
+  document.getElementById('decisions').innerHTML =
+    originalDecisions;
+
+
+  document.getElementById('footerNote').innerText =
+    originalFooterNote;
+
+
+  document.getElementById('mainTitle').innerText =
+    'LAMU OIL REFINERY GROUNDBREAKING | 30 SEPT 2026 — 13:00HRS';
+
+
+  document.getElementById('statusDate').innerText =
+    '23 September 2026';
+
+
+  document.getElementById('lastEdit').innerText =
+    'Reset to source baseline';
+
+
+  render();
+
+}
+
+
+/* =========================================================
+   CSV EXPORT
+========================================================= */
+
+function exportCSV(){
+
+  const headers = [
+
+    'No',
+    'Country',
+    'President / Head',
+    'Liaison Officer',
+    'Mobile Number',
+    'Status',
+    'Critical Action'
+
+  ];
+
+
+  const rows =
+    data.map(r => [
+
+      r.no,
+      r.country,
+      r.president,
+      r.liaison,
+      r.phone,
+      r.status,
+      r.action
+
+    ]);
+
+
+  const csv =
+    [headers,...rows]
+      .map(row =>
+        row.map(value =>
+          `"${String(value ?? '')
+            .replace(/"/g,'""')}"`
+        ).join(',')
+      )
+      .join('\n');
+
+
+  const blob =
+    new Blob(
+      [csv],
+      {
+        type:'text/csv;charset=utf-8;'
+      }
+    );
+
+
+  const url =
+    URL.createObjectURL(blob);
+
+
+  const a =
+    document.createElement('a');
+
+
+  a.href =
+    url;
+
+
+  a.download =
+    'PS_Lamu_Delegation_Tracker_30Sept2026.csv';
+
+
+  document.body.appendChild(a);
+
+  a.click();
+
+  a.remove();
+
+  URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+function toggleDark(){
+
+  document.documentElement
+    .classList
+    .toggle('dark');
+
+
+  const dark =
+    document.documentElement
+      .classList
+      .contains('dark');
+
+
+  localStorage.setItem(
+    'ps_dark_v5',
+    dark
+  );
+
+
+  updateDarkBtn();
+
+}
+
+
+function updateDarkBtn(){
+
+  const dark =
+    document.documentElement
+      .classList
+      .contains('dark');
+
+
+  const btn =
+    document.getElementById('darkBtn');
+
+
+  if(!btn){
+    return;
+  }
+
+
+  btn.innerText =
+    dark
+    ? '☀️ LIGHT'
+    : '🌙 DARK';
+
+}
+
+
+/* =========================================================
+   LAST EDITED
+========================================================= */
+
+function touch(){
+
+  const stamp =
+    new Date().toLocaleString();
+
+
+  document.getElementById('lastEdit').innerText =
+    stamp;
+
+
+  localStorage.setItem(
+    'ps_lastedit_v5',
+    stamp
+  );
+
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+function updateCountdown(){
+
+  const deadline =
+    new Date('2026-09-28T23:59:00');
+
+
+  const now =
+    new Date();
+
+
+  const diff =
+    deadline - now;
+
+
+  const el =
+    document.getElementById('countdown');
+
+
+  if(diff <= 0){
+
+    el.innerText =
+      'HARD CLOSE REACHED';
+
+    return;
+
+  }
+
+
+  const days =
+    Math.floor(
+      diff / (1000*60*60*24)
+    );
+
+
+  const hours =
+    Math.floor(
+      (diff / (1000*60*60)) % 24
+    );
+
+
+  const minutes =
+    Math.floor(
+      (diff / (1000*60)) % 60
+    );
+
+
+  el.innerText =
+    `${days}D ${hours}H ${minutes}M`;
+
+}
+
+
+/* =========================================================
+   AUTOSAVE EDITABLE SECTIONS
+========================================================= */
+
+[
+  'calendar',
+  'decisions',
+  'footerNote',
+  'dailyReport',
+  'mainTitle',
+  'statusDate'
+].forEach(id => {
+
+  const element =
+    document.getElementById(id);
+
+
+  if(element){
+
+    element.addEventListener(
+      'blur',
+      () => saveAll(false)
+    );
+
+  }
+
+});
+
+
+/* =========================================================
+   INITIALISE
+========================================================= */
+
+setInterval(
+  updateCountdown,
+  60000
+);
+
+
+load();
+
+</script>
+
+</body>
+</html>
