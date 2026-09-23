@@ -1,43 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<title>PS Command Center | Lamu Oil Refinery Groundbreaking | Confidential</title>
 
-<!--
-=============================================================
-PS COMMAND CENTER — SORTED OPERATIONAL VERSION
-=============================================================
-
-VIEW MODE:
-https://yourdomain.com/
-
-OWNER EDIT MODE:
-https://yourdomain.com/?edit
-
-NEW SORTING LOGIC
-1. CONFIRMED delegations always appear first.
-2. Among CONFIRMED delegations, the MOST RECENTLY CONFIRMED
-   appears at the TOP.
-3. Every confirmation receives an automatic timestamp.
-4. Existing baseline confirmations carry:
-   "Confirmed — Source Baseline 23 Sept 2026"
-   until operationally changed.
-5. PENDING delegations follow confirmed delegations.
-6. Changing CONFIRMED → PENDING removes the confirmation timestamp.
-7. Changing PENDING → CONFIRMED creates a fresh confirmation timestamp.
-8. Sort order is recalculated automatically after every status change.
-9. Status and timestamps persist in localStorage.
-10. No invented President/Head names or phone numbers.
-=============================================================
--->
+<title>PS Command Center | Lamu Oil Refinery Groundbreaking</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = { darkMode:'class' };
-</script>
 
 <style>
 :root{
@@ -46,1731 +16,3371 @@ tailwind.config = { darkMode:'class' };
   --red:#B91C1C;
   --green:#15803D;
   --amber:#D97706;
-  --paper:#F5F3EF;
+  --bg:#f4f2ed;
+  --card:#ffffff;
+  --soft:#f8f7f3;
+  --ink:#162033;
+  --muted:#64748b;
+  --line:#ded9cf;
 }
 
 *{
-  font-family:Tahoma, Geneva, sans-serif!important;
-  font-size:12px!important;
-  line-height:1.45!important;
   box-sizing:border-box;
+  font-family:Tahoma,Geneva,sans-serif!important;
 }
 
-html{scroll-behavior:smooth;}
-body{margin:0;}
-
-h1{
-  font-size:16px!important;
-  font-weight:800!important;
-  line-height:1.25!important;
+html,body{
+  margin:0;
+  font-size:12px;
+  background:var(--bg);
+  color:var(--ink);
 }
 
-h2{
-  font-size:13px!important;
-  font-weight:700!important;
+body.dark{
+  --bg:#07111f;
+  --card:#101c2c;
+  --soft:#152338;
+  --ink:#eef3f8;
+  --muted:#a9b4c2;
+  --line:#314057;
 }
 
-button{transition:all .15s ease;}
-button:hover{opacity:.92;}
-
-.edit-mode [contenteditable="true"]:hover{
-  outline:1px dashed var(--gold);
-  background:rgba(212,175,55,.08);
+button,input,select{
+  font:inherit;
 }
 
-.edit-mode [contenteditable="true"]:focus{
-  outline:2px solid var(--gold);
-  background:#fffbe6!important;
-  color:#000!important;
+button{
+  cursor:pointer;
 }
 
-.dark.edit-mode [contenteditable="true"]:focus{
-  background:#1e293b!important;
-  color:#fff!important;
+.shell{
+  max-width:1580px;
+  margin:auto;
+  padding:14px;
 }
 
-.view-mode [contenteditable]{
-  outline:none!important;
-  cursor:default!important;
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  background:var(--navy);
+  color:#fff;
+  border-top:5px solid var(--gold);
+  border-bottom:4px solid var(--gold);
+  box-shadow:0 4px 16px #0002;
 }
 
-.status-pill{
-  display:inline-block;
-  min-width:84px;
-  text-align:center;
-  user-select:none;
+.header .shell{
+  padding-top:18px;
+  padding-bottom:18px;
 }
 
-.edit-mode .status-pill{cursor:pointer;}
-.view-mode .status-pill{cursor:default;}
-
-.kpi-number{
-  font-size:22px!important;
-  line-height:1.1!important;
+.eyebrow{
+  color:var(--gold);
+  font-weight:800;
+  letter-spacing:.18em;
 }
 
-.source-label{
-  font-size:9px!important;
-  letter-spacing:.08em;
-}
-
-.command-table th{
-  white-space:nowrap;
-}
-
-.command-table th,
-.command-table td{
-  border-bottom:1px solid rgba(148,163,184,.25);
-  vertical-align:top;
-}
-
-.command-table tbody tr:hover{
-  background:rgba(212,175,55,.055);
-}
-
-.confirmed-row{
-  background:rgba(21,128,61,.035);
-}
-
-.confirmation-time{
-  font-size:9px!important;
-  line-height:1.3!important;
+.ministry{
+  font-weight:800;
+  letter-spacing:.05em;
   margin-top:3px;
 }
 
-.mode-badge{
-  font-size:10px!important;
-  letter-spacing:.06em;
+.badges{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin:12px 0;
 }
 
-.owner-only{display:none;}
-.edit-mode .owner-only{display:flex;}
-.edit-mode td.owner-only{display:table-cell;}
+.badge{
+  padding:6px 10px;
+  border-radius:6px;
+  font-weight:800;
+  letter-spacing:.04em;
+}
 
-.viewer-only{display:none;}
-.view-mode .viewer-only{display:inline-flex;}
+.confidential{
+  background:var(--red);
+}
+
+.baseline{
+  border:1px solid var(--gold);
+  color:var(--gold);
+}
+
+.mode{
+  background:#334155;
+}
+
+.header h1{
+  font-size:18px;
+  line-height:1.2;
+  margin:14px 0 6px;
+  font-weight:800;
+}
+
+.meta{
+  opacity:.92;
+}
+
+.gold{
+  color:var(--gold);
+}
+
+.toolbar{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:13px;
+}
+
+.btn{
+  border:1px solid #ffffff55;
+  border-radius:7px;
+  padding:8px 11px;
+  background:#fff;
+  color:var(--navy);
+  font-weight:800;
+}
+
+.btn.goldbtn{
+  background:var(--gold);
+  border-color:var(--gold);
+}
+
+.btn.redbtn{
+  background:var(--red);
+  color:#fff;
+  border-color:var(--red);
+}
+
+.edit-only{
+  display:none!important;
+}
+
+body.edit .edit-only{
+  display:inline-flex!important;
+}
+
+.view-note{
+  margin-top:8px;
+  color:var(--gold);
+  font-weight:700;
+}
+
+body.edit .view-note{
+  display:none;
+}
+
+/* =========================
+   KPI CARDS
+========================= */
+
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:14px 0;
+}
+
+.kpi,
+.panel{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:11px;
+  box-shadow:0 2px 12px #0000000d;
+}
+
+.kpi{
+  padding:15px;
+  border-left:5px solid var(--green);
+}
+
+.kpi.amber{
+  border-left-color:var(--amber);
+}
+
+.kpi.red{
+  border-left-color:var(--red);
+}
+
+.klabel{
+  font-weight:800;
+  letter-spacing:.09em;
+  color:var(--muted);
+}
+
+.kvalue{
+  font-size:25px;
+  font-weight:900;
+  margin:5px 0;
+}
+
+.green{
+  color:var(--green);
+}
+
+.amberText{
+  color:var(--amber);
+}
+
+.redText{
+  color:var(--red);
+}
+
+/* =========================
+   SOURCE CONTROL
+========================= */
+
+.source{
+  padding:13px 15px;
+  background:#fffaf0;
+  border:1px solid #e5d4a6;
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+.dark .source{
+  background:var(--card);
+}
+
+/* =========================
+   PANELS
+========================= */
+
+.panel{
+  margin:11px 0;
+  overflow:hidden;
+}
+
+.panelHead{
+  padding:11px 14px;
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.panelHead h2{
+  margin:0;
+  font-size:13px;
+  color:var(--gold);
+  letter-spacing:.05em;
+  font-weight:800;
+}
+
+.panelBody{
+  padding:12px 14px;
+}
+
+.filters{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.field{
+  border:1px solid var(--line);
+  border-radius:7px;
+  padding:7px 9px;
+  background:var(--card);
+  color:var(--ink);
+}
+
+.search{
+  min-width:240px;
+}
+
+/* =========================
+   MASTER MATRIX
+========================= */
+
+.tableWrap{
+  overflow:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:1280px;
+}
+
+th{
+  background:#102440;
+  color:#fff;
+  padding:8px;
+  text-align:left;
+  white-space:nowrap;
+}
+
+td{
+  padding:8px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+
+tbody tr:hover td{
+  background:#f7f8fa;
+}
+
+.dark tbody tr:hover td{
+  background:#17263a;
+}
+
+.category td{
+  background:#f4edda!important;
+  color:#745e1d;
+  font-weight:900;
+  letter-spacing:.05em;
+  border-top:2px solid #d8c16e;
+}
+
+.dark .category td{
+  background:#202b39!important;
+  color:#e4ca70;
+}
+
+.principal{
+  font-weight:900;
+}
+
+.sub{
+  font-size:10px;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+.editable[contenteditable=true]{
+  outline:1px dashed #c6a43c;
+  background:#fffdf3;
+  border-radius:4px;
+  padding:2px;
+  min-height:17px;
+}
+
+.dark .editable[contenteditable=true]{
+  background:#202c3a;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+  display:inline-block;
+  padding:4px 7px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:900;
+}
+
+.confirmed,
+.done{
+  background:#dcfce7;
+  color:#08713a;
+}
+
+.pending,
+.tbc,
+.progress{
+  background:#fff1c2;
+  color:#9b6300;
+}
+
+.urgent{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+.statusSelect{
+  padding:5px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  background:var(--card);
+  color:var(--ink);
+}
+
+.smallbtn{
+  border:0;
+  background:transparent;
+  color:#987a20;
+  font-weight:900;
+  padding:2px;
+}
+
+.delete{
+  color:var(--red);
+}
+
+/* =========================
+   EXPANDED DETAILS
+========================= */
+
+.details td{
+  background:var(--soft)!important;
+}
+
+.detailGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.detailBox{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:8px;
+}
+
+.detailBox label{
+  display:block;
+  color:var(--muted);
+  font-weight:800;
+  margin-bottom:4px;
+}
+
+/* =========================
+   OTHER PANELS
+========================= */
+
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
+}
+
+.listItem{
+  display:grid;
+  grid-template-columns:10px 1fr;
+  gap:8px;
+  padding:8px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.dot{
+  width:7px;
+  height:7px;
+  background:var(--amber);
+  border-radius:50%;
+  margin-top:5px;
+}
+
+.rag{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+}
+
+.ragCard{
+  padding:9px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--soft);
+}
+
+.ragCard b{
+  display:block;
+  margin-bottom:5px;
+}
+
+.footer{
+  color:var(--muted);
+  padding:14px 1px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:900px){
-  .kpi-grid,
-  .bottom-grid,
-  .rag-grid,
-  .economic-grid,
-  .daily-grid{
-    grid-template-columns:1fr!important;
+
+  .kpis,
+  .two{
+    grid-template-columns:1fr;
+  }
+
+  .rag{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .detailGrid{
+    grid-template-columns:1fr 1fr;
   }
 }
 
-@media print{
-  @page{
-    size:A4 landscape;
-    margin:8mm;
+@media(max-width:550px){
+
+  .shell{
+    padding:9px;
   }
 
-  html,body{
+  .header h1{
+    font-size:16px;
+  }
+
+  .rag,
+  .detailGrid{
+    grid-template-columns:1fr;
+  }
+
+  .search{
+    min-width:100%;
+  }
+}
+
+/* =========================
+   PRINT / PDF
+========================= */
+
+@media print{
+
+  @page{
+    size:A4 landscape;
+    margin:7mm;
+  }
+
+  body{
     background:#fff!important;
-    color:#0A1931!important;
+    color:#111!important;
   }
 
   .no-print,
-  .owner-only,
-  .viewer-only{
+  .edit-only{
     display:none!important;
   }
 
-  .print-white,
-  .dark .print-white{
-    background:#fff!important;
-    color:#0A1931!important;
+  .shell{
+    max-width:none;
+    padding:0;
   }
 
-  .dark,
-  .dark body{
-    background:#fff!important;
-    color:#0A1931!important;
-  }
-
-  header{
-    background:#0A1931!important;
-    color:#fff!important;
+  .header{
+    box-shadow:none;
     -webkit-print-color-adjust:exact;
     print-color-adjust:exact;
   }
 
-  .print-color{
-    -webkit-print-color-adjust:exact;
-    print-color-adjust:exact;
+  .kpis{
+    grid-template-columns:repeat(3,1fr);
   }
 
-  .command-table{
-    font-size:9px!important;
-  }
-
-  .command-table th,
-  .command-table td{
-    padding:4px!important;
-  }
-
-  .status-pill{
-    min-width:66px;
-  }
-
-  .confirmation-time{
-    font-size:8px!important;
-  }
-
-  .print-break-avoid{
+  .panel,
+  .kpi{
+    box-shadow:none;
     break-inside:avoid;
-    page-break-inside:avoid;
   }
 
-  [contenteditable]{
-    outline:none!important;
+  .tableWrap{
+    overflow:visible;
+  }
+
+  table{
+    min-width:0;
+    font-size:8px;
+  }
+
+  th,
+  td{
+    padding:4px;
+  }
+
+  .details{
+    display:none!important;
+  }
+
+  .panelHead,
+  th{
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
   }
 }
 </style>
 </head>
 
-<body id="body"
-class="bg-[#F5F3EF] text-[#0A1931] dark:bg-[#07111f] dark:text-[#F8FAFC] transition-colors duration-300">
+<body>
 
-<div class="max-w-[1450px] mx-auto p-3">
+<header class="header">
+<div class="shell">
 
-<!-- HEADER -->
-<header class="print-color bg-[#0A1931] dark:bg-black text-white rounded-t-xl border-b-4 border-[#D4AF37] shadow-lg">
-  <div class="p-4 md:p-5 flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
+  <div class="eyebrow">
+    REPUBLIC OF KENYA
+  </div>
 
-    <div class="flex-1">
-      <div class="text-[#D4AF37] font-bold tracking-[0.18em] uppercase">
-        REPUBLIC OF KENYA
-      </div>
+  <div class="ministry">
+    MINISTRY OF FOREIGN AND DIASPORA AFFAIRS
+  </div>
 
-      <div class="font-bold tracking-wide uppercase mt-1">
-        MINISTRY OF FOREIGN AND DIASPORA AFFAIRS
-      </div>
+  <div class="badges">
 
-      <div class="flex flex-wrap items-center gap-2 mt-3">
-        <span class="bg-[#B91C1C] text-white px-3 py-1 rounded font-bold tracking-wide">
-          CONFIDENTIAL — FOR PS ONLY
-        </span>
+    <span class="badge confidential">
+      CONFIDENTIAL — FOR PS ONLY
+    </span>
 
-        <span class="border border-[#D4AF37] text-[#D4AF37] px-3 py-1 rounded source-label">
-          SOURCE BASELINE — 23 SEPTEMBER 2026
-        </span>
+    <span class="badge baseline">
+      MASTER CONTROL BASELINE — 23 SEPTEMBER 2026
+    </span>
 
-        <span id="modeBadge"
-          class="mode-badge px-3 py-1 rounded font-bold bg-slate-600 text-white">
-          VIEW ONLY
-        </span>
-      </div>
-
-      <h1 id="mainTitle" data-editable="true" class="mt-4 p-1">
-        LAMU OIL REFINERY GROUNDBREAKING | 30 SEPT 2026 — 13:00HRS
-      </h1>
-
-      <div class="mt-2 opacity-90">
-        Status as at
-        <span id="statusDate" data-editable="true" class="font-bold">
-          23 September 2026
-        </span>
-        &nbsp;|&nbsp;
-        Overall Posture:
-        <span id="overallPosture" data-editable="true"
-          class="text-[#D4AF37] font-bold">
-          AMBER-GREEN — FINAL READINESS PHASE
-        </span>
-      </div>
-
-      <div class="mt-1 text-[10px] opacity-75">
-        Last Edited:
-        <span id="lastEdit">Source baseline</span>
-        &nbsp;|&nbsp;
-        Economic/Commercial Figures:
-        <strong class="text-[#D4AF37]">
-          TBC UNTIL FORMALLY CLEARED
-        </strong>
-      </div>
-    </div>
-
-    <div class="no-print flex flex-col items-start lg:items-end gap-2">
-      <div class="flex gap-2 flex-wrap">
-        <button onclick="toggleDark()" id="darkBtn"
-          class="bg-[#D4AF37] text-black px-4 py-2 rounded font-bold">
-          🌙 DARK
-        </button>
-
-        <button onclick="window.print()"
-          class="bg-white text-[#0A1931] px-4 py-2 rounded font-bold">
-          PRINT PDF FOR PS
-        </button>
-      </div>
-
-      <div id="modeHelp" class="text-[#D4AF37] text-[10px] text-right">
-        VIEW-ONLY COMMAND CENTER
-      </div>
-    </div>
+    <span id="modeBadge" class="badge mode">
+      VIEW ONLY
+    </span>
 
   </div>
+
+  <h1>
+    LAMU OIL REFINERY GROUNDBREAKING |
+    30 SEPT 2026 — 13:00HRS
+  </h1>
+
+  <div class="meta">
+
+    Status as at
+    <b>23 September 2026</b>
+
+    &nbsp;|&nbsp;
+
+    Overall Posture:
+    <b class="gold">
+      AMBER-GREEN — FINAL READINESS PHASE
+    </b>
+
+  </div>
+
+  <div class="meta" style="margin-top:4px">
+
+    State Luncheon:
+    <b>
+      30 September — 13:00HRS — Invitation Only
+    </b>
+
+    &nbsp;|&nbsp;
+
+    Quantified project/economic figures:
+    <b class="gold">
+      TBC UNTIL FORMALLY CLEARED
+    </b>
+
+  </div>
+
+  <div class="toolbar no-print">
+
+    <button
+      class="btn goldbtn"
+      onclick="toggleTheme()">
+      ☀ / ☾ THEME
+    </button>
+
+    <button
+      class="btn"
+      onclick="window.print()">
+      PRINT PDF FOR PS
+    </button>
+
+    <button
+      class="btn edit-only"
+      onclick="addRecord()">
+      + ADD DELEGATION
+    </button>
+
+    <button
+      class="btn edit-only"
+      onclick="exportCSV()">
+      EXPORT CSV
+    </button>
+
+    <button
+      class="btn edit-only"
+      onclick="save(true)">
+      SAVE
+    </button>
+
+    <button
+      class="btn redbtn edit-only"
+      onclick="resetMaster()">
+      RESET TO MASTER
+    </button>
+
+  </div>
+
+  <div class="view-note">
+    VIEW-ONLY • PRINT PDF AVAILABLE •
+    Use <b>?edit</b> for authorised editing
+  </div>
+
+</div>
 </header>
 
-<!-- KPI CARDS -->
-<section class="kpi-grid grid grid-cols-3 gap-3 my-3">
 
-  <div class="print-white bg-white dark:bg-slate-800 rounded-lg p-4 border-l-4 border-green-600 shadow">
-    <div class="opacity-60 font-bold">CONFIRMED PRESIDENTIAL DELEGATIONS</div>
-    <div id="kpiConfirmed" class="kpi-number font-black mt-1">4</div>
-    <div class="text-green-700 dark:text-green-400 mt-1">
-      Most recently confirmed appears first
+<main class="shell">
+
+<!-- ==========================================
+     KPI CARDS
+========================================== -->
+
+<section class="kpis">
+
+  <div class="kpi">
+
+    <div class="klabel">
+      CONFIRMED PRESIDENTIAL / EXECUTIVE DELEGATIONS
     </div>
+
+    <div
+      id="kConfirmed"
+      class="kvalue green">
+      4
+    </div>
+
+    <div class="green">
+      <b>
+        Latest live confirmation first within category
+      </b>
+    </div>
+
   </div>
 
-  <div class="print-white bg-white dark:bg-slate-800 rounded-lg p-4 border-l-4 border-amber-500 shadow">
-    <div class="opacity-60 font-bold">PENDING DELEGATIONS</div>
-    <div id="kpiPending" class="kpi-number font-black mt-1">10</div>
-    <div class="text-amber-700 dark:text-amber-400 mt-1">
-      Daily diplomatic confirmation required
+
+  <div class="kpi amber">
+
+    <div class="klabel">
+      PENDING / TBC PRESIDENTIAL / EXECUTIVE DELEGATIONS
     </div>
+
+    <div
+      id="kPending"
+      class="kvalue amberText">
+      9
+    </div>
+
+    <div class="amberText">
+      <b>
+        Working position from Master Matrix
+      </b>
+    </div>
+
   </div>
 
-  <div class="print-white bg-white dark:bg-slate-800 rounded-lg p-4 border-l-4 border-red-700 shadow">
-    <div class="opacity-60 font-bold">REGISTRATION HARD CLOSE</div>
-    <div id="countdown"
-      class="kpi-number font-black mt-1 text-red-700 dark:text-red-400">
-      CALCULATING
+
+  <div class="kpi red">
+
+    <div class="klabel">
+      REGISTRATION HARD CLOSE
     </div>
-    <div class="mt-1">28 SEPTEMBER 2026 — 23:59</div>
-    <div class="text-[10px] opacity-70">
-      Protect ≥72hr firearms/radio and ≥48hr aircraft lead times
+
+    <div
+      id="countdown"
+      class="kvalue redText">
+      —
     </div>
-  </div>
 
-</section>
-
-<!-- SOURCE CONTROL -->
-<section class="print-break-avoid bg-[#FFF8E1] dark:bg-[#2b2514] border border-[#D4AF37] rounded-lg p-3 mb-3">
-  <div class="font-bold">SOURCE CONTROL & SORTING RULE</div>
-
-  <div class="mt-1">
-    The 14-country attendance position is based on the documentary baseline as at
-    <strong>23 September 2026</strong>.
-    Confirmed delegations are automatically displayed first.
-    A newly confirmed delegation moves to the top of the confirmed group and receives an automatic confirmation timestamp.
-    Pending delegations follow the confirmed group.
-    President/Head names and mobile numbers not supplied by the source remain
-    <strong>TBC / ENTER</strong>.
-  </div>
-</section>
-
-<!-- OWNER CONTROLS -->
-<section id="editControls"
-  class="owner-only no-print bg-white dark:bg-slate-800 rounded-lg p-2 mb-3 shadow flex-wrap gap-2 items-center">
-
-  <button onclick="addRow()"
-    class="bg-[#0A1931] text-white px-3 py-2 rounded font-bold">
-    + ADD DELEGATION
-  </button>
-
-  <button onclick="saveAll(true)"
-    class="bg-green-700 text-white px-3 py-2 rounded font-bold">
-    SAVE CHANGES
-  </button>
-
-  <button onclick="exportCSV()"
-    class="bg-slate-600 text-white px-3 py-2 rounded font-bold">
-    EXPORT CSV
-  </button>
-
-  <button onclick="resetAll()"
-    class="bg-red-700 text-white px-3 py-2 rounded font-bold">
-    RESET TO SOURCE
-  </button>
-
-  <button onclick="window.print()"
-    class="bg-[#D4AF37] text-black px-3 py-2 rounded font-bold">
-    PRINT PDF
-  </button>
-
-  <span class="ml-auto opacity-60">
-    EDIT MODE • Confirming a delegation automatically timestamps and moves it to the top
-  </span>
-</section>
-
-<!-- DELEGATION TRACKER -->
-<section class="print-white bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
-
-  <div class="print-color bg-[#0A1931] text-white px-4 py-3 flex flex-wrap justify-between gap-2">
     <div>
-      <h2>DELEGATION ATTENDANCE & VVIP ACTIVATION TRACKER</h2>
-      <div class="text-[10px] opacity-75">
-        CONFIRMED ↓ latest confirmation first | PENDING thereafter
-      </div>
+
+      <b>
+        28 SEPTEMBER 2026 — 23:59
+      </b>
+
+      <br>
+
+      Protect ≥72hr firearms/radio and
+      ≥48hr aircraft lead times
+
     </div>
 
-    <div class="text-[#D4AF37] font-bold">
-      14-COUNTRY SOURCE BASELINE
-    </div>
-  </div>
-
-  <div class="overflow-x-auto">
-    <table class="command-table w-full border-collapse" id="mainTable">
-      <thead class="print-color bg-[#0A1931] text-white">
-        <tr>
-          <th class="p-2 text-left">NO.</th>
-          <th class="p-2 text-left">COUNTRY</th>
-          <th class="p-2 text-left">PRESIDENT / HEAD</th>
-          <th class="p-2 text-left">LIAISON OFFICER</th>
-          <th class="p-2 text-left">MOBILE NO.</th>
-          <th class="p-2 text-left">STATUS / CONFIRMED AT</th>
-          <th class="p-2 text-left">CRITICAL ACTION</th>
-          <th class="owner-only no-print p-2 text-center">DEL</th>
-        </tr>
-      </thead>
-
-      <tbody id="tableBody"></tbody>
-    </table>
-  </div>
-
-  <div id="footerNote" data-editable="true"
-    class="p-3 bg-amber-50 dark:bg-amber-950/30 border-t border-amber-300">
-    OPERATIONAL CONTROL: Confirmed presidential delegations — immediately lock delegation composition, arrival/departure, aircraft data, protection/firearms/radio requirements, liaison contact, accommodation/holding room, convoy and bilateral requirements. Pending delegations — maintain daily diplomatic confirmation; any confirmation must immediately trigger the same presidential/VVIP checklist. ACTION REQUIRED: 28 September is the registration HARD CLOSE; protect the ≥72-hour firearms/radio and ≥48-hour aircraft lead times.
   </div>
 
 </section>
 
-<!-- DEADLINES + DECISIONS -->
-<section class="bottom-grid grid md:grid-cols-2 gap-3 mt-3">
 
-  <div class="print-white bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
-    <div class="print-color bg-[#0A1931] text-white p-3">
-      <h2>CRITICAL DEADLINE CALENDAR | 22–30 SEPTEMBER</h2>
-    </div>
+<!-- ==========================================
+     MASTER CONTROL
+========================================== -->
 
-    <div id="calendar" data-editable="true"
-      class="p-3 whitespace-pre-line">22–24 SEPTEMBER
-Daily closure review; VVIP confirmation drive; accelerate accreditation and aircraft data.
+<section class="source">
 
-25–27 SEPTEMBER
-Lock core VVIP list; process ≥72-hour firearms/radio requirements; finalise protocol, transport, accommodation, luncheon, investor and communications allocations.
+  <b>
+    MASTER CONTROL & SOURCE INTEGRITY
+  </b>
 
-28 SEPTEMBER — HARD CLOSE
-Registration closes; reconcile participant, media, vehicle and driver registers; protect ≥48-hour aircraft rule.
+  <div style="margin-top:5px">
 
-29 SEPTEMBER — GO/NO-GO
-Full rehearsal; physical verification; final convoy matrix; venue, ICT, power, security, medical, media and holding-room sign-off; formal readiness determination.
+    The PS Command Center is the sole operational
+    presentation layer.
 
-30 SEPTEMBER
-Ceremony; State Luncheon 13:00HRS; joint coordination; incident/decision log; controlled departures.</div>
-  </div>
+    The new Master Matrix supplies the working
+    VVIP/delegation structure.
 
-  <div class="print-white bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
-    <div class="print-color bg-[#0A1931] text-white p-3">
-      <h2>5 IMMEDIATE DECISIONS REQUIRED FROM PS</h2>
-    </div>
+    Names, contacts, ADC, Escort of Honour,
+    accommodation, flight details, status,
+    actions and remarks are editable in
+    <b>?edit</b> mode.
 
-    <div id="decisions" data-editable="true" class="p-3">
-      <div class="mb-3">
-        <strong>1.</strong>
-        Direct one daily master readiness meeting and decision log through 30 September.
-        <span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
-      </div>
+    Baseline confirmations do not receive
+    invented timestamps; new confirmations
+    are timestamped automatically.
 
-      <div class="mb-3">
-        <strong>2.</strong>
-        Order immediate presidential-movement case files for Togo, Rwanda, Ethiopia and South Sudan.
-        <span class="bg-red-100 text-red-800 px-1 rounded font-bold">RED — PRIORITY</span>
-      </div>
-
-      <div class="mb-3">
-        <strong>3.</strong>
-        Require daily pursuit of the ten pending confirmations and lock the core VVIP list by 27–28 September.
-        <span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
-      </div>
-
-      <div class="mb-3">
-        <strong>4.</strong>
-        Approve one authoritative economic/commercial diplomacy fact sheet and communications narrative by 27 September.
-        <span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
-      </div>
-
-      <div>
-        <strong>5.</strong>
-        Confirm 29 September as the mandatory full rehearsal and GO/NO-GO gate; formally escalate residual RED risks.
-        <span class="bg-red-100 text-red-800 px-1 rounded font-bold">RED — CRITICAL GATE</span>
-      </div>
-    </div>
   </div>
 
 </section>
 
-<!-- READINESS RAG -->
-<section class="print-white print-break-avoid bg-white dark:bg-slate-800 rounded-xl shadow mt-3 overflow-hidden">
 
-  <div class="print-color bg-[#0A1931] text-white p-3 flex flex-wrap justify-between gap-2">
-    <h2>READINESS RAG | EXECUTIVE CLOSURE VIEW</h2>
-    <span class="text-[#D4AF37]">Verification evidence required before closure</span>
-  </div>
+<!-- ==========================================
+     MASTER VVIP MATRIX
+========================================== -->
 
-  <div id="ragPanel" data-editable="true" class="rag-grid grid md:grid-cols-5">
+<section class="panel">
 
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <div class="font-bold">SITE / VENUE</div>
-      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">AMBER</span>
-      <div class="mt-2 opacity-70">Verification required</div>
-    </div>
+<div class="panelHead">
 
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <div class="font-bold">AVIATION / SECURITY</div>
-      <span class="inline-block mt-2 bg-red-100 text-red-800 px-2 py-1 rounded font-bold">RED — CRITICAL</span>
-      <div class="mt-2 opacity-70">Lead-time dependent</div>
-    </div>
+  <div>
 
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <div class="font-bold">VVIP TRANSPORT / PROTOCOL</div>
-      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">AMBER</span>
-      <div class="mt-2 opacity-70">Closure evidence required</div>
-    </div>
+    <h2>
+      MASTER VVIP & DELEGATION MATRIX
+    </h2>
 
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <div class="font-bold">ACCREDITATION / MEDICAL</div>
-      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">AMBER</span>
-      <div class="mt-2 opacity-70">Registers to reconcile</div>
-    </div>
-
-    <div class="p-3">
-      <div class="font-bold">COMMS / INVESTOR</div>
-      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">AMBER</span>
-      <div class="mt-2 opacity-70">Figures TBC until cleared</div>
+    <div style="font-size:10px;opacity:.8">
+      Master Matrix structure • editable operational working copy
     </div>
 
   </div>
-</section>
 
-<!-- ECONOMIC DIPLOMACY -->
-<section class="print-white print-break-avoid bg-white dark:bg-slate-800 rounded-xl shadow mt-3 overflow-hidden">
 
-  <div class="print-color bg-[#0A1931] text-white p-3 flex flex-wrap justify-between gap-2">
-    <h2>ECONOMIC & COMMERCIAL DIPLOMACY CONTROL PANEL</h2>
-    <span class="bg-[#D4AF37] text-black px-2 py-1 rounded font-bold">
-      ALL PROJECT FIGURES TBC UNTIL FORMALLY CLEARED
-    </span>
-  </div>
+  <div class="filters no-print">
 
-  <div id="economicPanel" data-editable="true" class="economic-grid grid md:grid-cols-3">
+    <input
+      id="search"
+      class="field search"
+      placeholder="Search country, principal or liaison…"
+      oninput="renderMatrix()"
+    >
 
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <div class="font-bold text-[#D4AF37]">STRATEGIC FRAME</div>
-      <div class="mt-2">→ Energy Security & Import Substitution</div>
-      <div>→ LAPSSET Corridor Anchor</div>
-      <div>→ FDI Magnet & Bankability Signal</div>
-    </div>
+    <select
+      id="catFilter"
+      class="field"
+      onchange="renderMatrix()"
+    >
 
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <div class="font-bold text-[#D4AF37]">REGIONAL FRAME</div>
-      <div class="mt-2">→ Regional Integration</div>
-      <div>→ EAC / AfCFTA positioning</div>
-      <div>→ Ethiopia / South Sudan regional linkages</div>
-    </div>
+      <option value="ALL">
+        ALL CATEGORIES
+      </option>
 
-    <div class="p-3">
-      <div class="font-bold text-[#D4AF37]">DIPLOMATIC FRAME</div>
-      <div class="mt-2">→ Local Content & County Dividends</div>
-      <div>→ Presidential diplomatic leverage</div>
-      <div>→ Project value, capacity, jobs, feedstock and financing remain TBC</div>
-    </div>
+      <option value="A">
+        A — PRESIDENTS / EXECUTIVE PMs
+      </option>
 
-  </div>
-</section>
+      <option value="B">
+        B — VICE PRESIDENT / DEPUTY HEADS
+      </option>
 
-<!-- DAILY REPORT -->
-<section class="print-white bg-white dark:bg-slate-800 rounded-xl shadow mt-3 overflow-hidden">
+      <option value="C">
+        C — FOREIGN MINISTERS
+      </option>
 
-  <div class="print-color bg-[#0A1931] text-white p-3">
-    <h2>RECOMMENDED DAILY REPORT TO PS</h2>
-  </div>
+      <option value="D">
+        D — OTHER MINISTERS
+      </option>
 
-  <div id="dailyReport" data-editable="true" class="daily-grid grid md:grid-cols-5">
+      <option value="E">
+        E — INTERNATIONAL ORGANISATIONS
+      </option>
 
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <strong>1. CHANGE SINCE LAST REPORT</strong>
-      <div class="mt-2">Enter material changes only.</div>
-    </div>
-
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <strong>2. VVIP POSITION</strong>
-      <div class="mt-2">Confirmed / pending / newly activated.</div>
-    </div>
-
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <strong>3. RED / AMBER ITEMS</strong>
-      <div class="mt-2">State evidence required for closure.</div>
-    </div>
-
-    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
-      <strong>4. PS DECISION REQUIRED</strong>
-      <div class="mt-2">Decision, owner and deadline.</div>
-    </div>
-
-    <div class="p-3">
-      <strong>5. NEXT 24 HOURS</strong>
-      <div class="mt-2">Critical actions and hard deadlines.</div>
-    </div>
+    </select>
 
   </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="mt-4 text-center opacity-60">
-  <div>PS COMMAND CENTER | SOURCE-CONTROLLED OPERATIONAL DASHBOARD</div>
-  <div class="mt-1">
-    Republic of Kenya | Ministry of Foreign and Diaspora Affairs | Confidential — For PS Only
-  </div>
-  <div id="footerMode" class="mt-1 font-bold">VIEW-ONLY MODE</div>
-</footer>
 
 </div>
 
+
+<div class="panelBody tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+  <th>#</th>
+
+  <th>
+    Country / Principal
+  </th>
+
+  <th>
+    Protocol / Liaison Officer
+  </th>
+
+  <th>
+    Contact
+  </th>
+
+  <th>
+    ADC
+  </th>
+
+  <th>
+    Escort of Honour
+  </th>
+
+  <th>
+    Accommodation
+  </th>
+
+  <th>
+    Flight Details
+  </th>
+
+  <th>
+    Status
+  </th>
+
+  <th>
+    Critical Action
+  </th>
+
+  <th class="no-print">
+    Details
+  </th>
+
+</tr>
+
+</thead>
+
+<tbody id="matrix"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ==========================================
+     DEADLINES + PS DECISIONS
+========================================== -->
+
+<section class="two">
+
+<div class="panel">
+
+  <div class="panelHead">
+
+    <h2>
+      CRITICAL DEADLINE CALENDAR
+    </h2>
+
+  </div>
+
+  <div
+    id="calendar"
+    class="panelBody">
+  </div>
+
+</div>
+
+
+<div class="panel">
+
+  <div class="panelHead">
+
+    <h2>
+      5 IMMEDIATE PS DECISIONS / MANAGEMENT CONTROLS
+    </h2>
+
+  </div>
+
+  <div
+    id="decisions"
+    class="panelBody">
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- ==========================================
+     READINESS RAG
+========================================== -->
+
+<section class="panel">
+
+<div class="panelHead">
+
+  <h2>
+    READINESS WORKSTREAMS — EVIDENCE-BASED RAG
+  </h2>
+
+</div>
+
+<div class="panelBody">
+
+  <div
+    id="rag"
+    class="rag">
+  </div>
+
+  <div style="margin-top:9px;font-weight:800">
+
+    Control rule:
+    no workstream should be reported GREEN
+    without documentary or physical closure evidence.
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- ==========================================
+     ECONOMIC DIPLOMACY
+========================================== -->
+
+<section class="panel">
+
+<div class="panelHead">
+
+  <h2>
+    ECONOMIC & COMMERCIAL DIPLOMACY — CLEARED FRAMING
+  </h2>
+
+</div>
+
+<div class="panelBody">
+
+<div class="rag">
+
+  <div class="ragCard">
+
+    <b>
+      Energy Security & Import Substitution
+    </b>
+
+    Strategic infrastructure framing.
+    Quantified impact remains TBC.
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      LAPSSET Corridor Anchor
+    </b>
+
+    Position Lamu within logistics,
+    trade and industrial-development linkages.
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      FDI & Bankability Signal
+    </b>
+
+    Use high-level participation to support
+    investor conversations and follow-up.
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      Regional Integration
+    </b>
+
+    EAC/AfCFTA and cross-border value-chain framing;
+    commitments remain TBC unless cleared.
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      Local Content & County Dividends
+    </b>
+
+    Jobs, skills, enterprise and local economic activity;
+    numerical claims remain TBC.
+
+  </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==========================================
+     DAILY PS COMMAND NOTE
+========================================== -->
+
+<section class="panel">
+
+<div class="panelHead">
+
+  <h2>
+    DAILY PS COMMAND NOTE
+  </h2>
+
+</div>
+
+<div class="panelBody">
+
+<div class="rag">
+
+  <div class="ragCard">
+
+    <b>
+      1. Change Since Last Report
+    </b>
+
+    <div
+      id="note1"
+      data-note
+      contenteditable="false">
+      Enter material changes only.
+    </div>
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      2. VVIP Position
+    </b>
+
+    <div
+      id="note2"
+      data-note
+      contenteditable="false">
+      Confirmed, pending and newly activated delegations.
+    </div>
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      3. RED / AMBER Items
+    </b>
+
+    <div
+      id="note3"
+      data-note
+      contenteditable="false">
+      Identify closure evidence and unresolved dependencies.
+    </div>
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      4. PS Decision Required
+    </b>
+
+    <div
+      id="note4"
+      data-note
+      contenteditable="false">
+      Decision, owner and deadline.
+    </div>
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      5. Next 24 Hours
+    </b>
+
+    <div
+      id="note5"
+      data-note
+      contenteditable="false">
+      Critical actions and hard deadlines.
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer class="footer">
+
+  <span>
+    PS MASTER COMMAND CENTER •
+    East African Oil Refinery Groundbreaking • Lamu
+  </span>
+
+  <span id="lastEdit">
+    Last Edited: Source baseline
+  </span>
+
+</footer>
+
+</main>
+
+
 <script>
 
-/* ==========================================================
-   VIEW / EDIT MODE
-========================================================== */
+/* =========================================================
+   APPLICATION SETTINGS
+========================================================= */
 
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString);
+const EDIT =
+  new URLSearchParams(location.search).has("edit");
 
-const EDIT_MODE =
-  queryString === "?edit" ||
-  params.has("edit");
+const KEY =
+  "LAMU_PS_MASTER_MATRIX_V8";
+
+const THEME =
+  "LAMU_PS_THEME_V8";
 
 
-/* ==========================================================
-   SOURCE BASELINE
+document.body.classList.toggle("edit",EDIT);
 
-   confirmedAt = null for baseline confirmations because
-   the exact confirmation time was not supplied by source.
-   This avoids inventing timestamps.
-========================================================== */
+document.getElementById("modeBadge").textContent =
+  EDIT
+  ? "OWNER EDIT MODE"
+  : "VIEW ONLY";
 
-const originalData = [
+
+/* =========================================================
+   MASTER MATRIX CATEGORIES
+========================================================= */
+
+const cats = {
+
+  A:
+  "A. PRESIDENTS / EXECUTIVE PRIME MINISTERS",
+
+  B:
+  "B. VICE PRESIDENT / NON-EXECUTIVE PRIME MINISTERS / DEPUTY PRIME MINISTERS",
+
+  C:
+  "C. FOREIGN MINISTERS",
+
+  D:
+  "D. OTHER MINISTERS",
+
+  E:
+  "E. HEADS OF INTERNATIONAL ORGANISATIONS"
+
+};
+
+
+/* =========================================================
+   MASTER MATRIX BASELINE DATA
+
+   All fields remain editable in ?edit mode.
+========================================================= */
+
+const BASE = [
 
 {
-  no:1,
-  sourceOrder:1,
-  country:"Rwanda",
-  president:"TBC / ENTER",
-  liaison:"Mr. Timothy Mwalimu",
-  phone:"TBC / ENTER",
-  status:"CONFIRMED",
-  confirmedAt:null,
-  baselineConfirmed:true,
-  action:"Lock presidential/VVIP checklist immediately"
+ id:"rwa",
+ cat:"A",
+ country:"RWANDA",
+ principal:"H.E. Paul Kagame",
+ title:"President of the Republic of Rwanda",
+ liaison:"Mr. Timothy Mwalimu",
+ phone:"+254 724 171 532",
+ adc:"",
+ escort:"",
+ hotel:"JW Marriott",
+ flight:"",
+ status:"CONFIRMED",
+ action:"Lock remaining operational details",
+ remarks:"",
+ confirmedAt:null,
+ baseline:true
 },
 
 {
-  no:2,
-  sourceOrder:2,
-  country:"Republic of Congo",
-  president:"TBC / ENTER",
-  liaison:"Mr. Sam Kiptoo",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"tgo",
+ cat:"A",
+ country:"TOGO",
+ principal:"H.E. Faure Essozimna Gnassingbé",
+ title:"President of the Republic of Togo",
+ liaison:"Ms. Cynthia Njiru",
+ phone:"+254 797 895 888",
+ adc:"",
+ escort:"",
+ hotel:"Sarova Whitesands",
+ flight:"",
+ status:"CONFIRMED",
+ action:"Lock remaining operational details",
+ remarks:"",
+ confirmedAt:null,
+ baseline:true
 },
 
 {
-  no:3,
-  sourceOrder:3,
-  country:"Ethiopia",
-  president:"TBC / ENTER",
-  liaison:"Mr. Joshua Kariuki",
-  phone:"TBC / ENTER",
-  status:"CONFIRMED",
-  confirmedAt:null,
-  baselineConfirmed:true,
-  action:"Lock presidential/VVIP checklist immediately"
+ id:"eth",
+ cat:"A",
+ country:"ETHIOPIA",
+ principal:"H.E. Abiy Ahmed Ali",
+ title:"Prime Minister of Ethiopia",
+ liaison:"Mr. Joshua Kariuki",
+ phone:"+254 722 776 128",
+ adc:"",
+ escort:"",
+ hotel:"Villa Rosa Kempinski",
+ flight:"",
+ status:"CONFIRMED",
+ action:"Lock remaining operational details",
+ remarks:"",
+ confirmedAt:null,
+ baseline:true
 },
 
 {
-  no:4,
-  sourceOrder:4,
-  country:"Nigeria",
-  president:"TBC / ENTER",
-  liaison:"Mr. Mike Maiyo",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"ssd",
+ cat:"A",
+ country:"SOUTH SUDAN",
+ principal:"H.E. Salva Kiir Mayardit",
+ title:"President of the Republic of South Sudan",
+ liaison:"Mr. Abdirizaak Noor",
+ phone:"+254 714 987 122",
+ adc:"",
+ escort:"",
+ hotel:"Nairobi Serena Hotel",
+ flight:"",
+ status:"CONFIRMED",
+ action:"Lock remaining operational details",
+ remarks:"",
+ confirmedAt:null,
+ baseline:true
 },
 
 {
-  no:5,
-  sourceOrder:5,
-  country:"Uganda",
-  president:"TBC / ENTER",
-  liaison:"Mr. Brian Riechi",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"uga",
+ cat:"A",
+ country:"UGANDA",
+ principal:"H.E. Yoweri Kaguta Museveni",
+ title:"President of the Republic of Uganda",
+ liaison:"Mr. Brian Riechi",
+ phone:"+254 729 411 213",
+ adc:"",
+ escort:"",
+ hotel:"Sarova Whitesands",
+ flight:"",
+ status:"TBC",
+ action:"Pursue confirmation and complete case data",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 },
 
 {
-  no:6,
-  sourceOrder:6,
-  country:"Mozambique",
-  president:"TBC / ENTER",
-  liaison:"Ms. Betty Karwitha",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"moz",
+ cat:"A",
+ country:"MOZAMBIQUE",
+ principal:"H.E. Daniel Francisco Chapo",
+ title:"President of the Republic of Mozambique",
+ liaison:"Mr. Arnold Mugendi",
+ phone:"+254 727 797 200",
+ adc:"",
+ escort:"",
+ hotel:"Radisson Blu Upper Hill",
+ flight:"",
+ status:"TBC",
+ action:"Pursue confirmation and complete case data",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 },
 
 {
-  no:7,
-  sourceOrder:7,
-  country:"Burundi",
-  president:"TBC / ENTER",
-  liaison:"Mr. Holyfield Wafula",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"bdi",
+ cat:"A",
+ country:"BURUNDI",
+ principal:"H.E. Évariste Ndayishimiye",
+ title:"President of the Republic of Burundi",
+ liaison:"Mr. Holyfield Wafula",
+ phone:"+254 712 820 482",
+ adc:"",
+ escort:"",
+ hotel:"Sarova Whitesands",
+ flight:"",
+ status:"TBC",
+ action:"Pursue confirmation and complete case data",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 },
 
 {
-  no:8,
-  sourceOrder:8,
-  country:"Benin",
-  president:"TBC / ENTER",
-  liaison:"Mr. Lester Omondi",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"ben",
+ cat:"A",
+ country:"BENIN",
+ principal:"H.E. Romuald Wadagni",
+ title:"",
+ liaison:"Mr. Lester Omondi",
+ phone:"+254 790 643 057",
+ adc:"",
+ escort:"",
+ hotel:"JW Marriott",
+ flight:"",
+ status:"TBC",
+ action:"Pursue confirmation and complete case data",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 },
 
 {
-  no:9,
-  sourceOrder:9,
-  country:"DRC",
-  president:"TBC / ENTER",
-  liaison:"Mr. Titus Ngota",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"drc",
+ cat:"A",
+ country:"DEMOCRATIC REPUBLIC OF CONGO",
+ principal:"H.E. Félix Tshisekedi",
+ title:"President of the Democratic Republic of Congo",
+ liaison:"",
+ phone:"",
+ adc:"",
+ escort:"",
+ hotel:"PrideInn Paradise-Mombasa",
+ flight:"",
+ status:"TBC",
+ action:"Complete liaison/contact and pursue confirmation",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 },
 
 {
-  no:10,
-  sourceOrder:10,
-  country:"Ghana",
-  president:"TBC / ENTER",
-  liaison:"Mr. Nelson Kanja",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"gha",
+ cat:"A",
+ country:"GHANA",
+ principal:"H.E. John Dramani Mahama",
+ title:"President of the Republic of Ghana",
+ liaison:"Mr. Nelson Kanja",
+ phone:"+254 713 633 582",
+ adc:"",
+ escort:"",
+ hotel:"Radisson Blu Arboretum",
+ flight:"",
+ status:"TBC",
+ action:"Pursue confirmation and complete case data",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 },
 
 {
-  no:11,
-  sourceOrder:11,
-  country:"Somalia",
-  president:"TBC / ENTER",
-  liaison:"Mr. Peter Mutui",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"som",
+ cat:"A",
+ country:"SOMALIA",
+ principal:"H.E. Dr. Hassan Sheikh Mohamud",
+ title:"President of the Federal Republic of Somalia",
+ liaison:"Mr. Abdiaziz Adawa",
+ phone:"+254 729 620 590",
+ adc:"",
+ escort:"",
+ hotel:"Nairobi Serena Hotel",
+ flight:"",
+ status:"TBC",
+ action:"Pursue confirmation and complete case data",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 },
 
 {
-  no:12,
-  sourceOrder:12,
-  country:"South Sudan",
-  president:"TBC / ENTER",
-  liaison:"Ms. Tina Kendi",
-  phone:"TBC / ENTER",
-  status:"CONFIRMED",
-  confirmedAt:null,
-  baselineConfirmed:true,
-  action:"Lock presidential/VVIP checklist immediately"
+ id:"cog",
+ cat:"A",
+ country:"REPUBLIC OF CONGO",
+ principal:"H.E. Denis Sassou Nguesso",
+ title:"President of the Republic of Congo",
+ liaison:"Mr. Samuel Kiptoo",
+ phone:"+254 720 501 389",
+ adc:"",
+ escort:"",
+ hotel:"Villa Rosa Kempinski",
+ flight:"",
+ status:"TBC",
+ action:"Pursue confirmation and complete case data",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 },
 
 {
-  no:13,
-  sourceOrder:13,
-  country:"Tanzania",
-  president:"TBC / ENTER",
-  liaison:"Mr. Saidi Omari",
-  phone:"TBC / ENTER",
-  status:"PENDING",
-  confirmedAt:null,
-  baselineConfirmed:false,
-  action:"Maintain daily diplomatic confirmation"
+ id:"nga",
+ cat:"A",
+ country:"NIGERIA",
+ principal:"H.E. Bola Ahmed Tinubu",
+ title:"President of the Federal Republic of Nigeria",
+ liaison:"Mr. Mike Maiyo",
+ phone:"+254 727 357 565",
+ adc:"",
+ escort:"",
+ hotel:"Sarova Whitesands",
+ flight:"",
+ status:"TBC",
+ action:"Pursue confirmation and complete case data",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 },
 
 {
-  no:14,
-  sourceOrder:14,
-  country:"Togo",
-  president:"TBC / ENTER",
-  liaison:"Ms. Cynthia Njiru",
-  phone:"TBC / ENTER",
-  status:"CONFIRMED",
-  confirmedAt:null,
-  baselineConfirmed:true,
-  action:"Lock presidential/VVIP checklist immediately"
+ id:"dan",
+ cat:"A",
+ country:"DANGOTE GROUP",
+ principal:"Mr. Aliko Dangote",
+ title:"President, Dangote Group",
+ liaison:"Mr. Titus Ngota",
+ phone:"+254 702 034 875",
+ adc:"",
+ escort:"",
+ hotel:"",
+ flight:"",
+ status:"CONFIRMED",
+ action:"Complete remaining operational details",
+ remarks:"",
+ confirmedAt:null,
+ baseline:true
+},
+
+{
+ id:"tza",
+ cat:"B",
+ country:"TANZANIA",
+ principal:"H.E. Deogratius Ndejembi",
+ title:"",
+ liaison:"Mr. Saidi Omari",
+ phone:"+254 710 333 793",
+ adc:"",
+ escort:"",
+ hotel:"PrideInn Paradise-Mombasa",
+ flight:"",
+ status:"TBC",
+ action:"Pursue confirmation and complete case data",
+ remarks:"",
+ confirmedAt:null,
+ baseline:false
 }
 
 ];
 
-let data=[];
+
+/* =========================================================
+   CRITICAL CALENDAR
+========================================================= */
+
+const CAL = [
+
+[
+ "22–24 SEPTEMBER",
+ "Daily closure review; VVIP confirmation drive; accelerate accreditation and aircraft-data collection."
+],
+
+[
+ "25–27 SEPTEMBER",
+ "Lock core VVIP list; process ≥72-hour firearms/radio requirements; finalise protocol, transport, accommodation, luncheon, investor and communications allocations."
+],
+
+[
+ "28 SEPTEMBER — HARD CLOSE",
+ "Registration closes; reconcile participant, media, vehicle and driver registers; protect ≥48-hour aircraft requirement."
+],
+
+[
+ "29 SEPTEMBER — GO/NO-GO",
+ "Full rehearsal; physical verification; final convoy matrix; venue, ICT, power, security, medical, media and holding-room sign-off; formal readiness determination."
+],
+
+[
+ "30 SEPTEMBER",
+ "Groundbreaking ceremony; State Luncheon 13:00HRS; joint coordination; incident/decision log; controlled departures."
+]
+
+];
 
 
-/* ==========================================================
-   STORAGE
-========================================================== */
+/* =========================================================
+   PS DECISIONS
+========================================================= */
 
-const STORAGE={
-  data:"ps_data_sorted_v1",
-  calendar:"ps_calendar_sorted_v1",
-  decisions:"ps_decisions_sorted_v1",
-  footer:"ps_footer_sorted_v1",
-  daily:"ps_daily_sorted_v1",
-  rag:"ps_rag_sorted_v1",
-  economic:"ps_economic_sorted_v1",
-  title:"ps_title_sorted_v1",
-  statusDate:"ps_status_date_sorted_v1",
-  posture:"ps_posture_sorted_v1",
-  dark:"ps_dark_sorted_v1",
-  lastEdit:"ps_last_edit_sorted_v1"
-};
+const DEC = [
 
+"Direct one daily master readiness meeting and decision log through 30 September.",
 
-/* ==========================================================
-   ESCAPE HTML
-========================================================== */
+"Order immediate presidential-movement case files for Togo, Rwanda, Ethiopia and South Sudan.",
 
-function escapeHTML(value){
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-}
+"Require daily pursuit of pending confirmations and lock the core VVIP list by 27–28 September.",
+
+"Approve one authoritative economic/commercial diplomacy fact sheet and communications narrative by 27 September.",
+
+"Confirm 29 September as the mandatory full rehearsal and GO/NO-GO gate; escalate residual RED risks."
+
+];
 
 
-/* ==========================================================
-   NEW SORT LOGIC
+/* =========================================================
+   RAG WORKSTREAMS
+========================================================= */
 
-   Priority:
-   1. Confirmed with real operational timestamp
-      newest timestamp first.
-   2. Baseline confirmed delegations.
-   3. Pending delegations.
-   4. Within equal groups preserve source order.
-========================================================== */
+const RAG = [
 
-function getSortedData(){
+[
+ "SITE / VENUE",
+ "AMBER",
+ "Signed readiness certificate / closure list; temporary infrastructure load-tested with redundancy."
+],
 
-  return [...data].sort((a,b)=>{
+[
+ "AVIATION / SECURITY",
+ "RED",
+ "Approved movement plan; firearms/radio clearances; integrated security and contingency plan."
+],
 
-    const aConfirmed = a.status === "CONFIRMED";
-    const bConfirmed = b.status === "CONFIRMED";
+[
+ "VVIP TRANSPORT / PROTOCOL",
+ "AMBER",
+ "Locked assets/routes; final manifest; liaison tree; holding rooms; convoy/precedence matrix."
+],
 
-    /* CONFIRMED always above PENDING */
-    if(aConfirmed && !bConfirmed) return -1;
-    if(!aConfirmed && bConfirmed) return 1;
+[
+ "ACCREDITATION / MEDICAL",
+ "AMBER",
+ "Validated participant/media/vehicle/driver registers; clinic, ambulance, referral and VVIP evacuation pathway verified."
+],
 
-    /* BOTH CONFIRMED */
-    if(aConfirmed && bConfirmed){
+[
+ "COMMUNICATIONS / INVESTOR",
+ "AMBER",
+ "Cleared executive fact sheet, key messages, investor schedule and follow-up register."
+]
 
-      const aTime = a.confirmedAt
-        ? new Date(a.confirmedAt).getTime()
-        : 0;
-
-      const bTime = b.confirmedAt
-        ? new Date(b.confirmedAt).getTime()
-        : 0;
-
-      /*
-      Real operational confirmations come above
-      baseline confirmations.
-      */
-
-      if(aTime && !bTime) return -1;
-      if(!aTime && bTime) return 1;
-
-      /*
-      Latest confirmation first.
-      */
-
-      if(aTime && bTime && aTime !== bTime){
-        return bTime - aTime;
-      }
-
-      /*
-      Baseline confirmations have no invented time.
-      Preserve source order.
-      */
-
-      return (a.sourceOrder ?? a.no) - (b.sourceOrder ?? b.no);
-    }
-
-    /* BOTH PENDING — preserve source order */
-    return (a.sourceOrder ?? a.no) - (b.sourceOrder ?? b.no);
-
-  });
-
-}
+];
 
 
-/* ==========================================================
-   FORMAT CONFIRMATION TIMESTAMP
-========================================================== */
+const NOTES = [
 
-function formatConfirmationTime(row){
+"Enter material changes only.",
 
-  if(row.status !== "CONFIRMED"){
-    return "";
-  }
+"Confirmed, pending and newly activated delegations.",
 
-  if(!row.confirmedAt){
-    return "SOURCE BASELINE • 23 SEPT 2026";
-  }
+"Identify closure evidence and unresolved dependencies.",
 
-  const d = new Date(row.confirmedAt);
+"Decision, owner and deadline.",
 
-  if(Number.isNaN(d.getTime())){
-    return "CONFIRMED";
-  }
+"Critical actions and hard deadlines."
 
-  return "CONFIRMED " +
-    d.toLocaleString("en-GB",{
-      day:"2-digit",
-      month:"short",
-      year:"numeric",
-      hour:"2-digit",
-      minute:"2-digit",
-      second:"2-digit",
-      hour12:false
-    }).toUpperCase();
+];
+
+
+/* =========================================================
+   STATE MANAGEMENT
+========================================================= */
+
+function clone(x){
+
+  return JSON.parse(
+    JSON.stringify(x)
+  );
 
 }
 
 
-/* ==========================================================
-   APPLY MODE
-========================================================== */
+function fresh(){
 
-function applyMode(){
+  return {
 
-  const body=document.getElementById("body");
-  const badge=document.getElementById("modeBadge");
-  const help=document.getElementById("modeHelp");
-  const footerMode=document.getElementById("footerMode");
+    records:clone(BASE),
 
-  if(EDIT_MODE){
+    calendar:clone(CAL),
 
-    body.classList.add("edit-mode");
-    body.classList.remove("view-mode");
+    decisions:clone(DEC),
 
-    badge.innerText="OWNER EDIT MODE";
-    badge.className=
-      "mode-badge px-3 py-1 rounded font-bold bg-green-700 text-white";
+    rag:clone(RAG),
 
-    help.innerText=
-      "EDIT MODE • CONFIRMATIONS AUTO-SORT & TIMESTAMP";
+    notes:clone(NOTES),
 
-    footerMode.innerText=
-      "OWNER EDIT MODE";
+    last:null
 
-  }else{
+  };
 
-    body.classList.add("view-mode");
-    body.classList.remove("edit-mode");
-
-    badge.innerText="VIEW ONLY";
-    badge.className=
-      "mode-badge px-3 py-1 rounded font-bold bg-slate-600 text-white";
-
-    help.innerText=
-      "VIEW-ONLY • PRINT PDF AVAILABLE";
-
-    footerMode.innerText=
-      "VIEW-ONLY MODE";
-  }
-
-  document.querySelectorAll("[data-editable='true']")
-    .forEach(el=>{
-      if(EDIT_MODE){
-        el.setAttribute("contenteditable","true");
-      }else{
-        el.removeAttribute("contenteditable");
-      }
-    });
 }
 
-
-/* ==========================================================
-   LOAD
-========================================================== */
 
 function load(){
 
   try{
 
-    const saved=localStorage.getItem(STORAGE.data);
+    const x =
+      JSON.parse(
+        localStorage.getItem(KEY)
+      );
 
-    data=saved
-      ? JSON.parse(saved)
-      : JSON.parse(JSON.stringify(originalData));
-
-  }catch(error){
-
-    data=JSON.parse(JSON.stringify(originalData));
+    return (
+      x &&
+      Array.isArray(x.records)
+    )
+    ? x
+    : fresh();
 
   }
 
-  /*
-  Migration protection:
-  if an older saved object lacks new fields,
-  add them without changing its substantive data.
-  */
+  catch(e){
 
-  data.forEach((row,index)=>{
+    return fresh();
 
-    if(typeof row.sourceOrder === "undefined"){
-      row.sourceOrder=row.no || index+1;
-    }
-
-    if(typeof row.confirmedAt === "undefined"){
-      row.confirmedAt=null;
-    }
-
-    if(typeof row.baselineConfirmed === "undefined"){
-      row.baselineConfirmed=
-        row.status === "CONFIRMED" && !row.confirmedAt;
-    }
-
-  });
-
-  const savedCalendar=localStorage.getItem(STORAGE.calendar);
-  if(savedCalendar){
-    document.getElementById("calendar").innerText=savedCalendar;
   }
 
-  const savedDecisions=localStorage.getItem(STORAGE.decisions);
-  if(savedDecisions){
-    document.getElementById("decisions").innerHTML=savedDecisions;
-  }
-
-  const savedFooter=localStorage.getItem(STORAGE.footer);
-  if(savedFooter){
-    document.getElementById("footerNote").innerText=savedFooter;
-  }
-
-  const savedDaily=localStorage.getItem(STORAGE.daily);
-  if(savedDaily){
-    document.getElementById("dailyReport").innerHTML=savedDaily;
-  }
-
-  const savedRAG=localStorage.getItem(STORAGE.rag);
-  if(savedRAG){
-    document.getElementById("ragPanel").innerHTML=savedRAG;
-  }
-
-  const savedEconomic=localStorage.getItem(STORAGE.economic);
-  if(savedEconomic){
-    document.getElementById("economicPanel").innerHTML=savedEconomic;
-  }
-
-  const savedTitle=localStorage.getItem(STORAGE.title);
-  if(savedTitle){
-    document.getElementById("mainTitle").innerText=savedTitle;
-  }
-
-  const savedDate=localStorage.getItem(STORAGE.statusDate);
-  if(savedDate){
-    document.getElementById("statusDate").innerText=savedDate;
-  }
-
-  const savedPosture=localStorage.getItem(STORAGE.posture);
-  if(savedPosture){
-    document.getElementById("overallPosture").innerText=savedPosture;
-  }
-
-  const dark=localStorage.getItem(STORAGE.dark);
-  if(dark==="true"){
-    document.documentElement.classList.add("dark");
-  }
-
-  const lastEdit=localStorage.getItem(STORAGE.lastEdit);
-  if(lastEdit){
-    document.getElementById("lastEdit").innerText=lastEdit;
-  }
-
-  applyMode();
-  updateDarkBtn();
-  render();
-  updateCountdown();
 }
 
 
-/* ==========================================================
-   RENDER
-========================================================== */
+let state = load();
 
-function render(){
+let opened =
+  new Set();
 
-  const tbody=document.getElementById("tableBody");
 
-  tbody.innerHTML="";
+/* =========================================================
+   UTILITIES
+========================================================= */
 
-  const sortedData=getSortedData();
+function esc(v){
 
-  sortedData.forEach((row,displayIndex)=>{
+  return String(v ?? "")
+  .replace(
+    /[&<>"']/g,
+    m => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[m])
+  );
 
-    /*
-    Find actual index in master data.
-    We do not mutate source array merely for display sorting.
-    */
-
-    const realIndex=data.indexOf(row);
-
-    const tr=document.createElement("tr");
-
-    const confirmed=row.status==="CONFIRMED";
-
-    if(confirmed){
-      tr.classList.add("confirmed-row");
-    }
-
-    const editAttr=EDIT_MODE
-      ? 'contenteditable="true"'
-      : '';
-
-    const countryBlur=EDIT_MODE
-      ? `onblur="editCell(${realIndex},'country',this.innerText)"`
-      : "";
-
-    const presidentBlur=EDIT_MODE
-      ? `onblur="editCell(${realIndex},'president',this.innerText)"`
-      : "";
-
-    const liaisonBlur=EDIT_MODE
-      ? `onblur="editCell(${realIndex},'liaison',this.innerText)"`
-      : "";
-
-    const phoneBlur=EDIT_MODE
-      ? `onblur="editCell(${realIndex},'phone',this.innerText)"`
-      : "";
-
-    const actionBlur=EDIT_MODE
-      ? `onblur="editCell(${realIndex},'action',this.innerText)"`
-      : "";
-
-    const statusClick=EDIT_MODE
-      ? `onclick="toggleStatus(${realIndex})"`
-      : "";
-
-    const timestampText=
-      formatConfirmationTime(row);
-
-    tr.innerHTML=`
-
-      <td class="p-2 font-bold">
-        ${displayIndex+1}
-      </td>
-
-      <td class="p-2 font-bold"
-        ${editAttr}
-        ${countryBlur}>
-        ${escapeHTML(row.country)}
-      </td>
-
-      <td class="p-2"
-        ${editAttr}
-        ${presidentBlur}>
-        ${escapeHTML(row.president)}
-      </td>
-
-      <td class="p-2"
-        ${editAttr}
-        ${liaisonBlur}>
-        ${escapeHTML(row.liaison)}
-      </td>
-
-      <td class="p-2"
-        ${editAttr}
-        ${phoneBlur}>
-        ${escapeHTML(row.phone)}
-      </td>
-
-      <td class="p-2">
-
-        <span
-          ${statusClick}
-          title="${EDIT_MODE ? 'Click to change status' : ''}"
-          class="status-pill px-2 py-1 rounded-full font-bold ${
-            confirmed
-            ? "bg-green-100 text-green-800"
-            : "bg-amber-100 text-amber-800"
-          }">
-          ${escapeHTML(row.status)}
-        </span>
-
-        ${
-          confirmed
-          ? `<div class="confirmation-time ${
-              row.confirmedAt
-              ? "text-green-700 dark:text-green-400 font-bold"
-              : "text-slate-500 dark:text-slate-400"
-            }">
-              ${escapeHTML(timestampText)}
-             </div>`
-          : ""
-        }
-
-      </td>
-
-      <td class="p-2"
-        ${editAttr}
-        ${actionBlur}>
-        ${escapeHTML(row.action)}
-      </td>
-
-      <td class="owner-only no-print p-2 text-center">
-        <button
-          onclick="delRow(${realIndex})"
-          class="text-red-700 font-bold"
-          title="Delete working row">
-          ✕
-        </button>
-      </td>
-    `;
-
-    tbody.appendChild(tr);
-
-  });
-
-  updateKPI();
 }
 
 
-/* ==========================================================
-   EDIT GUARD
-========================================================== */
+function statusClass(s){
 
-function requireEditMode(){
-  return EDIT_MODE;
+  s =
+    (s || "")
+    .toUpperCase();
+
+  if(s === "CONFIRMED")
+    return "confirmed";
+
+  if(s === "DONE")
+    return "done";
+
+  if(s === "URGENT")
+    return "urgent";
+
+  if(s === "IN PROGRESS")
+    return "progress";
+
+  if(s === "PENDING")
+    return "pending";
+
+  return "tbc";
+
 }
 
 
-/* ==========================================================
-   EDIT CELL
-========================================================== */
+function stamp(r){
 
-function editCell(index,key,value){
+  if(r.confirmedAt){
 
-  if(!requireEditMode()) return;
+    return new Date(
+      r.confirmedAt
+    ).toLocaleString("en-GB");
 
-  data[index][key]=value.trim();
+  }
 
-  saveAll(false);
+  return (
+    r.status === "CONFIRMED" &&
+    r.baseline
+  )
+  ? "SOURCE BASELINE — 23 SEPT 2026"
+  : "—";
+
 }
 
 
-/* ==========================================================
-   STATUS TOGGLE WITH TIMESTAMP + AUTO-SORT
+function originalIndex(r){
 
-   PENDING -> CONFIRMED:
-   - timestamp = exact moment clicked
-   - baselineConfirmed = false
-   - moves to top automatically
-
-   CONFIRMED -> PENDING:
-   - timestamp removed
-   - returns to pending group
-========================================================== */
-
-function toggleStatus(index){
-
-  if(!requireEditMode()) return;
-
-  const row=data[index];
-
-  if(row.status==="CONFIRMED"){
-
-    const approved=confirm(
-      `Change ${row.country} from CONFIRMED to PENDING?`
+  const i =
+    BASE.findIndex(
+      x => x.id === r.id
     );
 
-    if(!approved) return;
+  return i < 0
+    ? 99999
+    : i;
 
-    row.status="PENDING";
-    row.confirmedAt=null;
-    row.baselineConfirmed=false;
-    row.action="Maintain daily diplomatic confirmation";
+}
 
-  }else{
 
-    const approved=confirm(
-      `Confirm ${row.country} now?\n\nThis will record the current confirmation timestamp and move the delegation to the top of the CONFIRMED list.`
-    );
+/* =========================================================
+   SORTING
 
-    if(!approved) return;
+   Confirmed first.
+   Newly confirmed records use timestamp.
+   Baseline confirmed follow.
+   Pending/TBC follow in baseline order.
+========================================================= */
 
-    row.status="CONFIRMED";
+function sorter(a,b){
 
-    /*
-    ISO timestamp gives reliable chronological sorting.
-    */
+  const ac =
+    a.status === "CONFIRMED";
 
-    row.confirmedAt=new Date().toISOString();
+  const bc =
+    b.status === "CONFIRMED";
 
-    row.baselineConfirmed=false;
 
-    row.action="Lock presidential/VVIP checklist immediately";
+  if(ac !== bc){
+
+    return ac
+      ? -1
+      : 1;
+
   }
 
-  saveAll(false);
 
-  render();
-}
+  if(ac && bc){
 
+    const at =
+      a.confirmedAt
+      ? Date.parse(a.confirmedAt)
+      : 0;
 
-/* ==========================================================
-   ADD ROW
-========================================================== */
-
-function addRow(){
-
-  if(!requireEditMode()) return;
-
-  const maxSourceOrder=data.reduce(
-    (max,row)=>Math.max(max,row.sourceOrder || 0),
-    0
-  );
-
-  data.push({
-    no:data.length+1,
-    sourceOrder:maxSourceOrder+1,
-    country:"TBC / ENTER",
-    president:"TBC / ENTER",
-    liaison:"TBC / ENTER",
-    phone:"TBC / ENTER",
-    status:"PENDING",
-    confirmedAt:null,
-    baselineConfirmed:false,
-    action:"Maintain daily diplomatic confirmation"
-  });
-
-  saveAll(false);
-  render();
-}
+    const bt =
+      b.confirmedAt
+      ? Date.parse(b.confirmedAt)
+      : 0;
 
 
-/* ==========================================================
-   DELETE
-========================================================== */
+    if(at !== bt){
 
-function delRow(index){
+      return bt - at;
 
-  if(!requireEditMode()) return;
+    }
 
-  const approved=confirm(
-    "Delete this delegation from the working dashboard? Reset to Source will restore the documentary baseline."
-  );
-
-  if(!approved) return;
-
-  data.splice(index,1);
-
-  data.forEach((row,i)=>{
-    row.no=i+1;
-  });
-
-  saveAll(false);
-  render();
-}
-
-
-/* ==========================================================
-   KPI
-========================================================== */
-
-function updateKPI(){
-
-  const confirmed=data.filter(
-    row=>row.status==="CONFIRMED"
-  ).length;
-
-  const pending=data.filter(
-    row=>row.status==="PENDING"
-  ).length;
-
-  document.getElementById("kpiConfirmed").innerText=
-    confirmed;
-
-  document.getElementById("kpiPending").innerText=
-    pending;
-}
-
-
-/* ==========================================================
-   SAVE
-========================================================== */
-
-function saveAll(showAlert=false){
-
-  if(!requireEditMode()) return;
-
-  localStorage.setItem(
-    STORAGE.data,
-    JSON.stringify(data)
-  );
-
-  localStorage.setItem(
-    STORAGE.calendar,
-    document.getElementById("calendar").innerText
-  );
-
-  localStorage.setItem(
-    STORAGE.decisions,
-    document.getElementById("decisions").innerHTML
-  );
-
-  localStorage.setItem(
-    STORAGE.footer,
-    document.getElementById("footerNote").innerText
-  );
-
-  localStorage.setItem(
-    STORAGE.daily,
-    document.getElementById("dailyReport").innerHTML
-  );
-
-  localStorage.setItem(
-    STORAGE.rag,
-    document.getElementById("ragPanel").innerHTML
-  );
-
-  localStorage.setItem(
-    STORAGE.economic,
-    document.getElementById("economicPanel").innerHTML
-  );
-
-  localStorage.setItem(
-    STORAGE.title,
-    document.getElementById("mainTitle").innerText
-  );
-
-  localStorage.setItem(
-    STORAGE.statusDate,
-    document.getElementById("statusDate").innerText
-  );
-
-  localStorage.setItem(
-    STORAGE.posture,
-    document.getElementById("overallPosture").innerText
-  );
-
-  touch();
-
-  if(showAlert){
-    alert("PS Command Center changes saved.");
   }
-}
 
 
-/* ==========================================================
-   RESET
-========================================================== */
-
-function resetAll(){
-
-  if(!requireEditMode()) return;
-
-  const approved=confirm(
-    "RESET TO SOURCE will remove operational changes, confirmation timestamps and added delegations, and restore the 23 September 2026 documentary baseline of 4 CONFIRMED / 10 PENDING. Continue?"
+  return (
+    originalIndex(a) -
+    originalIndex(b)
   );
 
-  if(!approved) return;
-
-  [
-    STORAGE.data,
-    STORAGE.calendar,
-    STORAGE.decisions,
-    STORAGE.footer,
-    STORAGE.daily,
-    STORAGE.rag,
-    STORAGE.economic,
-    STORAGE.title,
-    STORAGE.statusDate,
-    STORAGE.posture,
-    STORAGE.lastEdit
-  ].forEach(key=>{
-    localStorage.removeItem(key);
-  });
-
-  window.location.reload();
 }
 
 
-/* ==========================================================
-   EXPORT CSV
-   Exports current DISPLAY order.
-========================================================== */
+/* =========================================================
+   EDITABLE CELLS
+========================================================= */
 
-function exportCSV(){
+function editable(r,f){
 
-  if(!requireEditMode()) return;
+  return `
+    <div
+      class="editable"
+      ${EDIT ? 'contenteditable="true"' : ''}
+      data-id="${r.id}"
+      data-field="${f}">
+      ${esc(r[f])}
+    </div>
+  `;
 
-  const headers=[
-    "Display Order",
-    "Country",
-    "President / Head",
-    "Liaison Officer",
-    "Mobile Number",
-    "Status",
-    "Confirmed At",
-    "Critical Action"
+}
+
+
+/* =========================================================
+   COMPLETENESS INDICATOR
+========================================================= */
+
+function completeness(r){
+
+  const f = [
+
+    "liaison",
+
+    "phone",
+
+    "adc",
+
+    "escort",
+
+    "hotel",
+
+    "flight",
+
+    "action"
+
   ];
 
-  const sorted=getSortedData();
 
-  const rows=sorted.map((row,index)=>[
-    index+1,
-    row.country,
-    row.president,
-    row.liaison,
-    row.phone,
-    row.status,
-    row.status==="CONFIRMED"
-      ? formatConfirmationTime(row)
-      : "",
-    row.action
-  ]);
+  return `${
+    f.filter(
+      k =>
+      String(r[k] || "")
+      .trim()
+    ).length
+  }/7`;
 
-  const csv=[headers,...rows]
-    .map(row=>
-      row.map(value=>
-        `"${String(value ?? "").replace(/"/g,'""')}"`
-      ).join(",")
+}
+
+
+/* =========================================================
+   STATUS CONTROL
+========================================================= */
+
+function statusCtl(r){
+
+  if(!EDIT){
+
+    return `
+      <span
+        class="status ${statusClass(r.status)}">
+        ${esc(r.status)}
+      </span>
+    `;
+
+  }
+
+
+  return `
+    <select
+      class="statusSelect"
+      data-status="${r.id}">
+
+      ${
+        [
+          "CONFIRMED",
+          "TBC",
+          "PENDING",
+          "IN PROGRESS",
+          "DONE",
+          "URGENT"
+        ]
+
+        .map(
+          s =>
+          `
+          <option
+            ${r.status === s ? "selected" : ""}>
+            ${s}
+          </option>
+          `
+        )
+
+        .join("")
+      }
+
+    </select>
+  `;
+
+}
+
+
+/* =========================================================
+   RENDER MASTER MATRIX
+========================================================= */
+
+function renderMatrix(){
+
+  const q =
+    document
+    .getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
+
+
+  const cf =
+    document
+    .getElementById("catFilter")
+    .value;
+
+
+  const pool =
+    state.records
+    .filter(
+      r =>
+      (
+        cf === "ALL" ||
+        r.cat === cf
+      )
+      &&
+      (
+        !q ||
+        [
+          r.country,
+          r.principal,
+          r.title,
+          r.liaison,
+          r.phone
+        ]
+        .join(" ")
+        .toLowerCase()
+        .includes(q)
+      )
+    );
+
+
+  let html = "";
+
+
+  Object.keys(cats)
+  .forEach(cat => {
+
+    const group =
+      pool
+      .filter(
+        r => r.cat === cat
+      )
+      .sort(sorter);
+
+
+    if(!group.length)
+      return;
+
+
+    html += `
+      <tr class="category">
+
+        <td colspan="11">
+          ${esc(cats[cat])}
+        </td>
+
+      </tr>
+    `;
+
+
+    group.forEach(
+      (r,i) => {
+
+      const tel =
+        String(r.phone || "")
+        .replace(/[^\d+]/g,"");
+
+
+      html += `
+      <tr>
+
+        <td>
+          <b>${i+1}</b>
+        </td>
+
+
+        <td>
+
+          <div class="principal">
+            ${editable(r,"country")}
+          </div>
+
+          ${editable(r,"principal")}
+
+          <div class="sub">
+            ${editable(r,"title")}
+          </div>
+
+        </td>
+
+
+        <td>
+          ${editable(r,"liaison")}
+        </td>
+
+
+        <td>
+
+          ${editable(r,"phone")}
+
+          ${
+            tel
+            ?
+            `
+            <div class="sub no-print">
+              <a href="tel:${esc(tel)}">
+                CALL
+              </a>
+            </div>
+            `
+            :
+            ""
+          }
+
+        </td>
+
+
+        <td>
+          ${editable(r,"adc")}
+        </td>
+
+
+        <td>
+          ${editable(r,"escort")}
+        </td>
+
+
+        <td>
+          ${editable(r,"hotel")}
+        </td>
+
+
+        <td>
+          ${editable(r,"flight")}
+        </td>
+
+
+        <td>
+
+          ${statusCtl(r)}
+
+          <div class="sub">
+            ${esc(stamp(r))}
+          </div>
+
+        </td>
+
+
+        <td>
+
+          ${editable(r,"action")}
+
+          <div class="sub green">
+            <b>
+              DATA ${completeness(r)} COMPLETE
+            </b>
+          </div>
+
+        </td>
+
+
+        <td class="no-print">
+
+          <button
+            class="smallbtn"
+            onclick="toggleDetails('${r.id}')">
+
+            ${
+              opened.has(r.id)
+              ? "CLOSE ▲"
+              : "DETAILS ▼"
+            }
+
+          </button>
+
+
+          ${
+            EDIT
+            ?
+            `
+            <br>
+
+            <button
+              class="smallbtn delete"
+              onclick="removeRecord('${r.id}')">
+              DELETE
+            </button>
+            `
+            :
+            ""
+          }
+
+        </td>
+
+      </tr>
+      `;
+
+
+      if(opened.has(r.id)){
+
+        html += `
+        <tr class="details">
+
+        <td colspan="11">
+
+        <div class="detailGrid">
+
+
+          <div class="detailBox">
+
+            <label>
+              Remarks / Protocol Notes
+            </label>
+
+            ${editable(r,"remarks")}
+
+          </div>
+
+
+          <div class="detailBox">
+
+            <label>
+              Confirmation Record
+            </label>
+
+            <b>
+              ${esc(stamp(r))}
+            </b>
+
+          </div>
+
+
+          <div class="detailBox">
+
+            <label>
+              Operational Data Completeness
+            </label>
+
+            <b>
+              ${completeness(r)}
+            </b>
+
+            <div class="sub">
+              Mechanical completeness only;
+              not a readiness determination.
+            </div>
+
+          </div>
+
+
+          <div class="detailBox">
+
+            <label>
+              Category
+            </label>
+
+
+            ${
+              EDIT
+              ?
+              `
+              <select
+                class="statusSelect"
+                data-cat="${r.id}">
+
+                ${
+                  Object.keys(cats)
+                  .map(
+                    c =>
+                    `
+                    <option
+                      value="${c}"
+                      ${r.cat === c ? "selected" : ""}>
+
+                      ${c} —
+                      ${
+                        esc(
+                          cats[c]
+                          .replace(
+                            /^[A-E]\.\s*/,
+                            ""
+                          )
+                        )
+                      }
+
+                    </option>
+                    `
+                  )
+                  .join("")
+                }
+
+              </select>
+              `
+              :
+              esc(cats[r.cat])
+            }
+
+          </div>
+
+
+        </div>
+
+        </td>
+
+        </tr>
+        `;
+
+      }
+
+    });
+
+  });
+
+
+  document
+  .getElementById("matrix")
+  .innerHTML =
+    html ||
+    `
+    <tr>
+      <td colspan="11">
+        No matching records.
+      </td>
+    </tr>
+    `;
+
+
+  bindMatrix();
+
+  updateKPIs();
+
+}
+
+
+/* =========================================================
+   BIND EDIT CONTROLS
+========================================================= */
+
+function bindMatrix(){
+
+  if(!EDIT)
+    return;
+
+
+  document
+  .querySelectorAll(
+    "[data-id][contenteditable=true]"
+  )
+  .forEach(
+    el => {
+
+      el.onblur = () => {
+
+        const r =
+          state.records
+          .find(
+            x =>
+            x.id === el.dataset.id
+          );
+
+
+        if(r){
+
+          r[
+            el.dataset.field
+          ] =
+          el.innerText.trim();
+
+
+          touch();
+
+          save(false);
+
+          renderMatrix();
+
+        }
+
+      };
+
+    }
+  );
+
+
+  document
+  .querySelectorAll(
+    "[data-status]"
+  )
+  .forEach(
+    el => {
+
+      el.onchange = () => {
+
+        const r =
+          state.records
+          .find(
+            x =>
+            x.id === el.dataset.status
+          );
+
+
+        if(!r)
+          return;
+
+
+        const old =
+          r.status;
+
+
+        r.status =
+          el.value;
+
+
+        if(
+          old !== "CONFIRMED" &&
+          r.status === "CONFIRMED"
+        ){
+
+          r.confirmedAt =
+            new Date()
+            .toISOString();
+
+          r.baseline =
+            false;
+
+        }
+
+
+        if(
+          r.status !== "CONFIRMED"
+        ){
+
+          r.confirmedAt =
+            null;
+
+          r.baseline =
+            false;
+
+        }
+
+
+        touch();
+
+        save(false);
+
+        renderMatrix();
+
+      };
+
+    }
+  );
+
+
+  document
+  .querySelectorAll(
+    "[data-cat]"
+  )
+  .forEach(
+    el => {
+
+      el.onchange = () => {
+
+        const r =
+          state.records
+          .find(
+            x =>
+            x.id === el.dataset.cat
+          );
+
+
+        if(r){
+
+          r.cat =
+            el.value;
+
+          touch();
+
+          save(false);
+
+          renderMatrix();
+
+        }
+
+      };
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   AUXILIARY SECTIONS
+========================================================= */
+
+function renderAux(){
+
+  document
+  .getElementById("calendar")
+  .innerHTML =
+
+    state.calendar
+    .map(
+      (x,i) =>
+      `
+      <div class="listItem">
+
+        <span class="dot"></span>
+
+        <div>
+
+          <b>
+            ${esc(x[0])}
+          </b>
+
+          <div
+            class="editable"
+            ${EDIT ? 'contenteditable="true"' : ''}
+            data-cal="${i}">
+
+            ${esc(x[1])}
+
+          </div>
+
+        </div>
+
+      </div>
+      `
     )
-    .join("\n");
+    .join("");
 
-  const blob=new Blob(
-    [csv],
-    {type:"text/csv;charset=utf-8;"}
+
+  document
+  .getElementById("decisions")
+  .innerHTML =
+
+    state.decisions
+    .map(
+      (x,i) =>
+      `
+      <div class="listItem">
+
+        <span class="dot"></span>
+
+        <div>
+
+          <b>
+            ${i+1}.
+          </b>
+
+          <span
+            class="editable"
+            ${EDIT ? 'contenteditable="true"' : ''}
+            data-dec="${i}">
+
+            ${esc(x)}
+
+          </span>
+
+        </div>
+
+      </div>
+      `
+    )
+    .join("");
+
+
+  document
+  .getElementById("rag")
+  .innerHTML =
+
+    state.rag
+    .map(
+      x =>
+      `
+      <div class="ragCard">
+
+        <b>
+          ${esc(x[0])}
+        </b>
+
+        <span
+          class="status ${statusClass(x[1])}">
+
+          ${esc(x[1])}
+
+        </span>
+
+        <div style="margin-top:6px">
+
+          ${esc(x[2])}
+
+        </div>
+
+      </div>
+      `
+    )
+    .join("");
+
+
+  state.notes
+  .forEach(
+    (n,i) => {
+
+      const el =
+        document
+        .getElementById(
+          "note" + (i+1)
+        );
+
+
+      el.innerText =
+        n;
+
+
+      el.contentEditable =
+        EDIT
+        ? "true"
+        : "false";
+
+
+      if(EDIT){
+
+        el.classList
+        .add("editable");
+
+      }
+
+    }
   );
 
-  const url=URL.createObjectURL(blob);
 
-  const link=document.createElement("a");
+  if(EDIT){
 
-  link.href=url;
+    document
+    .querySelectorAll(
+      "[data-cal]"
+    )
+    .forEach(
+      el => {
 
-  link.download=
-    "PS_Lamu_Delegation_Tracker_Sorted_30Sept2026.csv";
+        el.onblur = () => {
 
-  document.body.appendChild(link);
+          state.calendar[
+            +el.dataset.cal
+          ][1] =
+          el.innerText.trim();
 
-  link.click();
 
-  link.remove();
+          touch();
 
-  URL.revokeObjectURL(url);
+          save(false);
+
+        };
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-dec]"
+    )
+    .forEach(
+      el => {
+
+        el.onblur = () => {
+
+          state.decisions[
+            +el.dataset.dec
+          ] =
+          el.innerText.trim();
+
+
+          touch();
+
+          save(false);
+
+        };
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-note]"
+    )
+    .forEach(
+      (el,i) => {
+
+        el.onblur = () => {
+
+          state.notes[i] =
+            el.innerText.trim();
+
+
+          touch();
+
+          save(false);
+
+        };
+
+      }
+    );
+
+  }
+
+
+  document
+  .getElementById("lastEdit")
+  .textContent =
+
+    state.last
+
+    ?
+
+    `Last Edited: ${
+      new Date(
+        state.last
+      )
+      .toLocaleString("en-GB")
+    }`
+
+    :
+
+    "Last Edited: Source baseline";
+
 }
 
 
-/* ==========================================================
-   DARK MODE
-========================================================== */
+/* =========================================================
+   KPI COUNTS
+========================================================= */
 
-function toggleDark(){
+function updateKPIs(){
 
-  document.documentElement.classList.toggle("dark");
+  /*
+     The strategic private-sector VIP
+     entry is excluded from the
+     presidential KPI.
+  */
 
-  const isDark=
-    document.documentElement.classList.contains("dark");
+  const sovereign =
+    state.records
+    .filter(
+      r =>
+      r.cat === "A" &&
+      r.id !== "dan"
+    );
 
-  localStorage.setItem(
-    STORAGE.dark,
-    isDark
-  );
 
-  updateDarkBtn();
+  document
+  .getElementById("kConfirmed")
+  .textContent =
+
+    sovereign
+    .filter(
+      r =>
+      r.status === "CONFIRMED"
+    )
+    .length;
+
+
+  document
+  .getElementById("kPending")
+  .textContent =
+
+    sovereign
+    .filter(
+      r =>
+      r.status !== "CONFIRMED"
+    )
+    .length;
+
 }
 
-function updateDarkBtn(){
 
-  const button=document.getElementById("darkBtn");
+/* =========================================================
+   DETAILS
+========================================================= */
 
-  if(!button) return;
+function toggleDetails(id){
 
-  const isDark=
-    document.documentElement.classList.contains("dark");
+  if(
+    opened.has(id)
+  ){
 
-  button.innerText=
-    isDark
-    ? "☀️ LIGHT"
-    : "🌙 DARK";
+    opened.delete(id);
+
+  }
+
+  else{
+
+    opened.add(id);
+
+  }
+
+
+  renderMatrix();
+
 }
 
 
-/* ==========================================================
-   LAST EDIT
-========================================================== */
+/* =========================================================
+   SAVE
+========================================================= */
 
 function touch(){
 
-  if(!EDIT_MODE) return;
+  state.last =
+    new Date()
+    .toISOString();
 
-  const stamp=
-    new Date().toLocaleString("en-GB",{
-      day:"2-digit",
-      month:"short",
-      year:"numeric",
-      hour:"2-digit",
-      minute:"2-digit",
-      second:"2-digit",
-      hour12:false
-    });
+}
 
-  document.getElementById("lastEdit").innerText=
-    stamp;
+
+function save(alertUser){
 
   localStorage.setItem(
-    STORAGE.lastEdit,
-    stamp
+    KEY,
+    JSON.stringify(state)
   );
+
+
+  renderAux();
+
+
+  if(alertUser){
+
+    alert(
+      "PS Master Command Center saved on this browser/device."
+    );
+
+  }
+
 }
 
 
-/* ==========================================================
+/* =========================================================
+   ADD RECORD
+========================================================= */
+
+function addRecord(){
+
+  if(!EDIT)
+    return;
+
+
+  const id =
+    "new_" +
+    Date.now();
+
+
+  state.records.push({
+
+    id:id,
+
+    cat:"A",
+
+    country:
+    "NEW COUNTRY / ORGANISATION",
+
+    principal:"",
+
+    title:"",
+
+    liaison:"",
+
+    phone:"",
+
+    adc:"",
+
+    escort:"",
+
+    hotel:"",
+
+    flight:"",
+
+    status:"TBC",
+
+    action:"",
+
+    remarks:"",
+
+    confirmedAt:null,
+
+    baseline:false
+
+  });
+
+
+  opened.add(id);
+
+
+  touch();
+
+  save(false);
+
+  renderMatrix();
+
+}
+
+
+/* =========================================================
+   DELETE RECORD
+========================================================= */
+
+function removeRecord(id){
+
+  if(
+    EDIT &&
+    confirm(
+      "Delete this record from the working copy? Reset to Master will restore baseline records."
+    )
+  ){
+
+    state.records =
+      state.records
+      .filter(
+        r =>
+        r.id !== id
+      );
+
+
+    opened.delete(id);
+
+
+    touch();
+
+    save(false);
+
+    renderMatrix();
+
+  }
+
+}
+
+
+/* =========================================================
+   RESET TO MASTER
+========================================================= */
+
+function resetMaster(){
+
+  if(
+    EDIT &&
+    confirm(
+      "Reset all locally saved changes to the Master Matrix baseline?"
+    )
+  ){
+
+    /*
+      Important:
+      only this application's
+      localStorage key is removed.
+    */
+
+    localStorage.removeItem(
+      KEY
+    );
+
+
+    state =
+      fresh();
+
+
+    opened.clear();
+
+
+    renderAll();
+
+  }
+
+}
+
+
+/* =========================================================
+   CSV EXPORT
+========================================================= */
+
+function exportCSV(){
+
+  const headers = [
+
+    "Category",
+
+    "Country / Organisation",
+
+    "Principal",
+
+    "Title",
+
+    "Protocol / Liaison Officer",
+
+    "Contact",
+
+    "ADC",
+
+    "Escort of Honour",
+
+    "Accommodation",
+
+    "Flight Details",
+
+    "Status",
+
+    "Confirmed At",
+
+    "Critical Action",
+
+    "Remarks"
+
+  ];
+
+
+  const rows =
+    state.records
+    .map(
+      r => [
+
+        cats[r.cat],
+
+        r.country,
+
+        r.principal,
+
+        r.title,
+
+        r.liaison,
+
+        r.phone,
+
+        r.adc,
+
+        r.escort,
+
+        r.hotel,
+
+        r.flight,
+
+        r.status,
+
+        stamp(r),
+
+        r.action,
+
+        r.remarks
+
+      ]
+    );
+
+
+  const csv =
+
+    [
+      headers,
+      ...rows
+    ]
+
+    .map(
+      row =>
+      row
+      .map(
+        v =>
+        `"${
+
+          String(v ?? "")
+          .replace(
+            /"/g,
+            '""'
+          )
+
+        }"`
+      )
+      .join(",")
+    )
+
+    .join("\n");
+
+
+  const blob =
+    new Blob(
+      [
+        "\ufeff" +
+        csv
+      ],
+      {
+        type:
+        "text/csv;charset=utf-8"
+      }
+    );
+
+
+  const url =
+    URL.createObjectURL(
+      blob
+    );
+
+
+  const a =
+    document
+    .createElement("a");
+
+
+  a.href =
+    url;
+
+
+  a.download =
+    "PS_Lamu_Master_VVIP_Delegation_Matrix.csv";
+
+
+  a.click();
+
+
+  URL.revokeObjectURL(
+    url
+  );
+
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+function toggleTheme(){
+
+  document.body
+  .classList
+  .toggle("dark");
+
+
+  localStorage.setItem(
+
+    THEME,
+
+    document.body
+    .classList
+    .contains("dark")
+
+    ?
+
+    "dark"
+
+    :
+
+    "light"
+
+  );
+
+}
+
+
+if(
+  localStorage.getItem(THEME)
+  ===
+  "dark"
+){
+
+  document.body
+  .classList
+  .add("dark");
+
+}
+
+
+/* =========================================================
    HARD CLOSE COUNTDOWN
-========================================================== */
+========================================================= */
 
-function updateCountdown(){
+function countdown(){
 
-  const deadline=
-    new Date("2026-09-28T23:59:00+03:00");
+  const target =
+    new Date(
+      "2026-09-28T23:59:00+03:00"
+    )
+    .getTime();
 
-  const now=new Date();
 
-  const difference=deadline-now;
+  const d =
+    target -
+    Date.now();
 
-  const element=
-    document.getElementById("countdown");
 
-  if(difference<=0){
+  const el =
+    document
+    .getElementById(
+      "countdown"
+    );
 
-    element.innerText="HARD CLOSE REACHED";
+
+  if(d <= 0){
+
+    el.textContent =
+      "HARD CLOSE REACHED";
 
     return;
+
   }
 
-  const days=Math.floor(
-    difference/(1000*60*60*24)
-  );
 
-  const hours=Math.floor(
-    (difference/(1000*60*60))%24
-  );
-
-  const minutes=Math.floor(
-    (difference/(1000*60))%60
-  );
-
-  element.innerText=
-    `${days}D ${hours}H ${minutes}M`;
-}
-
-
-/* ==========================================================
-   AUTOSAVE
-========================================================== */
-
-function activateAutosave(){
-
-  if(!EDIT_MODE) return;
-
-  [
-    "calendar",
-    "decisions",
-    "footerNote",
-    "dailyReport",
-    "ragPanel",
-    "economicPanel",
-    "mainTitle",
-    "statusDate",
-    "overallPosture"
-  ].forEach(id=>{
-
-    const element=
-      document.getElementById(id);
-
-    if(!element) return;
-
-    element.addEventListener(
-      "blur",
-      ()=>saveAll(false)
+  const D =
+    Math.floor(
+      d /
+      86400000
     );
-  });
+
+
+  const H =
+    Math.floor(
+      d %
+      86400000 /
+      3600000
+    );
+
+
+  const M =
+    Math.floor(
+      d %
+      3600000 /
+      60000
+    );
+
+
+  const S =
+    Math.floor(
+      d %
+      60000 /
+      1000
+    );
+
+
+  el.textContent =
+    `${D}D ${H}H ${M}M ${S}S`;
+
 }
 
 
-/* ==========================================================
-   CTRL/CMD + S
-========================================================== */
+/* =========================================================
+   RENDER
+========================================================= */
 
-document.addEventListener(
+function renderAll(){
+
+  renderMatrix();
+
+  renderAux();
+
+  countdown();
+
+}
+
+
+/* =========================================================
+   CTRL+S / CMD+S
+========================================================= */
+
+document
+.addEventListener(
   "keydown",
-  function(event){
+  e => {
 
     if(
-      EDIT_MODE &&
-      (event.ctrlKey || event.metaKey) &&
-      event.key.toLowerCase()==="s"
+      EDIT &&
+      (
+        e.ctrlKey ||
+        e.metaKey
+      )
+      &&
+      e.key.toLowerCase()
+      ===
+      "s"
     ){
 
-      event.preventDefault();
+      e.preventDefault();
 
-      saveAll(true);
+      touch();
+
+      save(true);
+
     }
+
   }
 );
 
 
-/* ==========================================================
-   START
-========================================================== */
-
-load();
-
-activateAutosave();
+/* =========================================================
+   START APPLICATION
+========================================================= */
 
 setInterval(
-  updateCountdown,
-  60000
+  countdown,
+  1000
 );
 
+
+renderAll();
+
 </script>
+
+
+<!--
+
+=========================================================
+OPTIONAL EDIT-MODE ACCESS PROMPT
+=========================================================
+
+IMPORTANT:
+This is only a browser-side UI deterrent.
+It is NOT secure authentication.
+
+For confidential operational use,
+use proper private hosting / access controls.
+
+To activate this simple prompt,
+remove the opening and closing comment markers.
+
+<script>
+
+if(
+  new URLSearchParams(
+    location.search
+  )
+  .has("edit")
+){
+
+  const CODE =
+    "LAMU2026";
+
+
+  if(
+    prompt(
+      "Enter PS Access Code:"
+    )
+    !==
+    CODE
+  ){
+
+    document.body.innerHTML =
+    `
+      <h1 style="
+        font-family:Tahoma;
+        text-align:center;
+        margin-top:20%;
+        color:#0A1931;
+      ">
+        ACCESS DENIED
+      </h1>
+    `;
+
+  }
+
+}
+
+</script>
+
+-->
+
 
 </body>
 </html>
