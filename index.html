@@ -3,104 +3,1774 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PS Command Center — Lamu SEZ Sorted</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>PS Command Center | Lamu Oil Refinery Groundbreaking | Confidential</title>
+
+<!--
+=============================================================
+PS COMMAND CENTER — SORTED OPERATIONAL VERSION
+=============================================================
+
+VIEW MODE:
+https://yourdomain.com/
+
+OWNER EDIT MODE:
+https://yourdomain.com/?edit
+
+NEW SORTING LOGIC
+1. CONFIRMED delegations always appear first.
+2. Among CONFIRMED delegations, the MOST RECENTLY CONFIRMED
+   appears at the TOP.
+3. Every confirmation receives an automatic timestamp.
+4. Existing baseline confirmations carry:
+   "Confirmed — Source Baseline 23 Sept 2026"
+   until operationally changed.
+5. PENDING delegations follow confirmed delegations.
+6. Changing CONFIRMED → PENDING removes the confirmation timestamp.
+7. Changing PENDING → CONFIRMED creates a fresh confirmation timestamp.
+8. Sort order is recalculated automatically after every status change.
+9. Status and timestamps persist in localStorage.
+10. No invented President/Head names or phone numbers.
+=============================================================
+-->
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { darkMode:'class' };
+</script>
+
 <style>
-*{font-family:Tahoma,sans-serif!important;font-size:12px!important;box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text)}
-:root{--bg:#f8fafc;--card:#ffffff;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--green:#16a34a;--blue:#2563eb}
-.dark{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--muted:#94a3b8;--border:#334155}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px}
-.btn{padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-weight:bold}
-.btn-green{background:var(--green);color:white;border-color:var(--green)}
-.btn-blue{background:var(--blue);color:white;border-color:var(--blue)}
-@media print{.no-print{display:none!important}}
+:root{
+  --navy:#0A1931;
+  --gold:#D4AF37;
+  --red:#B91C1C;
+  --green:#15803D;
+  --amber:#D97706;
+  --paper:#F5F3EF;
+}
+
+*{
+  font-family:Tahoma, Geneva, sans-serif!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+  box-sizing:border-box;
+}
+
+html{scroll-behavior:smooth;}
+body{margin:0;}
+
+h1{
+  font-size:16px!important;
+  font-weight:800!important;
+  line-height:1.25!important;
+}
+
+h2{
+  font-size:13px!important;
+  font-weight:700!important;
+}
+
+button{transition:all .15s ease;}
+button:hover{opacity:.92;}
+
+.edit-mode [contenteditable="true"]:hover{
+  outline:1px dashed var(--gold);
+  background:rgba(212,175,55,.08);
+}
+
+.edit-mode [contenteditable="true"]:focus{
+  outline:2px solid var(--gold);
+  background:#fffbe6!important;
+  color:#000!important;
+}
+
+.dark.edit-mode [contenteditable="true"]:focus{
+  background:#1e293b!important;
+  color:#fff!important;
+}
+
+.view-mode [contenteditable]{
+  outline:none!important;
+  cursor:default!important;
+}
+
+.status-pill{
+  display:inline-block;
+  min-width:84px;
+  text-align:center;
+  user-select:none;
+}
+
+.edit-mode .status-pill{cursor:pointer;}
+.view-mode .status-pill{cursor:default;}
+
+.kpi-number{
+  font-size:22px!important;
+  line-height:1.1!important;
+}
+
+.source-label{
+  font-size:9px!important;
+  letter-spacing:.08em;
+}
+
+.command-table th{
+  white-space:nowrap;
+}
+
+.command-table th,
+.command-table td{
+  border-bottom:1px solid rgba(148,163,184,.25);
+  vertical-align:top;
+}
+
+.command-table tbody tr:hover{
+  background:rgba(212,175,55,.055);
+}
+
+.confirmed-row{
+  background:rgba(21,128,61,.035);
+}
+
+.confirmation-time{
+  font-size:9px!important;
+  line-height:1.3!important;
+  margin-top:3px;
+}
+
+.mode-badge{
+  font-size:10px!important;
+  letter-spacing:.06em;
+}
+
+.owner-only{display:none;}
+.edit-mode .owner-only{display:flex;}
+.edit-mode td.owner-only{display:table-cell;}
+
+.viewer-only{display:none;}
+.view-mode .viewer-only{display:inline-flex;}
+
+@media(max-width:900px){
+  .kpi-grid,
+  .bottom-grid,
+  .rag-grid,
+  .economic-grid,
+  .daily-grid{
+    grid-template-columns:1fr!important;
+  }
+}
+
+@media print{
+  @page{
+    size:A4 landscape;
+    margin:8mm;
+  }
+
+  html,body{
+    background:#fff!important;
+    color:#0A1931!important;
+  }
+
+  .no-print,
+  .owner-only,
+  .viewer-only{
+    display:none!important;
+  }
+
+  .print-white,
+  .dark .print-white{
+    background:#fff!important;
+    color:#0A1931!important;
+  }
+
+  .dark,
+  .dark body{
+    background:#fff!important;
+    color:#0A1931!important;
+  }
+
+  header{
+    background:#0A1931!important;
+    color:#fff!important;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  .print-color{
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  .command-table{
+    font-size:9px!important;
+  }
+
+  .command-table th,
+  .command-table td{
+    padding:4px!important;
+  }
+
+  .status-pill{
+    min-width:66px;
+  }
+
+  .confirmation-time{
+    font-size:8px!important;
+  }
+
+  .print-break-avoid{
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+
+  [contenteditable]{
+    outline:none!important;
+  }
+}
 </style>
 </head>
-<body>
-<div style="padding:16px;max-width:1400px;margin:0 auto">
-<div class="no-print" style="display:flex;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
-<div style="display:flex;gap:8px">
-<button class="btn" onclick="document.documentElement.classList.toggle('dark')">🌙/☀️ Dark/Light</button>
-<button class="btn" onclick="window.print()">🖨️ Print PDF</button>
-<button class="btn btn-blue" onclick="localStorage.setItem('lamuV6data',JSON.stringify(data));alert('Saved locally for PS')">💾 Save: Export</button>
-<button class="btn" onclick="if(confirm('RESET to 23 Sept baseline?')){localStorage.clear();location.reload()}">↺ Reset to Source</button>
-</div>
-<div id="modeInfo" style="color:var(--muted)"></div>
-</div>
 
-<div class="card" style="padding:16px;margin-bottom:12px">
-<h1 style="margin:0;font-size:16px!important">PS COMMAND CENTER — LAMU OIL REFINERY & SEZ GROUNDBREAKING</h1>
-<div id="subHeader" style="color:var(--muted);margin-top:4px"></div>
-</div>
+<body id="body"
+class="bg-[#F5F3EF] text-[#0A1931] dark:bg-[#07111f] dark:text-[#F8FAFC] transition-colors duration-300">
 
-<div class="card" style="padding:12px">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-<b>VVIP TRACKER — SORTED: CONFIRMED (Latest on Top) → PENDING | Congo + DRC Separate</b>
-<button class="btn btn-green no-print" onclick="addCountry()">+ Add Country</button>
-</div>
-<div id="tracker"></div>
-</div>
+<div class="max-w-[1450px] mx-auto p-3">
+
+<!-- HEADER -->
+<header class="print-color bg-[#0A1931] dark:bg-black text-white rounded-t-xl border-b-4 border-[#D4AF37] shadow-lg">
+  <div class="p-4 md:p-5 flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
+
+    <div class="flex-1">
+      <div class="text-[#D4AF37] font-bold tracking-[0.18em] uppercase">
+        REPUBLIC OF KENYA
+      </div>
+
+      <div class="font-bold tracking-wide uppercase mt-1">
+        MINISTRY OF FOREIGN AND DIASPORA AFFAIRS
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 mt-3">
+        <span class="bg-[#B91C1C] text-white px-3 py-1 rounded font-bold tracking-wide">
+          CONFIDENTIAL — FOR PS ONLY
+        </span>
+
+        <span class="border border-[#D4AF37] text-[#D4AF37] px-3 py-1 rounded source-label">
+          SOURCE BASELINE — 23 SEPTEMBER 2026
+        </span>
+
+        <span id="modeBadge"
+          class="mode-badge px-3 py-1 rounded font-bold bg-slate-600 text-white">
+          VIEW ONLY
+        </span>
+      </div>
+
+      <h1 id="mainTitle" data-editable="true" class="mt-4 p-1">
+        LAMU OIL REFINERY GROUNDBREAKING | 30 SEPT 2026 — 13:00HRS
+      </h1>
+
+      <div class="mt-2 opacity-90">
+        Status as at
+        <span id="statusDate" data-editable="true" class="font-bold">
+          23 September 2026
+        </span>
+        &nbsp;|&nbsp;
+        Overall Posture:
+        <span id="overallPosture" data-editable="true"
+          class="text-[#D4AF37] font-bold">
+          AMBER-GREEN — FINAL READINESS PHASE
+        </span>
+      </div>
+
+      <div class="mt-1 text-[10px] opacity-75">
+        Last Edited:
+        <span id="lastEdit">Source baseline</span>
+        &nbsp;|&nbsp;
+        Economic/Commercial Figures:
+        <strong class="text-[#D4AF37]">
+          TBC UNTIL FORMALLY CLEARED
+        </strong>
+      </div>
+    </div>
+
+    <div class="no-print flex flex-col items-start lg:items-end gap-2">
+      <div class="flex gap-2 flex-wrap">
+        <button onclick="toggleDark()" id="darkBtn"
+          class="bg-[#D4AF37] text-black px-4 py-2 rounded font-bold">
+          🌙 DARK
+        </button>
+
+        <button onclick="window.print()"
+          class="bg-white text-[#0A1931] px-4 py-2 rounded font-bold">
+          PRINT PDF FOR PS
+        </button>
+      </div>
+
+      <div id="modeHelp" class="text-[#D4AF37] text-[10px] text-right">
+        VIEW-ONLY COMMAND CENTER
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- KPI CARDS -->
+<section class="kpi-grid grid grid-cols-3 gap-3 my-3">
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-lg p-4 border-l-4 border-green-600 shadow">
+    <div class="opacity-60 font-bold">CONFIRMED PRESIDENTIAL DELEGATIONS</div>
+    <div id="kpiConfirmed" class="kpi-number font-black mt-1">4</div>
+    <div class="text-green-700 dark:text-green-400 mt-1">
+      Most recently confirmed appears first
+    </div>
+  </div>
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-lg p-4 border-l-4 border-amber-500 shadow">
+    <div class="opacity-60 font-bold">PENDING DELEGATIONS</div>
+    <div id="kpiPending" class="kpi-number font-black mt-1">10</div>
+    <div class="text-amber-700 dark:text-amber-400 mt-1">
+      Daily diplomatic confirmation required
+    </div>
+  </div>
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-lg p-4 border-l-4 border-red-700 shadow">
+    <div class="opacity-60 font-bold">REGISTRATION HARD CLOSE</div>
+    <div id="countdown"
+      class="kpi-number font-black mt-1 text-red-700 dark:text-red-400">
+      CALCULATING
+    </div>
+    <div class="mt-1">28 SEPTEMBER 2026 — 23:59</div>
+    <div class="text-[10px] opacity-70">
+      Protect ≥72hr firearms/radio and ≥48hr aircraft lead times
+    </div>
+  </div>
+
+</section>
+
+<!-- SOURCE CONTROL -->
+<section class="print-break-avoid bg-[#FFF8E1] dark:bg-[#2b2514] border border-[#D4AF37] rounded-lg p-3 mb-3">
+  <div class="font-bold">SOURCE CONTROL & SORTING RULE</div>
+
+  <div class="mt-1">
+    The 14-country attendance position is based on the documentary baseline as at
+    <strong>23 September 2026</strong>.
+    Confirmed delegations are automatically displayed first.
+    A newly confirmed delegation moves to the top of the confirmed group and receives an automatic confirmation timestamp.
+    Pending delegations follow the confirmed group.
+    President/Head names and mobile numbers not supplied by the source remain
+    <strong>TBC / ENTER</strong>.
+  </div>
+</section>
+
+<!-- OWNER CONTROLS -->
+<section id="editControls"
+  class="owner-only no-print bg-white dark:bg-slate-800 rounded-lg p-2 mb-3 shadow flex-wrap gap-2 items-center">
+
+  <button onclick="addRow()"
+    class="bg-[#0A1931] text-white px-3 py-2 rounded font-bold">
+    + ADD DELEGATION
+  </button>
+
+  <button onclick="saveAll(true)"
+    class="bg-green-700 text-white px-3 py-2 rounded font-bold">
+    SAVE CHANGES
+  </button>
+
+  <button onclick="exportCSV()"
+    class="bg-slate-600 text-white px-3 py-2 rounded font-bold">
+    EXPORT CSV
+  </button>
+
+  <button onclick="resetAll()"
+    class="bg-red-700 text-white px-3 py-2 rounded font-bold">
+    RESET TO SOURCE
+  </button>
+
+  <button onclick="window.print()"
+    class="bg-[#D4AF37] text-black px-3 py-2 rounded font-bold">
+    PRINT PDF
+  </button>
+
+  <span class="ml-auto opacity-60">
+    EDIT MODE • Confirming a delegation automatically timestamps and moves it to the top
+  </span>
+</section>
+
+<!-- DELEGATION TRACKER -->
+<section class="print-white bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
+
+  <div class="print-color bg-[#0A1931] text-white px-4 py-3 flex flex-wrap justify-between gap-2">
+    <div>
+      <h2>DELEGATION ATTENDANCE & VVIP ACTIVATION TRACKER</h2>
+      <div class="text-[10px] opacity-75">
+        CONFIRMED ↓ latest confirmation first | PENDING thereafter
+      </div>
+    </div>
+
+    <div class="text-[#D4AF37] font-bold">
+      14-COUNTRY SOURCE BASELINE
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="command-table w-full border-collapse" id="mainTable">
+      <thead class="print-color bg-[#0A1931] text-white">
+        <tr>
+          <th class="p-2 text-left">NO.</th>
+          <th class="p-2 text-left">COUNTRY</th>
+          <th class="p-2 text-left">PRESIDENT / HEAD</th>
+          <th class="p-2 text-left">LIAISON OFFICER</th>
+          <th class="p-2 text-left">MOBILE NO.</th>
+          <th class="p-2 text-left">STATUS / CONFIRMED AT</th>
+          <th class="p-2 text-left">CRITICAL ACTION</th>
+          <th class="owner-only no-print p-2 text-center">DEL</th>
+        </tr>
+      </thead>
+
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <div id="footerNote" data-editable="true"
+    class="p-3 bg-amber-50 dark:bg-amber-950/30 border-t border-amber-300">
+    OPERATIONAL CONTROL: Confirmed presidential delegations — immediately lock delegation composition, arrival/departure, aircraft data, protection/firearms/radio requirements, liaison contact, accommodation/holding room, convoy and bilateral requirements. Pending delegations — maintain daily diplomatic confirmation; any confirmation must immediately trigger the same presidential/VVIP checklist. ACTION REQUIRED: 28 September is the registration HARD CLOSE; protect the ≥72-hour firearms/radio and ≥48-hour aircraft lead times.
+  </div>
+
+</section>
+
+<!-- DEADLINES + DECISIONS -->
+<section class="bottom-grid grid md:grid-cols-2 gap-3 mt-3">
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
+    <div class="print-color bg-[#0A1931] text-white p-3">
+      <h2>CRITICAL DEADLINE CALENDAR | 22–30 SEPTEMBER</h2>
+    </div>
+
+    <div id="calendar" data-editable="true"
+      class="p-3 whitespace-pre-line">22–24 SEPTEMBER
+Daily closure review; VVIP confirmation drive; accelerate accreditation and aircraft data.
+
+25–27 SEPTEMBER
+Lock core VVIP list; process ≥72-hour firearms/radio requirements; finalise protocol, transport, accommodation, luncheon, investor and communications allocations.
+
+28 SEPTEMBER — HARD CLOSE
+Registration closes; reconcile participant, media, vehicle and driver registers; protect ≥48-hour aircraft rule.
+
+29 SEPTEMBER — GO/NO-GO
+Full rehearsal; physical verification; final convoy matrix; venue, ICT, power, security, medical, media and holding-room sign-off; formal readiness determination.
+
+30 SEPTEMBER
+Ceremony; State Luncheon 13:00HRS; joint coordination; incident/decision log; controlled departures.</div>
+  </div>
+
+  <div class="print-white bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
+    <div class="print-color bg-[#0A1931] text-white p-3">
+      <h2>5 IMMEDIATE DECISIONS REQUIRED FROM PS</h2>
+    </div>
+
+    <div id="decisions" data-editable="true" class="p-3">
+      <div class="mb-3">
+        <strong>1.</strong>
+        Direct one daily master readiness meeting and decision log through 30 September.
+        <span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
+      </div>
+
+      <div class="mb-3">
+        <strong>2.</strong>
+        Order immediate presidential-movement case files for Togo, Rwanda, Ethiopia and South Sudan.
+        <span class="bg-red-100 text-red-800 px-1 rounded font-bold">RED — PRIORITY</span>
+      </div>
+
+      <div class="mb-3">
+        <strong>3.</strong>
+        Require daily pursuit of the ten pending confirmations and lock the core VVIP list by 27–28 September.
+        <span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
+      </div>
+
+      <div class="mb-3">
+        <strong>4.</strong>
+        Approve one authoritative economic/commercial diplomacy fact sheet and communications narrative by 27 September.
+        <span class="bg-amber-100 text-amber-800 px-1 rounded font-bold">AMBER</span>
+      </div>
+
+      <div>
+        <strong>5.</strong>
+        Confirm 29 September as the mandatory full rehearsal and GO/NO-GO gate; formally escalate residual RED risks.
+        <span class="bg-red-100 text-red-800 px-1 rounded font-bold">RED — CRITICAL GATE</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- READINESS RAG -->
+<section class="print-white print-break-avoid bg-white dark:bg-slate-800 rounded-xl shadow mt-3 overflow-hidden">
+
+  <div class="print-color bg-[#0A1931] text-white p-3 flex flex-wrap justify-between gap-2">
+    <h2>READINESS RAG | EXECUTIVE CLOSURE VIEW</h2>
+    <span class="text-[#D4AF37]">Verification evidence required before closure</span>
+  </div>
+
+  <div id="ragPanel" data-editable="true" class="rag-grid grid md:grid-cols-5">
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold">SITE / VENUE</div>
+      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">AMBER</span>
+      <div class="mt-2 opacity-70">Verification required</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold">AVIATION / SECURITY</div>
+      <span class="inline-block mt-2 bg-red-100 text-red-800 px-2 py-1 rounded font-bold">RED — CRITICAL</span>
+      <div class="mt-2 opacity-70">Lead-time dependent</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold">VVIP TRANSPORT / PROTOCOL</div>
+      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">AMBER</span>
+      <div class="mt-2 opacity-70">Closure evidence required</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold">ACCREDITATION / MEDICAL</div>
+      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">AMBER</span>
+      <div class="mt-2 opacity-70">Registers to reconcile</div>
+    </div>
+
+    <div class="p-3">
+      <div class="font-bold">COMMS / INVESTOR</div>
+      <span class="inline-block mt-2 bg-amber-100 text-amber-800 px-2 py-1 rounded font-bold">AMBER</span>
+      <div class="mt-2 opacity-70">Figures TBC until cleared</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ECONOMIC DIPLOMACY -->
+<section class="print-white print-break-avoid bg-white dark:bg-slate-800 rounded-xl shadow mt-3 overflow-hidden">
+
+  <div class="print-color bg-[#0A1931] text-white p-3 flex flex-wrap justify-between gap-2">
+    <h2>ECONOMIC & COMMERCIAL DIPLOMACY CONTROL PANEL</h2>
+    <span class="bg-[#D4AF37] text-black px-2 py-1 rounded font-bold">
+      ALL PROJECT FIGURES TBC UNTIL FORMALLY CLEARED
+    </span>
+  </div>
+
+  <div id="economicPanel" data-editable="true" class="economic-grid grid md:grid-cols-3">
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold text-[#D4AF37]">STRATEGIC FRAME</div>
+      <div class="mt-2">→ Energy Security & Import Substitution</div>
+      <div>→ LAPSSET Corridor Anchor</div>
+      <div>→ FDI Magnet & Bankability Signal</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <div class="font-bold text-[#D4AF37]">REGIONAL FRAME</div>
+      <div class="mt-2">→ Regional Integration</div>
+      <div>→ EAC / AfCFTA positioning</div>
+      <div>→ Ethiopia / South Sudan regional linkages</div>
+    </div>
+
+    <div class="p-3">
+      <div class="font-bold text-[#D4AF37]">DIPLOMATIC FRAME</div>
+      <div class="mt-2">→ Local Content & County Dividends</div>
+      <div>→ Presidential diplomatic leverage</div>
+      <div>→ Project value, capacity, jobs, feedstock and financing remain TBC</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DAILY REPORT -->
+<section class="print-white bg-white dark:bg-slate-800 rounded-xl shadow mt-3 overflow-hidden">
+
+  <div class="print-color bg-[#0A1931] text-white p-3">
+    <h2>RECOMMENDED DAILY REPORT TO PS</h2>
+  </div>
+
+  <div id="dailyReport" data-editable="true" class="daily-grid grid md:grid-cols-5">
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <strong>1. CHANGE SINCE LAST REPORT</strong>
+      <div class="mt-2">Enter material changes only.</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <strong>2. VVIP POSITION</strong>
+      <div class="mt-2">Confirmed / pending / newly activated.</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <strong>3. RED / AMBER ITEMS</strong>
+      <div class="mt-2">State evidence required for closure.</div>
+    </div>
+
+    <div class="p-3 border-r border-slate-200 dark:border-slate-700">
+      <strong>4. PS DECISION REQUIRED</strong>
+      <div class="mt-2">Decision, owner and deadline.</div>
+    </div>
+
+    <div class="p-3">
+      <strong>5. NEXT 24 HOURS</strong>
+      <div class="mt-2">Critical actions and hard deadlines.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mt-4 text-center opacity-60">
+  <div>PS COMMAND CENTER | SOURCE-CONTROLLED OPERATIONAL DASHBOARD</div>
+  <div class="mt-1">
+    Republic of Kenya | Ministry of Foreign and Diaspora Affairs | Confidential — For PS Only
+  </div>
+  <div id="footerMode" class="mt-1 font-bold">VIEW-ONLY MODE</div>
+</footer>
+
 </div>
 
 <script>
-// BASELINE FROM YOUR IMAGE — CONFIRMED 4 / PENDING 10 — Republic of Congo & DRC SEPARATE
-const baseline=[
-{c:"RWANDA",s:"CONFIRMED",name:"H.E. President Paul Kagame",contact:"TBC / ENTER",confirmedAt:Date.now()-1000},
-{c:"ETHIOPIA",s:"CONFIRMED",name:"H.E. - Ethiopia",contact:"TBC / ENTER",confirmedAt:Date.now()-2000},
-{c:"SOUTH SUDAN",s:"CONFIRMED",name:"H.E. - South Sudan",contact:"TBC / ENTER",confirmedAt:Date.now()-3000},
-{c:"TOGO",s:"CONFIRMED",name:"H.E. - Togo",contact:"TBC / ENTER",confirmedAt:Date.now()-4000},
-{c:"REPUBLIC OF CONGO (Brazzaville)",s:"PENDING",name:"H.E. President Denis Sassou Nguesso",contact:"TBC / ENTER",confirmedAt:null},
-{c:"NIGERIA (Dangote)",s:"PENDING",name:"Mr. Aliko Dangote",contact:"TBC / ENTER",confirmedAt:null},
-{c:"UGANDA",s:"PENDING",name:"TBC / ENTER",contact:"TBC / ENTER",confirmedAt:null},
-{c:"MOZAMBIQUE",s:"PENDING",name:"TBC / ENTER",contact:"TBC / ENTER",confirmedAt:null},
-{c:"BURUNDI",s:"PENDING",name:"TBC / ENTER",contact:"TBC / ENTER",confirmedAt:null},
-{c:"BENIN",s:"PENDING",name:"TBC / ENTER",contact:"TBC / ENTER",confirmedAt:null},
-{c:"DRC (Congo-Kinshasa)",s:"PENDING",name:"H.E. President Felix Tshisekedi",contact:"TBC / ENTER",confirmedAt:null},
-{c:"GHANA",s:"PENDING",name:"TBC / ENTER",contact:"TBC / ENTER",confirmedAt:null},
-{c:"SOMALIA",s:"PENDING",name:"TBC / ENTER",contact:"TBC / ENTER",confirmedAt:null},
-{c:"TANZANIA",s:"PENDING",name:"TBC / ENTER",contact:"TBC / ENTER",confirmedAt:null},
+
+/* ==========================================================
+   VIEW / EDIT MODE
+========================================================== */
+
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+
+const EDIT_MODE =
+  queryString === "?edit" ||
+  params.has("edit");
+
+
+/* ==========================================================
+   SOURCE BASELINE
+
+   confirmedAt = null for baseline confirmations because
+   the exact confirmation time was not supplied by source.
+   This avoids inventing timestamps.
+========================================================== */
+
+const originalData = [
+
+{
+  no:1,
+  sourceOrder:1,
+  country:"Rwanda",
+  president:"TBC / ENTER",
+  liaison:"Mr. Timothy Mwalimu",
+  phone:"TBC / ENTER",
+  status:"CONFIRMED",
+  confirmedAt:null,
+  baselineConfirmed:true,
+  action:"Lock presidential/VVIP checklist immediately"
+},
+
+{
+  no:2,
+  sourceOrder:2,
+  country:"Republic of Congo",
+  president:"TBC / ENTER",
+  liaison:"Mr. Sam Kiptoo",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:3,
+  sourceOrder:3,
+  country:"Ethiopia",
+  president:"TBC / ENTER",
+  liaison:"Mr. Joshua Kariuki",
+  phone:"TBC / ENTER",
+  status:"CONFIRMED",
+  confirmedAt:null,
+  baselineConfirmed:true,
+  action:"Lock presidential/VVIP checklist immediately"
+},
+
+{
+  no:4,
+  sourceOrder:4,
+  country:"Nigeria",
+  president:"TBC / ENTER",
+  liaison:"Mr. Mike Maiyo",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:5,
+  sourceOrder:5,
+  country:"Uganda",
+  president:"TBC / ENTER",
+  liaison:"Mr. Brian Riechi",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:6,
+  sourceOrder:6,
+  country:"Mozambique",
+  president:"TBC / ENTER",
+  liaison:"Ms. Betty Karwitha",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:7,
+  sourceOrder:7,
+  country:"Burundi",
+  president:"TBC / ENTER",
+  liaison:"Mr. Holyfield Wafula",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:8,
+  sourceOrder:8,
+  country:"Benin",
+  president:"TBC / ENTER",
+  liaison:"Mr. Lester Omondi",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:9,
+  sourceOrder:9,
+  country:"DRC",
+  president:"TBC / ENTER",
+  liaison:"Mr. Titus Ngota",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:10,
+  sourceOrder:10,
+  country:"Ghana",
+  president:"TBC / ENTER",
+  liaison:"Mr. Nelson Kanja",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:11,
+  sourceOrder:11,
+  country:"Somalia",
+  president:"TBC / ENTER",
+  liaison:"Mr. Peter Mutui",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:12,
+  sourceOrder:12,
+  country:"South Sudan",
+  president:"TBC / ENTER",
+  liaison:"Ms. Tina Kendi",
+  phone:"TBC / ENTER",
+  status:"CONFIRMED",
+  confirmedAt:null,
+  baselineConfirmed:true,
+  action:"Lock presidential/VVIP checklist immediately"
+},
+
+{
+  no:13,
+  sourceOrder:13,
+  country:"Tanzania",
+  president:"TBC / ENTER",
+  liaison:"Mr. Saidi Omari",
+  phone:"TBC / ENTER",
+  status:"PENDING",
+  confirmedAt:null,
+  baselineConfirmed:false,
+  action:"Maintain daily diplomatic confirmation"
+},
+
+{
+  no:14,
+  sourceOrder:14,
+  country:"Togo",
+  president:"TBC / ENTER",
+  liaison:"Ms. Cynthia Njiru",
+  phone:"TBC / ENTER",
+  status:"CONFIRMED",
+  confirmedAt:null,
+  baselineConfirmed:true,
+  action:"Lock presidential/VVIP checklist immediately"
+}
+
 ];
 
-let data=JSON.parse(localStorage.getItem('lamuV6data')||'null')||baseline;
+let data=[];
+
+
+/* ==========================================================
+   STORAGE
+========================================================== */
+
+const STORAGE={
+  data:"ps_data_sorted_v1",
+  calendar:"ps_calendar_sorted_v1",
+  decisions:"ps_decisions_sorted_v1",
+  footer:"ps_footer_sorted_v1",
+  daily:"ps_daily_sorted_v1",
+  rag:"ps_rag_sorted_v1",
+  economic:"ps_economic_sorted_v1",
+  title:"ps_title_sorted_v1",
+  statusDate:"ps_status_date_sorted_v1",
+  posture:"ps_posture_sorted_v1",
+  dark:"ps_dark_sorted_v1",
+  lastEdit:"ps_last_edit_sorted_v1"
+};
+
+
+/* ==========================================================
+   ESCAPE HTML
+========================================================== */
+
+function escapeHTML(value){
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+/* ==========================================================
+   NEW SORT LOGIC
+
+   Priority:
+   1. Confirmed with real operational timestamp
+      newest timestamp first.
+   2. Baseline confirmed delegations.
+   3. Pending delegations.
+   4. Within equal groups preserve source order.
+========================================================== */
+
+function getSortedData(){
+
+  return [...data].sort((a,b)=>{
+
+    const aConfirmed = a.status === "CONFIRMED";
+    const bConfirmed = b.status === "CONFIRMED";
+
+    /* CONFIRMED always above PENDING */
+    if(aConfirmed && !bConfirmed) return -1;
+    if(!aConfirmed && bConfirmed) return 1;
+
+    /* BOTH CONFIRMED */
+    if(aConfirmed && bConfirmed){
+
+      const aTime = a.confirmedAt
+        ? new Date(a.confirmedAt).getTime()
+        : 0;
+
+      const bTime = b.confirmedAt
+        ? new Date(b.confirmedAt).getTime()
+        : 0;
+
+      /*
+      Real operational confirmations come above
+      baseline confirmations.
+      */
+
+      if(aTime && !bTime) return -1;
+      if(!aTime && bTime) return 1;
+
+      /*
+      Latest confirmation first.
+      */
+
+      if(aTime && bTime && aTime !== bTime){
+        return bTime - aTime;
+      }
+
+      /*
+      Baseline confirmations have no invented time.
+      Preserve source order.
+      */
+
+      return (a.sourceOrder ?? a.no) - (b.sourceOrder ?? b.no);
+    }
+
+    /* BOTH PENDING — preserve source order */
+    return (a.sourceOrder ?? a.no) - (b.sourceOrder ?? b.no);
+
+  });
+
+}
+
+
+/* ==========================================================
+   FORMAT CONFIRMATION TIMESTAMP
+========================================================== */
+
+function formatConfirmationTime(row){
+
+  if(row.status !== "CONFIRMED"){
+    return "";
+  }
+
+  if(!row.confirmedAt){
+    return "SOURCE BASELINE • 23 SEPT 2026";
+  }
+
+  const d = new Date(row.confirmedAt);
+
+  if(Number.isNaN(d.getTime())){
+    return "CONFIRMED";
+  }
+
+  return "CONFIRMED " +
+    d.toLocaleString("en-GB",{
+      day:"2-digit",
+      month:"short",
+      year:"numeric",
+      hour:"2-digit",
+      minute:"2-digit",
+      second:"2-digit",
+      hour12:false
+    }).toUpperCase();
+
+}
+
+
+/* ==========================================================
+   APPLY MODE
+========================================================== */
+
+function applyMode(){
+
+  const body=document.getElementById("body");
+  const badge=document.getElementById("modeBadge");
+  const help=document.getElementById("modeHelp");
+  const footerMode=document.getElementById("footerMode");
+
+  if(EDIT_MODE){
+
+    body.classList.add("edit-mode");
+    body.classList.remove("view-mode");
+
+    badge.innerText="OWNER EDIT MODE";
+    badge.className=
+      "mode-badge px-3 py-1 rounded font-bold bg-green-700 text-white";
+
+    help.innerText=
+      "EDIT MODE • CONFIRMATIONS AUTO-SORT & TIMESTAMP";
+
+    footerMode.innerText=
+      "OWNER EDIT MODE";
+
+  }else{
+
+    body.classList.add("view-mode");
+    body.classList.remove("edit-mode");
+
+    badge.innerText="VIEW ONLY";
+    badge.className=
+      "mode-badge px-3 py-1 rounded font-bold bg-slate-600 text-white";
+
+    help.innerText=
+      "VIEW-ONLY • PRINT PDF AVAILABLE";
+
+    footerMode.innerText=
+      "VIEW-ONLY MODE";
+  }
+
+  document.querySelectorAll("[data-editable='true']")
+    .forEach(el=>{
+      if(EDIT_MODE){
+        el.setAttribute("contenteditable","true");
+      }else{
+        el.removeAttribute("contenteditable");
+      }
+    });
+}
+
+
+/* ==========================================================
+   LOAD
+========================================================== */
+
+function load(){
+
+  try{
+
+    const saved=localStorage.getItem(STORAGE.data);
+
+    data=saved
+      ? JSON.parse(saved)
+      : JSON.parse(JSON.stringify(originalData));
+
+  }catch(error){
+
+    data=JSON.parse(JSON.stringify(originalData));
+
+  }
+
+  /*
+  Migration protection:
+  if an older saved object lacks new fields,
+  add them without changing its substantive data.
+  */
+
+  data.forEach((row,index)=>{
+
+    if(typeof row.sourceOrder === "undefined"){
+      row.sourceOrder=row.no || index+1;
+    }
+
+    if(typeof row.confirmedAt === "undefined"){
+      row.confirmedAt=null;
+    }
+
+    if(typeof row.baselineConfirmed === "undefined"){
+      row.baselineConfirmed=
+        row.status === "CONFIRMED" && !row.confirmedAt;
+    }
+
+  });
+
+  const savedCalendar=localStorage.getItem(STORAGE.calendar);
+  if(savedCalendar){
+    document.getElementById("calendar").innerText=savedCalendar;
+  }
+
+  const savedDecisions=localStorage.getItem(STORAGE.decisions);
+  if(savedDecisions){
+    document.getElementById("decisions").innerHTML=savedDecisions;
+  }
+
+  const savedFooter=localStorage.getItem(STORAGE.footer);
+  if(savedFooter){
+    document.getElementById("footerNote").innerText=savedFooter;
+  }
+
+  const savedDaily=localStorage.getItem(STORAGE.daily);
+  if(savedDaily){
+    document.getElementById("dailyReport").innerHTML=savedDaily;
+  }
+
+  const savedRAG=localStorage.getItem(STORAGE.rag);
+  if(savedRAG){
+    document.getElementById("ragPanel").innerHTML=savedRAG;
+  }
+
+  const savedEconomic=localStorage.getItem(STORAGE.economic);
+  if(savedEconomic){
+    document.getElementById("economicPanel").innerHTML=savedEconomic;
+  }
+
+  const savedTitle=localStorage.getItem(STORAGE.title);
+  if(savedTitle){
+    document.getElementById("mainTitle").innerText=savedTitle;
+  }
+
+  const savedDate=localStorage.getItem(STORAGE.statusDate);
+  if(savedDate){
+    document.getElementById("statusDate").innerText=savedDate;
+  }
+
+  const savedPosture=localStorage.getItem(STORAGE.posture);
+  if(savedPosture){
+    document.getElementById("overallPosture").innerText=savedPosture;
+  }
+
+  const dark=localStorage.getItem(STORAGE.dark);
+  if(dark==="true"){
+    document.documentElement.classList.add("dark");
+  }
+
+  const lastEdit=localStorage.getItem(STORAGE.lastEdit);
+  if(lastEdit){
+    document.getElementById("lastEdit").innerText=lastEdit;
+  }
+
+  applyMode();
+  updateDarkBtn();
+  render();
+  updateCountdown();
+}
+
+
+/* ==========================================================
+   RENDER
+========================================================== */
 
 function render(){
-const sorted=[...data].sort((a,b)=>{
-if(a.s==='CONFIRMED'&&b.s!=='CONFIRMED') return -1;
-if(a.s!=='CONFIRMED'&&b.s==='CONFIRMED') return 1;
-if(a.s==='CONFIRMED'&&b.s==='CONFIRMED') return (b.confirmedAt||0)-(a.confirmedAt||0);
-return 0;
-});
-const el=document.getElementById('tracker');
-el.innerHTML='<table style="width:100%;border-collapse:collapse"><tr style="background:var(--bg);text-align:left"><th style="padding:8px;border:1px solid var(--border)">#</th><th style="padding:8px;border:1px solid var(--border)">COUNTRY / ENTITY</th><th style="padding:8px;border:1px solid var(--border)">STATUS + Time</th><th style="padding:8px;border:1px solid var(--border)">VVIP NAME (Click to Edit)</th><th style="padding:8px;border:1px solid var(--border)">CONTACT (Click to Edit)</th><th class="no-print" style="padding:8px;border:1px solid var(--border)">ACTION</th></tr>'+sorted.map(r=>{
-const real=data.indexOf(r);
-const time=r.confirmedAt?new Date(r.confirmedAt).toLocaleString():'' ;
-return `<tr style="${r.s==='CONFIRMED'?'background:rgba(22,163,74,0.07)':''}"><td style="padding:6px;border:1px solid var(--border)">${sorted.indexOf(r)+1}</td><td style="padding:6px;border:1px solid var(--border);font-weight:bold" contenteditable="true" onblur="upd(${real},'c',this.innerText)">${r.c}</td><td style="padding:6px;border:1px solid var(--border)"><button class="btn ${r.s==='CONFIRMED'?'btn-green':''}" style="${r.s!=='CONFIRMED'?'background:#fef3c7;color:#92400e;border-color:#fde68a':''}" onclick="toggle(${real})">${r.s}</button><div style="font-size:10px!important;color:var(--muted)">${time}</div></td><td style="padding:6px;border:1px solid var(--border)" contenteditable="true" onblur="upd(${real},'name',this.innerText)">${r.name}</td><td style="padding:6px;border:1px solid var(--border)" contenteditable="true" onblur="upd(${real},'contact',this.innerText)">${r.contact}</td><td class="no-print" style="padding:6px;border:1px solid var(--border)"><button class="btn" onclick="rem(${real})">×</button></td></tr>`;
-}).join('')+'</table>';
-localStorage.setItem('lamuV6data',JSON.stringify(data));
-const conf=data.filter(d=>d.s==='CONFIRMED').length;
-document.getElementById('subHeader').innerText=`30 Sept 2026, 10:00HRS — Lamu SEZ, Hindi/Witu | Sh2.2T (USD 17B) | CONFIRMED ${conf} / PENDING ${data.length-conf} | Sorted: Latest CONFIRMED on top | Republic of Congo + DRC are SEPARATE countries`;
-}
-function toggle(i){if(data[i].s==='PENDING'){data[i].s='CONFIRMED';data[i].confirmedAt=Date.now();}else{data[i].s='PENDING';data[i].confirmedAt=null;}render();}
-function upd(i,k,v){data[i][k]=v.trim()||'TBC / ENTER';localStorage.setItem('lamuV6data',JSON.stringify(data));}
-function addCountry(){const c=prompt('Country / Entity:');if(!c)return;data.push({c:c.toUpperCase(),s:'PENDING',name:'TBC / ENTER',contact:'TBC / ENTER',confirmedAt:null});render();}
-function rem(i){if(confirm('Remove this country?')){data.splice(i,1);render();}}
-render();
 
-// VIEW-ONLY LOCK
-const isEdit=new URLSearchParams(location.search).has('edit');
-const info=document.getElementById('modeInfo');
-if(isEdit){info.innerText='EDIT MODE ENABLED (?edit) — Full editing allowed. Save after edits.';info.style.color='green';info.style.fontWeight='bold';}
-else{
-info.innerText='VIEW-ONLY MODE — Add?edit to URL to edit | Print PDF allowed';
-document.addEventListener('DOMContentLoaded',()=>{
-document.querySelectorAll('[contenteditable=true]').forEach(el=>el.removeAttribute('contenteditable'));
-document.querySelectorAll('button').forEach(b=>{
-const t=(b.textContent||'').toLowerCase();
-if(t.includes('add')||t.includes('save')||t.includes('reset')||t==='×') b.style.display='none';
-if(t.includes('confirmed')||t.includes('pending')){b.style.pointerEvents='none';b.style.opacity='0.8';}
-});
-});
+  const tbody=document.getElementById("tableBody");
+
+  tbody.innerHTML="";
+
+  const sortedData=getSortedData();
+
+  sortedData.forEach((row,displayIndex)=>{
+
+    /*
+    Find actual index in master data.
+    We do not mutate source array merely for display sorting.
+    */
+
+    const realIndex=data.indexOf(row);
+
+    const tr=document.createElement("tr");
+
+    const confirmed=row.status==="CONFIRMED";
+
+    if(confirmed){
+      tr.classList.add("confirmed-row");
+    }
+
+    const editAttr=EDIT_MODE
+      ? 'contenteditable="true"'
+      : '';
+
+    const countryBlur=EDIT_MODE
+      ? `onblur="editCell(${realIndex},'country',this.innerText)"`
+      : "";
+
+    const presidentBlur=EDIT_MODE
+      ? `onblur="editCell(${realIndex},'president',this.innerText)"`
+      : "";
+
+    const liaisonBlur=EDIT_MODE
+      ? `onblur="editCell(${realIndex},'liaison',this.innerText)"`
+      : "";
+
+    const phoneBlur=EDIT_MODE
+      ? `onblur="editCell(${realIndex},'phone',this.innerText)"`
+      : "";
+
+    const actionBlur=EDIT_MODE
+      ? `onblur="editCell(${realIndex},'action',this.innerText)"`
+      : "";
+
+    const statusClick=EDIT_MODE
+      ? `onclick="toggleStatus(${realIndex})"`
+      : "";
+
+    const timestampText=
+      formatConfirmationTime(row);
+
+    tr.innerHTML=`
+
+      <td class="p-2 font-bold">
+        ${displayIndex+1}
+      </td>
+
+      <td class="p-2 font-bold"
+        ${editAttr}
+        ${countryBlur}>
+        ${escapeHTML(row.country)}
+      </td>
+
+      <td class="p-2"
+        ${editAttr}
+        ${presidentBlur}>
+        ${escapeHTML(row.president)}
+      </td>
+
+      <td class="p-2"
+        ${editAttr}
+        ${liaisonBlur}>
+        ${escapeHTML(row.liaison)}
+      </td>
+
+      <td class="p-2"
+        ${editAttr}
+        ${phoneBlur}>
+        ${escapeHTML(row.phone)}
+      </td>
+
+      <td class="p-2">
+
+        <span
+          ${statusClick}
+          title="${EDIT_MODE ? 'Click to change status' : ''}"
+          class="status-pill px-2 py-1 rounded-full font-bold ${
+            confirmed
+            ? "bg-green-100 text-green-800"
+            : "bg-amber-100 text-amber-800"
+          }">
+          ${escapeHTML(row.status)}
+        </span>
+
+        ${
+          confirmed
+          ? `<div class="confirmation-time ${
+              row.confirmedAt
+              ? "text-green-700 dark:text-green-400 font-bold"
+              : "text-slate-500 dark:text-slate-400"
+            }">
+              ${escapeHTML(timestampText)}
+             </div>`
+          : ""
+        }
+
+      </td>
+
+      <td class="p-2"
+        ${editAttr}
+        ${actionBlur}>
+        ${escapeHTML(row.action)}
+      </td>
+
+      <td class="owner-only no-print p-2 text-center">
+        <button
+          onclick="delRow(${realIndex})"
+          class="text-red-700 font-bold"
+          title="Delete working row">
+          ✕
+        </button>
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+
+  });
+
+  updateKPI();
 }
+
+
+/* ==========================================================
+   EDIT GUARD
+========================================================== */
+
+function requireEditMode(){
+  return EDIT_MODE;
+}
+
+
+/* ==========================================================
+   EDIT CELL
+========================================================== */
+
+function editCell(index,key,value){
+
+  if(!requireEditMode()) return;
+
+  data[index][key]=value.trim();
+
+  saveAll(false);
+}
+
+
+/* ==========================================================
+   STATUS TOGGLE WITH TIMESTAMP + AUTO-SORT
+
+   PENDING -> CONFIRMED:
+   - timestamp = exact moment clicked
+   - baselineConfirmed = false
+   - moves to top automatically
+
+   CONFIRMED -> PENDING:
+   - timestamp removed
+   - returns to pending group
+========================================================== */
+
+function toggleStatus(index){
+
+  if(!requireEditMode()) return;
+
+  const row=data[index];
+
+  if(row.status==="CONFIRMED"){
+
+    const approved=confirm(
+      `Change ${row.country} from CONFIRMED to PENDING?`
+    );
+
+    if(!approved) return;
+
+    row.status="PENDING";
+    row.confirmedAt=null;
+    row.baselineConfirmed=false;
+    row.action="Maintain daily diplomatic confirmation";
+
+  }else{
+
+    const approved=confirm(
+      `Confirm ${row.country} now?\n\nThis will record the current confirmation timestamp and move the delegation to the top of the CONFIRMED list.`
+    );
+
+    if(!approved) return;
+
+    row.status="CONFIRMED";
+
+    /*
+    ISO timestamp gives reliable chronological sorting.
+    */
+
+    row.confirmedAt=new Date().toISOString();
+
+    row.baselineConfirmed=false;
+
+    row.action="Lock presidential/VVIP checklist immediately";
+  }
+
+  saveAll(false);
+
+  render();
+}
+
+
+/* ==========================================================
+   ADD ROW
+========================================================== */
+
+function addRow(){
+
+  if(!requireEditMode()) return;
+
+  const maxSourceOrder=data.reduce(
+    (max,row)=>Math.max(max,row.sourceOrder || 0),
+    0
+  );
+
+  data.push({
+    no:data.length+1,
+    sourceOrder:maxSourceOrder+1,
+    country:"TBC / ENTER",
+    president:"TBC / ENTER",
+    liaison:"TBC / ENTER",
+    phone:"TBC / ENTER",
+    status:"PENDING",
+    confirmedAt:null,
+    baselineConfirmed:false,
+    action:"Maintain daily diplomatic confirmation"
+  });
+
+  saveAll(false);
+  render();
+}
+
+
+/* ==========================================================
+   DELETE
+========================================================== */
+
+function delRow(index){
+
+  if(!requireEditMode()) return;
+
+  const approved=confirm(
+    "Delete this delegation from the working dashboard? Reset to Source will restore the documentary baseline."
+  );
+
+  if(!approved) return;
+
+  data.splice(index,1);
+
+  data.forEach((row,i)=>{
+    row.no=i+1;
+  });
+
+  saveAll(false);
+  render();
+}
+
+
+/* ==========================================================
+   KPI
+========================================================== */
+
+function updateKPI(){
+
+  const confirmed=data.filter(
+    row=>row.status==="CONFIRMED"
+  ).length;
+
+  const pending=data.filter(
+    row=>row.status==="PENDING"
+  ).length;
+
+  document.getElementById("kpiConfirmed").innerText=
+    confirmed;
+
+  document.getElementById("kpiPending").innerText=
+    pending;
+}
+
+
+/* ==========================================================
+   SAVE
+========================================================== */
+
+function saveAll(showAlert=false){
+
+  if(!requireEditMode()) return;
+
+  localStorage.setItem(
+    STORAGE.data,
+    JSON.stringify(data)
+  );
+
+  localStorage.setItem(
+    STORAGE.calendar,
+    document.getElementById("calendar").innerText
+  );
+
+  localStorage.setItem(
+    STORAGE.decisions,
+    document.getElementById("decisions").innerHTML
+  );
+
+  localStorage.setItem(
+    STORAGE.footer,
+    document.getElementById("footerNote").innerText
+  );
+
+  localStorage.setItem(
+    STORAGE.daily,
+    document.getElementById("dailyReport").innerHTML
+  );
+
+  localStorage.setItem(
+    STORAGE.rag,
+    document.getElementById("ragPanel").innerHTML
+  );
+
+  localStorage.setItem(
+    STORAGE.economic,
+    document.getElementById("economicPanel").innerHTML
+  );
+
+  localStorage.setItem(
+    STORAGE.title,
+    document.getElementById("mainTitle").innerText
+  );
+
+  localStorage.setItem(
+    STORAGE.statusDate,
+    document.getElementById("statusDate").innerText
+  );
+
+  localStorage.setItem(
+    STORAGE.posture,
+    document.getElementById("overallPosture").innerText
+  );
+
+  touch();
+
+  if(showAlert){
+    alert("PS Command Center changes saved.");
+  }
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+function resetAll(){
+
+  if(!requireEditMode()) return;
+
+  const approved=confirm(
+    "RESET TO SOURCE will remove operational changes, confirmation timestamps and added delegations, and restore the 23 September 2026 documentary baseline of 4 CONFIRMED / 10 PENDING. Continue?"
+  );
+
+  if(!approved) return;
+
+  [
+    STORAGE.data,
+    STORAGE.calendar,
+    STORAGE.decisions,
+    STORAGE.footer,
+    STORAGE.daily,
+    STORAGE.rag,
+    STORAGE.economic,
+    STORAGE.title,
+    STORAGE.statusDate,
+    STORAGE.posture,
+    STORAGE.lastEdit
+  ].forEach(key=>{
+    localStorage.removeItem(key);
+  });
+
+  window.location.reload();
+}
+
+
+/* ==========================================================
+   EXPORT CSV
+   Exports current DISPLAY order.
+========================================================== */
+
+function exportCSV(){
+
+  if(!requireEditMode()) return;
+
+  const headers=[
+    "Display Order",
+    "Country",
+    "President / Head",
+    "Liaison Officer",
+    "Mobile Number",
+    "Status",
+    "Confirmed At",
+    "Critical Action"
+  ];
+
+  const sorted=getSortedData();
+
+  const rows=sorted.map((row,index)=>[
+    index+1,
+    row.country,
+    row.president,
+    row.liaison,
+    row.phone,
+    row.status,
+    row.status==="CONFIRMED"
+      ? formatConfirmationTime(row)
+      : "",
+    row.action
+  ]);
+
+  const csv=[headers,...rows]
+    .map(row=>
+      row.map(value=>
+        `"${String(value ?? "").replace(/"/g,'""')}"`
+      ).join(",")
+    )
+    .join("\n");
+
+  const blob=new Blob(
+    [csv],
+    {type:"text/csv;charset=utf-8;"}
+  );
+
+  const url=URL.createObjectURL(blob);
+
+  const link=document.createElement("a");
+
+  link.href=url;
+
+  link.download=
+    "PS_Lamu_Delegation_Tracker_Sorted_30Sept2026.csv";
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  link.remove();
+
+  URL.revokeObjectURL(url);
+}
+
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+function toggleDark(){
+
+  document.documentElement.classList.toggle("dark");
+
+  const isDark=
+    document.documentElement.classList.contains("dark");
+
+  localStorage.setItem(
+    STORAGE.dark,
+    isDark
+  );
+
+  updateDarkBtn();
+}
+
+function updateDarkBtn(){
+
+  const button=document.getElementById("darkBtn");
+
+  if(!button) return;
+
+  const isDark=
+    document.documentElement.classList.contains("dark");
+
+  button.innerText=
+    isDark
+    ? "☀️ LIGHT"
+    : "🌙 DARK";
+}
+
+
+/* ==========================================================
+   LAST EDIT
+========================================================== */
+
+function touch(){
+
+  if(!EDIT_MODE) return;
+
+  const stamp=
+    new Date().toLocaleString("en-GB",{
+      day:"2-digit",
+      month:"short",
+      year:"numeric",
+      hour:"2-digit",
+      minute:"2-digit",
+      second:"2-digit",
+      hour12:false
+    });
+
+  document.getElementById("lastEdit").innerText=
+    stamp;
+
+  localStorage.setItem(
+    STORAGE.lastEdit,
+    stamp
+  );
+}
+
+
+/* ==========================================================
+   HARD CLOSE COUNTDOWN
+========================================================== */
+
+function updateCountdown(){
+
+  const deadline=
+    new Date("2026-09-28T23:59:00+03:00");
+
+  const now=new Date();
+
+  const difference=deadline-now;
+
+  const element=
+    document.getElementById("countdown");
+
+  if(difference<=0){
+
+    element.innerText="HARD CLOSE REACHED";
+
+    return;
+  }
+
+  const days=Math.floor(
+    difference/(1000*60*60*24)
+  );
+
+  const hours=Math.floor(
+    (difference/(1000*60*60))%24
+  );
+
+  const minutes=Math.floor(
+    (difference/(1000*60))%60
+  );
+
+  element.innerText=
+    `${days}D ${hours}H ${minutes}M`;
+}
+
+
+/* ==========================================================
+   AUTOSAVE
+========================================================== */
+
+function activateAutosave(){
+
+  if(!EDIT_MODE) return;
+
+  [
+    "calendar",
+    "decisions",
+    "footerNote",
+    "dailyReport",
+    "ragPanel",
+    "economicPanel",
+    "mainTitle",
+    "statusDate",
+    "overallPosture"
+  ].forEach(id=>{
+
+    const element=
+      document.getElementById(id);
+
+    if(!element) return;
+
+    element.addEventListener(
+      "blur",
+      ()=>saveAll(false)
+    );
+  });
+}
+
+
+/* ==========================================================
+   CTRL/CMD + S
+========================================================== */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      EDIT_MODE &&
+      (event.ctrlKey || event.metaKey) &&
+      event.key.toLowerCase()==="s"
+    ){
+
+      event.preventDefault();
+
+      saveAll(true);
+    }
+  }
+);
+
+
+/* ==========================================================
+   START
+========================================================== */
+
+load();
+
+activateAutosave();
+
+setInterval(
+  updateCountdown,
+  60000
+);
+
 </script>
+
 </body>
 </html>
