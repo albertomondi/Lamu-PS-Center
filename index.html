@@ -45,13 +45,120 @@ body.dark{
   --line:#314057;
 }
 
-button,input,select{
-  font:inherit;
+button,input,select{font:inherit}
+button{cursor:pointer}
+
+/* =========================
+   LOGIN
+========================= */
+
+#loginScreen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at top,#17345d 0,#0A1931 48%,#050d19 100%);
 }
 
-button{
-  cursor:pointer;
+.loginBox{
+  width:100%;
+  max-width:430px;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  border-top:6px solid var(--gold);
+  box-shadow:0 25px 70px #0008;
 }
+
+.loginHeader{
+  background:var(--navy);
+  color:#fff;
+  padding:25px;
+  text-align:center;
+  border-bottom:2px solid var(--gold);
+}
+
+.loginRepublic{
+  color:var(--gold);
+  font-weight:900;
+  letter-spacing:.18em;
+  font-size:11px;
+}
+
+.loginHeader h1{
+  margin:12px 0 5px;
+  font-size:19px;
+}
+
+.loginBody{
+  padding:25px;
+}
+
+.loginLabel{
+  display:block;
+  color:var(--navy);
+  font-weight:900;
+  margin-bottom:7px;
+}
+
+.loginInput{
+  width:100%;
+  padding:12px;
+  border:1px solid #cbd5e1;
+  border-radius:7px;
+  outline:none;
+  font-size:14px;
+}
+
+.loginInput:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px #d4af3725;
+}
+
+.loginButton{
+  width:100%;
+  margin-top:12px;
+  padding:12px;
+  border:0;
+  border-radius:7px;
+  background:var(--navy);
+  color:#fff;
+  font-weight:900;
+}
+
+.loginError{
+  min-height:18px;
+  text-align:center;
+  color:var(--red);
+  font-weight:900;
+  margin-top:10px;
+}
+
+.loginFooter{
+  text-align:center;
+  color:#64748b;
+  font-size:10px;
+  margin-top:14px;
+  letter-spacing:.05em;
+}
+
+#app{
+  display:none;
+}
+
+body.authenticated #loginScreen{
+  display:none;
+}
+
+body.authenticated #app{
+  display:block;
+}
+
+/* =========================
+   GENERAL
+========================= */
 
 .shell{
   max-width:1580px;
@@ -111,10 +218,6 @@ button{
   color:var(--gold);
 }
 
-.mode{
-  background:#334155;
-}
-
 .header h1{
   font-size:18px;
   line-height:1.2;
@@ -165,18 +268,8 @@ body.edit .edit-only{
   display:inline-flex!important;
 }
 
-.view-note{
-  margin-top:8px;
-  color:var(--gold);
-  font-weight:700;
-}
-
-body.edit .view-note{
-  display:none;
-}
-
 /* =========================
-   KPI CARDS
+   KPI
 ========================= */
 
 .kpis{
@@ -186,8 +279,7 @@ body.edit .view-note{
   margin:14px 0;
 }
 
-.kpi,
-.panel{
+.kpi,.panel{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:11px;
@@ -199,13 +291,8 @@ body.edit .view-note{
   border-left:5px solid var(--green);
 }
 
-.kpi.amber{
-  border-left-color:var(--amber);
-}
-
-.kpi.red{
-  border-left-color:var(--red);
-}
+.kpi.amber{border-left-color:var(--amber)}
+.kpi.red{border-left-color:var(--red)}
 
 .klabel{
   font-weight:800;
@@ -219,20 +306,12 @@ body.edit .view-note{
   margin:5px 0;
 }
 
-.green{
-  color:var(--green);
-}
-
-.amberText{
-  color:var(--amber);
-}
-
-.redText{
-  color:var(--red);
-}
+.green{color:var(--green)}
+.amberText{color:var(--amber)}
+.redText{color:var(--red)}
 
 /* =========================
-   SOURCE CONTROL
+   SOURCE
 ========================= */
 
 .source{
@@ -298,12 +377,10 @@ body.edit .view-note{
 }
 
 /* =========================
-   MASTER MATRIX
+   MATRIX
 ========================= */
 
-.tableWrap{
-  overflow:auto;
-}
+.tableWrap{overflow:auto}
 
 table{
   width:100%;
@@ -346,9 +423,7 @@ tbody tr:hover td{
   color:#e4ca70;
 }
 
-.principal{
-  font-weight:900;
-}
+.principal{font-weight:900}
 
 .sub{
   font-size:10px;
@@ -380,20 +455,17 @@ tbody tr:hover td{
   font-weight:900;
 }
 
-.confirmed,
-.done{
+.confirmed,.done,.greenStatus{
   background:#dcfce7;
   color:#08713a;
 }
 
-.pending,
-.tbc,
-.progress{
+.pending,.tbc,.progress,.amberStatus{
   background:#fff1c2;
   color:#9b6300;
 }
 
-.urgent{
+.urgent,.redStatus{
   background:#fee2e2;
   color:#b91c1c;
 }
@@ -414,12 +486,10 @@ tbody tr:hover td{
   padding:2px;
 }
 
-.delete{
-  color:var(--red);
-}
+.delete{color:var(--red)}
 
 /* =========================
-   EXPANDED DETAILS
+   DETAILS
 ========================= */
 
 .details td{
@@ -447,7 +517,7 @@ tbody tr:hover td{
 }
 
 /* =========================
-   OTHER PANELS
+   OTHER
 ========================= */
 
 .two{
@@ -499,64 +569,31 @@ tbody tr:hover td{
   flex-wrap:wrap;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
 @media(max-width:900px){
-
-  .kpis,
-  .two{
-    grid-template-columns:1fr;
-  }
-
-  .rag{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .detailGrid{
-    grid-template-columns:1fr 1fr;
-  }
+  .kpis,.two{grid-template-columns:1fr}
+  .rag{grid-template-columns:1fr 1fr}
+  .detailGrid{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:550px){
-
-  .shell{
-    padding:9px;
-  }
-
-  .header h1{
-    font-size:16px;
-  }
-
-  .rag,
-  .detailGrid{
-    grid-template-columns:1fr;
-  }
-
-  .search{
-    min-width:100%;
-  }
+  .shell{padding:9px}
+  .header h1{font-size:16px}
+  .rag,.detailGrid{grid-template-columns:1fr}
+  .search{min-width:100%}
 }
 
-/* =========================
-   PRINT / PDF
-========================= */
-
 @media print{
+  @page{size:A4 landscape;margin:7mm}
 
-  @page{
-    size:A4 landscape;
-    margin:7mm;
-  }
+  #loginScreen{display:none!important}
+  #app{display:block!important}
 
   body{
     background:#fff!important;
     color:#111!important;
   }
 
-  .no-print,
-  .edit-only{
+  .no-print,.edit-only{
     display:none!important;
   }
 
@@ -575,32 +612,23 @@ tbody tr:hover td{
     grid-template-columns:repeat(3,1fr);
   }
 
-  .panel,
-  .kpi{
+  .panel,.kpi{
     box-shadow:none;
     break-inside:avoid;
   }
 
-  .tableWrap{
-    overflow:visible;
-  }
+  .tableWrap{overflow:visible}
 
   table{
     min-width:0;
     font-size:8px;
   }
 
-  th,
-  td{
-    padding:4px;
-  }
+  th,td{padding:4px}
 
-  .details{
-    display:none!important;
-  }
+  .details{display:none!important}
 
-  .panelHead,
-  th{
+  .panelHead,th{
     -webkit-print-color-adjust:exact;
     print-color-adjust:exact;
   }
@@ -610,7 +638,71 @@ tbody tr:hover td{
 
 <body>
 
+<!-- LOGIN -->
+
+<section id="loginScreen">
+
+<div class="loginBox">
+
+  <div class="loginHeader">
+
+    <div class="loginRepublic">
+      REPUBLIC OF KENYA
+    </div>
+
+    <h1>
+      PS COMMAND CENTER
+    </h1>
+
+    <div>
+      MINISTRY OF FOREIGN AND DIASPORA AFFAIRS
+    </div>
+
+  </div>
+
+  <div class="loginBody">
+
+    <label
+      class="loginLabel"
+      for="passwordInput">
+      SECURE ACCESS
+    </label>
+
+    <input
+      id="passwordInput"
+      class="loginInput"
+      type="password"
+      autocomplete="current-password"
+      placeholder="Enter password">
+
+    <button
+      class="loginButton"
+      onclick="login()">
+      LOGIN
+    </button>
+
+    <div
+      id="loginError"
+      class="loginError">
+    </div>
+
+    <div class="loginFooter">
+      CONFIDENTIAL • AUTHORISED ACCESS ONLY
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- APPLICATION -->
+
+<div id="app">
+
 <header class="header">
+
 <div class="shell">
 
   <div class="eyebrow">
@@ -629,10 +721,6 @@ tbody tr:hover td{
 
     <span class="badge baseline">
       MASTER CONTROL BASELINE — 23 SEPTEMBER 2026
-    </span>
-
-    <span id="modeBadge" class="badge mode">
-      VIEW ONLY
     </span>
 
   </div>
@@ -656,7 +744,9 @@ tbody tr:hover td{
 
   </div>
 
-  <div class="meta" style="margin-top:4px">
+  <div
+    class="meta"
+    style="margin-top:4px">
 
     State Luncheon:
     <b>
@@ -687,6 +777,12 @@ tbody tr:hover td{
     </button>
 
     <button
+      class="btn"
+      onclick="logout()">
+      LOGOUT
+    </button>
+
+    <button
       class="btn edit-only"
       onclick="addRecord()">
       + ADD DELEGATION
@@ -712,20 +808,12 @@ tbody tr:hover td{
 
   </div>
 
-  <div class="view-note">
-    VIEW-ONLY • PRINT PDF AVAILABLE •
-    Use <b>?edit</b> for authorised editing
-  </div>
-
 </div>
+
 </header>
 
 
 <main class="shell">
-
-<!-- ==========================================
-     KPI CARDS
-========================================== -->
 
 <section class="kpis">
 
@@ -801,10 +889,6 @@ tbody tr:hover td{
 </section>
 
 
-<!-- ==========================================
-     MASTER CONTROL
-========================================== -->
-
 <section class="source">
 
   <b>
@@ -819,23 +903,14 @@ tbody tr:hover td{
     The new Master Matrix supplies the working
     VVIP/delegation structure.
 
-    Names, contacts, ADC, Escort of Honour,
-    accommodation, flight details, status,
-    actions and remarks are editable in
-    <b>?edit</b> mode.
-
-    Baseline confirmations do not receive
-    invented timestamps; new confirmations
-    are timestamped automatically.
+    Baseline confirmations do not receive invented
+    timestamps; new confirmations are timestamped
+    automatically.
 
   </div>
 
 </section>
 
-
-<!-- ==========================================
-     MASTER VVIP MATRIX
-========================================== -->
 
 <section class="panel">
 
@@ -848,11 +923,10 @@ tbody tr:hover td{
     </h2>
 
     <div style="font-size:10px;opacity:.8">
-      Master Matrix structure • editable operational working copy
+      Master Matrix structure • controlled operational working copy
     </div>
 
   </div>
-
 
   <div class="filters no-print">
 
@@ -860,14 +934,12 @@ tbody tr:hover td{
       id="search"
       class="field search"
       placeholder="Search country, principal or liaison…"
-      oninput="renderMatrix()"
-    >
+      oninput="renderMatrix()">
 
     <select
       id="catFilter"
       class="field"
-      onchange="renderMatrix()"
-    >
+      onchange="renderMatrix()">
 
       <option value="ALL">
         ALL CATEGORIES
@@ -909,46 +981,16 @@ tbody tr:hover td{
 <tr>
 
   <th>#</th>
-
-  <th>
-    Country / Principal
-  </th>
-
-  <th>
-    Protocol / Liaison Officer
-  </th>
-
-  <th>
-    Contact
-  </th>
-
-  <th>
-    ADC
-  </th>
-
-  <th>
-    Escort of Honour
-  </th>
-
-  <th>
-    Accommodation
-  </th>
-
-  <th>
-    Flight Details
-  </th>
-
-  <th>
-    Status
-  </th>
-
-  <th>
-    Critical Action
-  </th>
-
-  <th class="no-print">
-    Details
-  </th>
+  <th>Country / Principal</th>
+  <th>Protocol / Liaison Officer</th>
+  <th>Contact</th>
+  <th>ADC</th>
+  <th>Escort of Honour</th>
+  <th>Accommodation</th>
+  <th>Flight Details</th>
+  <th>Status</th>
+  <th>Critical Action</th>
+  <th class="no-print">Details</th>
 
 </tr>
 
@@ -963,20 +1005,14 @@ tbody tr:hover td{
 </section>
 
 
-<!-- ==========================================
-     DEADLINES + PS DECISIONS
-========================================== -->
-
 <section class="two">
 
 <div class="panel">
 
   <div class="panelHead">
-
     <h2>
       CRITICAL DEADLINE CALENDAR
     </h2>
-
   </div>
 
   <div
@@ -1006,10 +1042,6 @@ tbody tr:hover td{
 
 </section>
 
-
-<!-- ==========================================
-     READINESS RAG
-========================================== -->
 
 <section class="panel">
 
@@ -1041,10 +1073,6 @@ tbody tr:hover td{
 </section>
 
 
-<!-- ==========================================
-     ECONOMIC DIPLOMACY
-========================================== -->
-
 <section class="panel">
 
 <div class="panelHead">
@@ -1057,77 +1085,15 @@ tbody tr:hover td{
 
 <div class="panelBody">
 
-<div class="rag">
-
-  <div class="ragCard">
-
-    <b>
-      Energy Security & Import Substitution
-    </b>
-
-    Strategic infrastructure framing.
-    Quantified impact remains TBC.
-
+  <div
+    id="economic"
+    class="rag">
   </div>
-
-
-  <div class="ragCard">
-
-    <b>
-      LAPSSET Corridor Anchor
-    </b>
-
-    Position Lamu within logistics,
-    trade and industrial-development linkages.
-
-  </div>
-
-
-  <div class="ragCard">
-
-    <b>
-      FDI & Bankability Signal
-    </b>
-
-    Use high-level participation to support
-    investor conversations and follow-up.
-
-  </div>
-
-
-  <div class="ragCard">
-
-    <b>
-      Regional Integration
-    </b>
-
-    EAC/AfCFTA and cross-border value-chain framing;
-    commitments remain TBC unless cleared.
-
-  </div>
-
-
-  <div class="ragCard">
-
-    <b>
-      Local Content & County Dividends
-    </b>
-
-    Jobs, skills, enterprise and local economic activity;
-    numerical claims remain TBC.
-
-  </div>
-
-</div>
 
 </div>
 
 </section>
 
-
-<!-- ==========================================
-     DAILY PS COMMAND NOTE
-========================================== -->
 
 <section class="panel">
 
@@ -1151,9 +1117,7 @@ tbody tr:hover td{
 
     <div
       id="note1"
-      data-note
-      contenteditable="false">
-      Enter material changes only.
+      data-note>
     </div>
 
   </div>
@@ -1167,9 +1131,7 @@ tbody tr:hover td{
 
     <div
       id="note2"
-      data-note
-      contenteditable="false">
-      Confirmed, pending and newly activated delegations.
+      data-note>
     </div>
 
   </div>
@@ -1183,9 +1145,7 @@ tbody tr:hover td{
 
     <div
       id="note3"
-      data-note
-      contenteditable="false">
-      Identify closure evidence and unresolved dependencies.
+      data-note>
     </div>
 
   </div>
@@ -1199,9 +1159,7 @@ tbody tr:hover td{
 
     <div
       id="note4"
-      data-note
-      contenteditable="false">
-      Decision, owner and deadline.
+      data-note>
     </div>
 
   </div>
@@ -1215,9 +1173,7 @@ tbody tr:hover td{
 
     <div
       id="note5"
-      data-note
-      contenteditable="false">
-      Critical actions and hard deadlines.
+      data-note>
     </div>
 
   </div>
@@ -1244,33 +1200,191 @@ tbody tr:hover td{
 
 </main>
 
+</div>
+
 
 <script>
 
 /* =========================================================
-   APPLICATION SETTINGS
+   SECURITY
 ========================================================= */
 
+const ADMIN_PASSWORD =
+  "PS-Lamu@30Sep#26";
+
+const AUTH_KEY =
+  "LAMU_PS_AUTH_V1";
+
+/*
+  Concealed administrative trigger.
+
+  Browser URL:
+  #*%23%26edit
+
+  Decoded value:
+  *#&edit
+*/
+
+function administrativeAccessRequested(){
+
+  try{
+
+    return decodeURIComponent(
+      window.location.hash.substring(1)
+    ) === "*#&edit";
+
+  }
+
+  catch(e){
+
+    return false;
+
+  }
+
+}
+
+
 const EDIT =
-  new URLSearchParams(location.search).has("edit");
-
-const KEY =
-  "LAMU_PS_MASTER_MATRIX_V8";
-
-const THEME =
-  "LAMU_PS_THEME_V8";
+  administrativeAccessRequested();
 
 
-document.body.classList.toggle("edit",EDIT);
+function login(){
 
-document.getElementById("modeBadge").textContent =
-  EDIT
-  ? "OWNER EDIT MODE"
-  : "VIEW ONLY";
+  const input =
+    document.getElementById(
+      "passwordInput"
+    );
+
+  const error =
+    document.getElementById(
+      "loginError"
+    );
+
+
+  if(
+    input.value === ADMIN_PASSWORD
+  ){
+
+    sessionStorage.setItem(
+      AUTH_KEY,
+      "AUTHORISED"
+    );
+
+
+    document.body
+    .classList
+    .add("authenticated");
+
+
+    if(EDIT){
+
+      document.body
+      .classList
+      .add("edit");
+
+    }
+
+
+    input.value = "";
+
+    error.textContent = "";
+
+    renderAll();
+
+  }
+
+  else{
+
+    error.textContent =
+      "ACCESS DENIED";
+
+    input.value = "";
+
+    input.focus();
+
+  }
+
+}
+
+
+function logout(){
+
+  sessionStorage.removeItem(
+    AUTH_KEY
+  );
+
+
+  document.body
+  .classList
+  .remove(
+    "authenticated",
+    "edit"
+  );
+
+
+  document.getElementById(
+    "passwordInput"
+  ).value = "";
+
+
+  document.getElementById(
+    "loginError"
+  ).textContent = "";
+
+}
+
+
+document
+.getElementById("passwordInput")
+.addEventListener(
+  "keydown",
+  function(e){
+
+    if(e.key === "Enter"){
+
+      login();
+
+    }
+
+  }
+);
+
+
+if(
+  sessionStorage.getItem(
+    AUTH_KEY
+  ) === "AUTHORISED"
+){
+
+  document.body
+  .classList
+  .add("authenticated");
+
+
+  if(EDIT){
+
+    document.body
+    .classList
+    .add("edit");
+
+  }
+
+}
 
 
 /* =========================================================
-   MASTER MATRIX CATEGORIES
+   STORAGE
+========================================================= */
+
+const KEY =
+  "LAMU_PS_MASTER_MATRIX_V9";
+
+const THEME =
+  "LAMU_PS_THEME_V9";
+
+
+/* =========================================================
+   CATEGORIES
 ========================================================= */
 
 const cats = {
@@ -1294,9 +1408,7 @@ const cats = {
 
 
 /* =========================================================
-   MASTER MATRIX BASELINE DATA
-
-   All fields remain editable in ?edit mode.
+   MASTER DATA
 ========================================================= */
 
 const BASE = [
@@ -1590,7 +1702,7 @@ const BASE = [
 
 
 /* =========================================================
-   CRITICAL CALENDAR
+   CALENDAR
 ========================================================= */
 
 const CAL = [
@@ -1624,7 +1736,7 @@ const CAL = [
 
 
 /* =========================================================
-   PS DECISIONS
+   DECISIONS
 ========================================================= */
 
 const DEC = [
@@ -1643,7 +1755,7 @@ const DEC = [
 
 
 /* =========================================================
-   RAG WORKSTREAMS
+   RAG
 ========================================================= */
 
 const RAG = [
@@ -1681,6 +1793,40 @@ const RAG = [
 ];
 
 
+/* =========================================================
+   ECONOMIC DIPLOMACY
+========================================================= */
+
+const ECONOMIC = [
+
+[
+ "Energy Security & Import Substitution",
+ "Strategic infrastructure framing. Quantified impact remains TBC."
+],
+
+[
+ "LAPSSET Corridor Anchor",
+ "Position Lamu within logistics, trade and industrial-development linkages."
+],
+
+[
+ "FDI & Bankability Signal",
+ "Use high-level participation to support investor conversations and follow-up."
+],
+
+[
+ "Regional Integration",
+ "EAC/AfCFTA and cross-border value-chain framing; commitments remain TBC unless cleared."
+],
+
+[
+ "Local Content & County Dividends",
+ "Jobs, skills, enterprise and local economic activity; numerical claims remain TBC."
+]
+
+];
+
+
 const NOTES = [
 
 "Enter material changes only.",
@@ -1697,7 +1843,7 @@ const NOTES = [
 
 
 /* =========================================================
-   STATE MANAGEMENT
+   STATE
 ========================================================= */
 
 function clone(x){
@@ -1721,6 +1867,8 @@ function fresh(){
 
     rag:clone(RAG),
 
+    economic:clone(ECONOMIC),
+
     notes:clone(NOTES),
 
     last:null
@@ -1739,20 +1887,25 @@ function load(){
         localStorage.getItem(KEY)
       );
 
-    return (
+
+    if(
       x &&
       Array.isArray(x.records)
-    )
-    ? x
-    : fresh();
+    ){
+
+      return Object.assign(
+        fresh(),
+        x
+      );
+
+    }
 
   }
 
-  catch(e){
+  catch(e){}
 
-    return fresh();
 
-  }
+  return fresh();
 
 }
 
@@ -1787,23 +1940,48 @@ function esc(v){
 function statusClass(s){
 
   s =
-    (s || "")
+    String(s || "")
     .toUpperCase();
 
-  if(s === "CONFIRMED")
+
+  if(
+    s === "CONFIRMED" ||
+    s === "DONE" ||
+    s === "GREEN"
+  ){
+
     return "confirmed";
 
-  if(s === "DONE")
-    return "done";
+  }
 
-  if(s === "URGENT")
+
+  if(
+    s === "RED" ||
+    s === "URGENT"
+  ){
+
     return "urgent";
 
-  if(s === "IN PROGRESS")
+  }
+
+
+  if(
+    s === "IN PROGRESS"
+  ){
+
     return "progress";
 
-  if(s === "PENDING")
+  }
+
+
+  if(
+    s === "PENDING"
+  ){
+
     return "pending";
+
+  }
+
 
   return "tbc";
 
@@ -1816,16 +1994,26 @@ function stamp(r){
 
     return new Date(
       r.confirmedAt
-    ).toLocaleString("en-GB");
+    )
+    .toLocaleString(
+      "en-GB"
+    );
 
   }
+
 
   return (
     r.status === "CONFIRMED" &&
     r.baseline
   )
-  ? "SOURCE BASELINE — 23 SEPT 2026"
-  : "—";
+
+  ?
+
+  "SOURCE BASELINE — 23 SEPT 2026"
+
+  :
+
+  "—";
 
 }
 
@@ -1834,8 +2022,10 @@ function originalIndex(r){
 
   const i =
     BASE.findIndex(
-      x => x.id === r.id
+      x =>
+      x.id === r.id
     );
+
 
   return i < 0
     ? 99999
@@ -1843,15 +2033,6 @@ function originalIndex(r){
 
 }
 
-
-/* =========================================================
-   SORTING
-
-   Confirmed first.
-   Newly confirmed records use timestamp.
-   Baseline confirmed follow.
-   Pending/TBC follow in baseline order.
-========================================================= */
 
 function sorter(a,b){
 
@@ -1901,10 +2082,6 @@ function sorter(a,b){
 }
 
 
-/* =========================================================
-   EDITABLE CELLS
-========================================================= */
-
 function editable(r,f){
 
   return `
@@ -1920,26 +2097,16 @@ function editable(r,f){
 }
 
 
-/* =========================================================
-   COMPLETENESS INDICATOR
-========================================================= */
-
 function completeness(r){
 
   const f = [
 
     "liaison",
-
     "phone",
-
     "adc",
-
     "escort",
-
     "hotel",
-
     "flight",
-
     "action"
 
   ];
@@ -1948,8 +2115,9 @@ function completeness(r){
   return `${
     f.filter(
       k =>
-      String(r[k] || "")
-      .trim()
+      String(
+        r[k] || ""
+      ).trim()
     ).length
   }/7`;
 
@@ -2009,7 +2177,7 @@ function statusCtl(r){
 
 
 /* =========================================================
-   RENDER MASTER MATRIX
+   MATRIX
 ========================================================= */
 
 function renderMatrix(){
@@ -2057,294 +2225,316 @@ function renderMatrix(){
 
 
   Object.keys(cats)
-  .forEach(cat => {
+  .forEach(
+    cat => {
 
-    const group =
-      pool
-      .filter(
-        r => r.cat === cat
-      )
-      .sort(sorter);
-
-
-    if(!group.length)
-      return;
+      const group =
+        pool
+        .filter(
+          r =>
+          r.cat === cat
+        )
+        .sort(sorter);
 
 
-    html += `
-      <tr class="category">
-
-        <td colspan="11">
-          ${esc(cats[cat])}
-        </td>
-
-      </tr>
-    `;
-
-
-    group.forEach(
-      (r,i) => {
-
-      const tel =
-        String(r.phone || "")
-        .replace(/[^\d+]/g,"");
+      if(!group.length)
+        return;
 
 
       html += `
-      <tr>
+        <tr class="category">
 
-        <td>
-          <b>${i+1}</b>
-        </td>
+          <td colspan="11">
+            ${esc(cats[cat])}
+          </td>
 
-
-        <td>
-
-          <div class="principal">
-            ${editable(r,"country")}
-          </div>
-
-          ${editable(r,"principal")}
-
-          <div class="sub">
-            ${editable(r,"title")}
-          </div>
-
-        </td>
-
-
-        <td>
-          ${editable(r,"liaison")}
-        </td>
-
-
-        <td>
-
-          ${editable(r,"phone")}
-
-          ${
-            tel
-            ?
-            `
-            <div class="sub no-print">
-              <a href="tel:${esc(tel)}">
-                CALL
-              </a>
-            </div>
-            `
-            :
-            ""
-          }
-
-        </td>
-
-
-        <td>
-          ${editable(r,"adc")}
-        </td>
-
-
-        <td>
-          ${editable(r,"escort")}
-        </td>
-
-
-        <td>
-          ${editable(r,"hotel")}
-        </td>
-
-
-        <td>
-          ${editable(r,"flight")}
-        </td>
-
-
-        <td>
-
-          ${statusCtl(r)}
-
-          <div class="sub">
-            ${esc(stamp(r))}
-          </div>
-
-        </td>
-
-
-        <td>
-
-          ${editable(r,"action")}
-
-          <div class="sub green">
-            <b>
-              DATA ${completeness(r)} COMPLETE
-            </b>
-          </div>
-
-        </td>
-
-
-        <td class="no-print">
-
-          <button
-            class="smallbtn"
-            onclick="toggleDetails('${r.id}')">
-
-            ${
-              opened.has(r.id)
-              ? "CLOSE ▲"
-              : "DETAILS ▼"
-            }
-
-          </button>
-
-
-          ${
-            EDIT
-            ?
-            `
-            <br>
-
-            <button
-              class="smallbtn delete"
-              onclick="removeRecord('${r.id}')">
-              DELETE
-            </button>
-            `
-            :
-            ""
-          }
-
-        </td>
-
-      </tr>
+        </tr>
       `;
 
 
-      if(opened.has(r.id)){
+      group.forEach(
+        (r,i) => {
 
-        html += `
-        <tr class="details">
-
-        <td colspan="11">
-
-        <div class="detailGrid">
-
-
-          <div class="detailBox">
-
-            <label>
-              Remarks / Protocol Notes
-            </label>
-
-            ${editable(r,"remarks")}
-
-          </div>
+          const tel =
+            String(r.phone || "")
+            .replace(
+              /[^\d+]/g,
+              ""
+            );
 
 
-          <div class="detailBox">
+          html += `
+          <tr>
 
-            <label>
-              Confirmation Record
-            </label>
-
-            <b>
-              ${esc(stamp(r))}
-            </b>
-
-          </div>
+            <td>
+              <b>${i+1}</b>
+            </td>
 
 
-          <div class="detailBox">
+            <td>
 
-            <label>
-              Operational Data Completeness
-            </label>
+              <div class="principal">
+                ${editable(r,"country")}
+              </div>
 
-            <b>
-              ${completeness(r)}
-            </b>
+              ${editable(r,"principal")}
 
-            <div class="sub">
-              Mechanical completeness only;
-              not a readiness determination.
-            </div>
+              <div class="sub">
+                ${editable(r,"title")}
+              </div>
 
-          </div>
+            </td>
 
 
-          <div class="detailBox">
-
-            <label>
-              Category
-            </label>
+            <td>
+              ${editable(r,"liaison")}
+            </td>
 
 
-            ${
-              EDIT
-              ?
-              `
-              <select
-                class="statusSelect"
-                data-cat="${r.id}">
+            <td>
+
+              ${editable(r,"phone")}
+
+              ${
+                tel
+                ?
+                `
+                <div class="sub no-print">
+
+                  <a
+                    href="tel:${esc(tel)}">
+                    CALL
+                  </a>
+
+                </div>
+                `
+                :
+                ""
+              }
+
+            </td>
+
+
+            <td>
+              ${editable(r,"adc")}
+            </td>
+
+
+            <td>
+              ${editable(r,"escort")}
+            </td>
+
+
+            <td>
+              ${editable(r,"hotel")}
+            </td>
+
+
+            <td>
+              ${editable(r,"flight")}
+            </td>
+
+
+            <td>
+
+              ${statusCtl(r)}
+
+              <div class="sub">
+                ${esc(stamp(r))}
+              </div>
+
+            </td>
+
+
+            <td>
+
+              ${editable(r,"action")}
+
+              <div class="sub green">
+
+                <b>
+                  DATA ${completeness(r)} COMPLETE
+                </b>
+
+              </div>
+
+            </td>
+
+
+            <td class="no-print">
+
+              <button
+                class="smallbtn"
+                onclick="toggleDetails('${r.id}')">
 
                 ${
-                  Object.keys(cats)
-                  .map(
-                    c =>
-                    `
-                    <option
-                      value="${c}"
-                      ${r.cat === c ? "selected" : ""}>
-
-                      ${c} —
-                      ${
-                        esc(
-                          cats[c]
-                          .replace(
-                            /^[A-E]\.\s*/,
-                            ""
-                          )
-                        )
-                      }
-
-                    </option>
-                    `
-                  )
-                  .join("")
+                  opened.has(r.id)
+                  ? "CLOSE ▲"
+                  : "DETAILS ▼"
                 }
 
-              </select>
-              `
-              :
-              esc(cats[r.cat])
-            }
-
-          </div>
+              </button>
 
 
-        </div>
+              ${
+                EDIT
+                ?
+                `
+                <br>
 
-        </td>
+                <button
+                  class="smallbtn delete"
+                  onclick="removeRecord('${r.id}')">
+                  DELETE
+                </button>
+                `
+                :
+                ""
+              }
 
-        </tr>
-        `;
+            </td>
 
-      }
+          </tr>
+          `;
 
-    });
 
-  });
+          if(
+            opened.has(r.id)
+          ){
+
+            html += `
+            <tr class="details">
+
+            <td colspan="11">
+
+            <div class="detailGrid">
+
+
+              <div class="detailBox">
+
+                <label>
+                  Remarks / Protocol Notes
+                </label>
+
+                ${editable(r,"remarks")}
+
+              </div>
+
+
+              <div class="detailBox">
+
+                <label>
+                  Confirmation Record
+                </label>
+
+                <b>
+                  ${esc(stamp(r))}
+                </b>
+
+              </div>
+
+
+              <div class="detailBox">
+
+                <label>
+                  Operational Data Completeness
+                </label>
+
+                <b>
+                  ${completeness(r)}
+                </b>
+
+                <div class="sub">
+
+                  Mechanical completeness only;
+                  not a readiness determination.
+
+                </div>
+
+              </div>
+
+
+              <div class="detailBox">
+
+                <label>
+                  Category
+                </label>
+
+
+                ${
+                  EDIT
+                  ?
+                  `
+                  <select
+                    class="statusSelect"
+                    data-cat="${r.id}">
+
+                    ${
+                      Object.keys(cats)
+                      .map(
+                        c =>
+                        `
+                        <option
+                          value="${c}"
+                          ${r.cat === c ? "selected" : ""}>
+
+                          ${c} —
+                          ${
+                            esc(
+                              cats[c]
+                              .replace(
+                                /^[A-E]\.\s*/,
+                                ""
+                              )
+                            )
+                          }
+
+                        </option>
+                        `
+                      )
+                      .join("")
+                    }
+
+                  </select>
+                  `
+                  :
+                  esc(cats[r.cat])
+                }
+
+              </div>
+
+
+            </div>
+
+            </td>
+
+            </tr>
+            `;
+
+          }
+
+        }
+
+      );
+
+    }
+
+  );
 
 
   document
   .getElementById("matrix")
   .innerHTML =
+
     html ||
+
     `
     <tr>
+
       <td colspan="11">
         No matching records.
       </td>
+
     </tr>
     `;
 
@@ -2357,7 +2547,7 @@ function renderMatrix(){
 
 
 /* =========================================================
-   BIND EDIT CONTROLS
+   MATRIX EDITING
 ========================================================= */
 
 function bindMatrix(){
@@ -2379,25 +2569,26 @@ function bindMatrix(){
           state.records
           .find(
             x =>
-            x.id === el.dataset.id
+            x.id ===
+            el.dataset.id
           );
 
 
-        if(r){
-
-          r[
-            el.dataset.field
-          ] =
-          el.innerText.trim();
+        if(!r)
+          return;
 
 
-          touch();
+        r[
+          el.dataset.field
+        ] =
+        el.innerText.trim();
 
-          save(false);
 
-          renderMatrix();
+        touch();
 
-        }
+        save(false);
+
+        renderMatrix();
 
       };
 
@@ -2418,7 +2609,8 @@ function bindMatrix(){
           state.records
           .find(
             x =>
-            x.id === el.dataset.status
+            x.id ===
+            el.dataset.status
           );
 
 
@@ -2450,7 +2642,8 @@ function bindMatrix(){
 
 
         if(
-          r.status !== "CONFIRMED"
+          r.status !==
+          "CONFIRMED"
         ){
 
           r.confirmedAt =
@@ -2487,7 +2680,8 @@ function bindMatrix(){
           state.records
           .find(
             x =>
-            x.id === el.dataset.cat
+            x.id ===
+            el.dataset.cat
           );
 
 
@@ -2513,7 +2707,7 @@ function bindMatrix(){
 
 
 /* =========================================================
-   AUXILIARY SECTIONS
+   AUXILIARY CONTENT
 ========================================================= */
 
 function renderAux(){
@@ -2532,8 +2726,13 @@ function renderAux(){
 
         <div>
 
-          <b>
+          <b
+            class="editable"
+            ${EDIT ? 'contenteditable="true"' : ''}
+            data-cal-title="${i}">
+
             ${esc(x[0])}
+
           </b>
 
           <div
@@ -2594,24 +2793,105 @@ function renderAux(){
 
     state.rag
     .map(
-      x =>
+      (x,i) =>
       `
       <div class="ragCard">
 
-        <b>
+        <b
+          class="editable"
+          ${EDIT ? 'contenteditable="true"' : ''}
+          data-rag-name="${i}">
+
           ${esc(x[0])}
+
         </b>
 
-        <span
-          class="status ${statusClass(x[1])}">
 
-          ${esc(x[1])}
+        ${
+          EDIT
+          ?
+          `
+          <select
+            class="statusSelect"
+            data-rag-status="${i}">
 
-        </span>
+            ${
+              [
+                "GREEN",
+                "AMBER",
+                "RED",
+                "DONE",
+                "IN PROGRESS",
+                "PENDING",
+                "URGENT"
+              ]
 
-        <div style="margin-top:6px">
+              .map(
+                s =>
+                `
+                <option
+                  ${x[1] === s ? "selected" : ""}>
+                  ${s}
+                </option>
+                `
+              )
+
+              .join("")
+            }
+
+          </select>
+          `
+          :
+          `
+          <span
+            class="status ${statusClass(x[1])}">
+            ${esc(x[1])}
+          </span>
+          `
+        }
+
+
+        <div
+          class="editable"
+          style="margin-top:6px"
+          ${EDIT ? 'contenteditable="true"' : ''}
+          data-rag-text="${i}">
 
           ${esc(x[2])}
+
+        </div>
+
+      </div>
+      `
+    )
+    .join("");
+
+
+  document
+  .getElementById("economic")
+  .innerHTML =
+
+    state.economic
+    .map(
+      (x,i) =>
+      `
+      <div class="ragCard">
+
+        <b
+          class="editable"
+          ${EDIT ? 'contenteditable="true"' : ''}
+          data-econ-title="${i}">
+
+          ${esc(x[0])}
+
+        </b>
+
+        <div
+          class="editable"
+          ${EDIT ? 'contenteditable="true"' : ''}
+          data-econ-text="${i}">
+
+          ${esc(x[1])}
 
         </div>
 
@@ -2642,12 +2922,11 @@ function renderAux(){
         : "false";
 
 
-      if(EDIT){
-
-        el.classList
-        .add("editable");
-
-      }
+      el.classList
+      .toggle(
+        "editable",
+        EDIT
+      );
 
     }
   );
@@ -2669,6 +2948,29 @@ function renderAux(){
           ][1] =
           el.innerText.trim();
 
+          touch();
+
+          save(false);
+
+        };
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-cal-title]"
+    )
+    .forEach(
+      el => {
+
+        el.onblur = () => {
+
+          state.calendar[
+            +el.dataset.calTitle
+          ][0] =
+          el.innerText.trim();
 
           touch();
 
@@ -2694,6 +2996,127 @@ function renderAux(){
           ] =
           el.innerText.trim();
 
+          touch();
+
+          save(false);
+
+        };
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-rag-name]"
+    )
+    .forEach(
+      el => {
+
+        el.onblur = () => {
+
+          state.rag[
+            +el.dataset.ragName
+          ][0] =
+          el.innerText.trim();
+
+          touch();
+
+          save(false);
+
+        };
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-rag-text]"
+    )
+    .forEach(
+      el => {
+
+        el.onblur = () => {
+
+          state.rag[
+            +el.dataset.ragText
+          ][2] =
+          el.innerText.trim();
+
+          touch();
+
+          save(false);
+
+        };
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-rag-status]"
+    )
+    .forEach(
+      el => {
+
+        el.onchange = () => {
+
+          state.rag[
+            +el.dataset.ragStatus
+          ][1] =
+          el.value;
+
+          touch();
+
+          save(false);
+
+          renderAux();
+
+        };
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-econ-title]"
+    )
+    .forEach(
+      el => {
+
+        el.onblur = () => {
+
+          state.economic[
+            +el.dataset.econTitle
+          ][0] =
+          el.innerText.trim();
+
+          touch();
+
+          save(false);
+
+        };
+
+      }
+    );
+
+
+    document
+    .querySelectorAll(
+      "[data-econ-text]"
+    )
+    .forEach(
+      el => {
+
+        el.onblur = () => {
+
+          state.economic[
+            +el.dataset.econText
+          ][1] =
+          el.innerText.trim();
 
           touch();
 
@@ -2717,7 +3140,6 @@ function renderAux(){
           state.notes[i] =
             el.innerText.trim();
 
-
           touch();
 
           save(false);
@@ -2731,7 +3153,9 @@ function renderAux(){
 
 
   document
-  .getElementById("lastEdit")
+  .getElementById(
+    "lastEdit"
+  )
   .textContent =
 
     state.last
@@ -2742,7 +3166,9 @@ function renderAux(){
       new Date(
         state.last
       )
-      .toLocaleString("en-GB")
+      .toLocaleString(
+        "en-GB"
+      )
     }`
 
     :
@@ -2753,16 +3179,10 @@ function renderAux(){
 
 
 /* =========================================================
-   KPI COUNTS
+   KPIs
 ========================================================= */
 
 function updateKPIs(){
-
-  /*
-     The strategic private-sector VIP
-     entry is excluded from the
-     presidential KPI.
-  */
 
   const sovereign =
     state.records
@@ -2774,25 +3194,31 @@ function updateKPIs(){
 
 
   document
-  .getElementById("kConfirmed")
+  .getElementById(
+    "kConfirmed"
+  )
   .textContent =
 
     sovereign
     .filter(
       r =>
-      r.status === "CONFIRMED"
+      r.status ===
+      "CONFIRMED"
     )
     .length;
 
 
   document
-  .getElementById("kPending")
+  .getElementById(
+    "kPending"
+  )
   .textContent =
 
     sovereign
     .filter(
       r =>
-      r.status !== "CONFIRMED"
+      r.status !==
+      "CONFIRMED"
     )
     .length;
 
@@ -2805,9 +3231,7 @@ function updateKPIs(){
 
 function toggleDetails(id){
 
-  if(
-    opened.has(id)
-  ){
+  if(opened.has(id)){
 
     opened.delete(id);
 
@@ -2861,7 +3285,7 @@ function save(alertUser){
 
 
 /* =========================================================
-   ADD RECORD
+   ADD
 ========================================================= */
 
 function addRecord(){
@@ -2915,7 +3339,6 @@ function addRecord(){
 
   opened.add(id);
 
-
   touch();
 
   save(false);
@@ -2926,7 +3349,7 @@ function addRecord(){
 
 
 /* =========================================================
-   DELETE RECORD
+   DELETE
 ========================================================= */
 
 function removeRecord(id){
@@ -2934,7 +3357,7 @@ function removeRecord(id){
   if(
     EDIT &&
     confirm(
-      "Delete this record from the working copy? Reset to Master will restore baseline records."
+      "Delete this record from the working copy?"
     )
   ){
 
@@ -2948,7 +3371,6 @@ function removeRecord(id){
 
     opened.delete(id);
 
-
     touch();
 
     save(false);
@@ -2961,7 +3383,7 @@ function removeRecord(id){
 
 
 /* =========================================================
-   RESET TO MASTER
+   RESET
 ========================================================= */
 
 function resetMaster(){
@@ -2972,12 +3394,6 @@ function resetMaster(){
       "Reset all locally saved changes to the Master Matrix baseline?"
     )
   ){
-
-    /*
-      Important:
-      only this application's
-      localStorage key is removed.
-    */
 
     localStorage.removeItem(
       KEY
@@ -2999,7 +3415,7 @@ function resetMaster(){
 
 
 /* =========================================================
-   CSV EXPORT
+   CSV
 ========================================================= */
 
 function exportCSV(){
@@ -3177,9 +3593,9 @@ function toggleTheme(){
 
 
 if(
-  localStorage.getItem(THEME)
-  ===
-  "dark"
+  localStorage.getItem(
+    THEME
+  ) === "dark"
 ){
 
   document.body
@@ -3190,7 +3606,7 @@ if(
 
 
 /* =========================================================
-   HARD CLOSE COUNTDOWN
+   COUNTDOWN
 ========================================================= */
 
 function countdown(){
@@ -3277,7 +3693,7 @@ function renderAll(){
 
 
 /* =========================================================
-   CTRL+S / CMD+S
+   KEYBOARD SAVE
 ========================================================= */
 
 document
@@ -3293,8 +3709,7 @@ document
       )
       &&
       e.key.toLowerCase()
-      ===
-      "s"
+      === "s"
     ){
 
       e.preventDefault();
@@ -3310,7 +3725,7 @@ document
 
 
 /* =========================================================
-   START APPLICATION
+   START
 ========================================================= */
 
 setInterval(
@@ -3322,65 +3737,6 @@ setInterval(
 renderAll();
 
 </script>
-
-
-<!--
-
-=========================================================
-OPTIONAL EDIT-MODE ACCESS PROMPT
-=========================================================
-
-IMPORTANT:
-This is only a browser-side UI deterrent.
-It is NOT secure authentication.
-
-For confidential operational use,
-use proper private hosting / access controls.
-
-To activate this simple prompt,
-remove the opening and closing comment markers.
-
-<script>
-
-if(
-  new URLSearchParams(
-    location.search
-  )
-  .has("edit")
-){
-
-  const CODE =
-    "LAMU2026";
-
-
-  if(
-    prompt(
-      "Enter PS Access Code:"
-    )
-    !==
-    CODE
-  ){
-
-    document.body.innerHTML =
-    `
-      <h1 style="
-        font-family:Tahoma;
-        text-align:center;
-        margin-top:20%;
-        color:#0A1931;
-      ">
-        ACCESS DENIED
-      </h1>
-    `;
-
-  }
-
-}
-
-</script>
-
--->
-
 
 </body>
 </html>
