@@ -1,19 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta name="robots" content="noindex,nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 
 <title>PS Command Center | Lamu Oil Refinery Groundbreaking</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-
 <style>
 :root{
-  --navy:#0A1931;
+  --navy:#071a38;
+  --navy2:#0b2b55;
   --gold:#D4AF37;
+  --gold2:#f0c747;
   --red:#B91C1C;
   --green:#15803D;
   --amber:#D97706;
@@ -27,123 +26,226 @@
 
 *{
   box-sizing:border-box;
-  font-family:Tahoma,Geneva,sans-serif!important;
+  font-family:Tahoma,Geneva,sans-serif;
 }
 
 html,body{
   margin:0;
+  min-height:100%;
   font-size:12px;
   background:var(--bg);
   color:var(--ink);
 }
 
-body.dark{
-  --bg:#07111f;
-  --card:#101c2c;
-  --soft:#152338;
-  --ink:#eef3f8;
-  --muted:#a9b4c2;
-  --line:#314057;
+button,input,select{
+  font:inherit;
 }
 
-button,input,select{font:inherit}
-button{cursor:pointer}
+button{
+  cursor:pointer;
+}
 
-/* =========================
-   LOGIN
-========================= */
+/* =========================================================
+   LANDING / LOGIN PAGE
+========================================================= */
 
 #loginScreen{
   min-height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:
+    max(55px,8vh)
+    18px
+    80px;
+
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      #164f8c 0%,
+      #0c3769 20%,
+      #07294f 42%,
+      #051d39 67%,
+      #031426 100%
+    );
+
+  color:#fff;
+}
+
+.loginPage{
+  width:100%;
+  max-width:720px;
+  text-align:center;
+}
+
+/* MFA365 LOGO */
+
+.loginLogo{
+  display:block;
+  width:190px;
+  height:190px;
+  object-fit:contain;
+  margin:0 auto 16px;
+  filter:
+    drop-shadow(0 5px 10px rgba(0,0,0,.35))
+    drop-shadow(0 0 10px rgba(212,175,55,.15));
+}
+
+/* TITLE */
+
+.commandTitle{
+  margin:0;
+  color:#fff;
+  font-size:39px;
+  line-height:1.1;
+  font-weight:800;
+  letter-spacing:.015em;
+  text-shadow:0 2px 5px rgba(0,0,0,.3);
+}
+
+.eventTitle{
+  margin-top:18px;
+  color:var(--gold2);
+  font-size:25px;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:.01em;
+}
+
+.eventDate{
+  margin-top:5px;
+  color:var(--gold2);
+  font-size:23px;
+  line-height:1.2;
+  font-weight:900;
+}
+
+/* LOGIN CARD */
+
+.loginCard{
+  margin:28px auto 0;
+  width:100%;
+  overflow:hidden;
+  border-radius:27px;
+  background:#fff;
+  border-top:10px solid var(--gold2);
+  box-shadow:
+    0 22px 65px rgba(0,0,0,.30),
+    0 4px 12px rgba(0,0,0,.18);
+}
+
+.loginMinistry{
+  min-height:145px;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:20px;
+  padding:28px 25px;
+
   background:
-    radial-gradient(circle at top,#17345d 0,#0A1931 48%,#050d19 100%);
-}
+    linear-gradient(
+      135deg,
+      #082044 0%,
+      #071a38 48%,
+      #0a2c55 100%
+    );
 
-.loginBox{
-  width:100%;
-  max-width:430px;
-  background:#fff;
-  border-radius:14px;
-  overflow:hidden;
-  border-top:6px solid var(--gold);
-  box-shadow:0 25px 70px #0008;
-}
-
-.loginHeader{
-  background:var(--navy);
   color:#fff;
-  padding:25px;
-  text-align:center;
-  border-bottom:2px solid var(--gold);
-}
-
-.loginRepublic{
-  color:var(--gold);
-  font-weight:900;
-  letter-spacing:.18em;
-  font-size:11px;
-}
-
-.loginHeader h1{
-  margin:12px 0 5px;
-  font-size:19px;
+  font-size:22px;
+  line-height:1.25;
+  font-weight:800;
+  border-bottom:6px solid var(--gold2);
 }
 
 .loginBody{
-  padding:25px;
+  background:#fff;
+  color:var(--navy);
+  text-align:left;
+  padding:44px 48px 46px;
 }
 
-.loginLabel{
-  display:block;
-  color:var(--navy);
+.accessTitle{
+  font-size:20px;
   font-weight:900;
-  margin-bottom:7px;
+  margin-bottom:21px;
 }
 
 .loginInput{
+  display:block;
   width:100%;
-  padding:12px;
-  border:1px solid #cbd5e1;
-  border-radius:7px;
+  height:88px;
+  border:2px solid #d5dbe3;
+  border-radius:13px;
+  padding:0 24px;
+  color:#17233a;
+  background:#fff;
   outline:none;
-  font-size:14px;
+  font-size:21px;
+  transition:
+    border-color .2s,
+    box-shadow .2s;
+}
+
+.loginInput::placeholder{
+  color:#9ca3af;
 }
 
 .loginInput:focus{
   border-color:var(--gold);
-  box-shadow:0 0 0 3px #d4af3725;
+  box-shadow:
+    0 0 0 4px rgba(212,175,55,.13);
 }
 
 .loginButton{
+  display:block;
   width:100%;
-  margin-top:12px;
-  padding:12px;
+  height:82px;
+  margin-top:22px;
   border:0;
-  border-radius:7px;
-  background:var(--navy);
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #061a38,
+      #082b55
+    );
+
   color:#fff;
+  font-size:20px;
   font-weight:900;
+  letter-spacing:.02em;
+  box-shadow:0 4px 9px rgba(0,0,0,.12);
+}
+
+.loginButton:hover{
+  filter:brightness(1.08);
+}
+
+.loginButton:active{
+  transform:translateY(1px);
 }
 
 .loginError{
-  min-height:18px;
+  min-height:23px;
+  margin-top:13px;
   text-align:center;
   color:var(--red);
   font-weight:900;
-  margin-top:10px;
+  font-size:13px;
 }
 
-.loginFooter{
+.securityNotice{
+  margin-top:33px;
   text-align:center;
-  color:#64748b;
-  font-size:10px;
-  margin-top:14px;
-  letter-spacing:.05em;
+  color:#738096;
+  font-size:15px;
+  letter-spacing:.055em;
 }
+
+/* =========================================================
+   APPLICATION
+========================================================= */
 
 #app{
   display:none;
@@ -157,9 +259,14 @@ body.authenticated #app{
   display:block;
 }
 
-/* =========================
-   GENERAL
-========================= */
+body.dark{
+  --bg:#07111f;
+  --card:#101c2c;
+  --soft:#152338;
+  --ink:#eef3f8;
+  --muted:#a9b4c2;
+  --line:#314057;
+}
 
 .shell{
   max-width:1580px;
@@ -167,12 +274,12 @@ body.authenticated #app{
   padding:14px;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* =========================================================
+   DASHBOARD HEADER
+========================================================= */
 
 .header{
-  background:var(--navy);
+  background:#0A1931;
   color:#fff;
   border-top:5px solid var(--gold);
   border-bottom:4px solid var(--gold);
@@ -246,7 +353,7 @@ body.authenticated #app{
   border-radius:7px;
   padding:8px 11px;
   background:#fff;
-  color:var(--navy);
+  color:#0A1931;
   font-weight:800;
 }
 
@@ -269,9 +376,9 @@ body.edit .edit-only{
   display:inline-flex!important;
 }
 
-/* =========================
+/* =========================================================
    KPI
-========================= */
+========================================================= */
 
 .kpis{
   display:grid;
@@ -280,7 +387,8 @@ body.edit .edit-only{
   margin:14px 0;
 }
 
-.kpi,.panel{
+.kpi,
+.panel{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:11px;
@@ -292,8 +400,13 @@ body.edit .edit-only{
   border-left:5px solid var(--green);
 }
 
-.kpi.amber{border-left-color:var(--amber)}
-.kpi.red{border-left-color:var(--red)}
+.kpi.amber{
+  border-left-color:var(--amber);
+}
+
+.kpi.red{
+  border-left-color:var(--red);
+}
 
 .klabel{
   font-weight:800;
@@ -307,13 +420,21 @@ body.edit .edit-only{
   margin:5px 0;
 }
 
-.green{color:var(--green)}
-.amberText{color:var(--amber)}
-.redText{color:var(--red)}
+.green{
+  color:var(--green);
+}
 
-/* =========================
-   SOURCE
-========================= */
+.amberText{
+  color:var(--amber);
+}
+
+.redText{
+  color:var(--red);
+}
+
+/* =========================================================
+   SOURCE CONTROL
+========================================================= */
 
 .source{
   padding:13px 15px;
@@ -327,9 +448,9 @@ body.edit .edit-only{
   background:var(--card);
 }
 
-/* =========================
+/* =========================================================
    PANELS
-========================= */
+========================================================= */
 
 .panel{
   margin:11px 0;
@@ -338,7 +459,7 @@ body.edit .edit-only{
 
 .panelHead{
   padding:11px 14px;
-  background:var(--navy);
+  background:#0A1931;
   color:#fff;
   display:flex;
   justify-content:space-between;
@@ -377,11 +498,13 @@ body.edit .edit-only{
   min-width:240px;
 }
 
-/* =========================
-   MATRIX
-========================= */
+/* =========================================================
+   TABLE
+========================================================= */
 
-.tableWrap{overflow:auto}
+.tableWrap{
+  overflow:auto;
+}
 
 table{
   width:100%;
@@ -424,7 +547,9 @@ tbody tr:hover td{
   color:#e4ca70;
 }
 
-.principal{font-weight:900}
+.principal{
+  font-weight:900;
+}
 
 .sub{
   font-size:10px;
@@ -444,9 +569,9 @@ tbody tr:hover td{
   background:#202c3a;
 }
 
-/* =========================
+/* =========================================================
    STATUS
-========================= */
+========================================================= */
 
 .status{
   display:inline-block;
@@ -456,17 +581,20 @@ tbody tr:hover td{
   font-weight:900;
 }
 
-.confirmed,.done,.greenStatus{
+.confirmed,
+.done{
   background:#dcfce7;
   color:#08713a;
 }
 
-.pending,.tbc,.progress,.amberStatus{
+.pending,
+.tbc,
+.progress{
   background:#fff1c2;
   color:#9b6300;
 }
 
-.urgent,.redStatus{
+.urgent{
   background:#fee2e2;
   color:#b91c1c;
 }
@@ -487,11 +615,13 @@ tbody tr:hover td{
   padding:2px;
 }
 
-.delete{color:var(--red)}
+.delete{
+  color:var(--red);
+}
 
-/* =========================
+/* =========================================================
    DETAILS
-========================= */
+========================================================= */
 
 .details td{
   background:var(--soft)!important;
@@ -517,9 +647,9 @@ tbody tr:hover td{
   margin-bottom:4px;
 }
 
-/* =========================
-   OTHER
-========================= */
+/* =========================================================
+   OTHER PANELS
+========================================================= */
 
 .two{
   display:grid;
@@ -570,31 +700,197 @@ tbody tr:hover td{
   flex-wrap:wrap;
 }
 
-@media(max-width:900px){
-  .kpis,.two{grid-template-columns:1fr}
-  .rag{grid-template-columns:1fr 1fr}
-  .detailGrid{grid-template-columns:1fr 1fr}
+/* =========================================================
+   MOBILE LANDING PAGE
+========================================================= */
+
+@media(max-width:760px){
+
+  #loginScreen{
+    padding:
+      max(42px,6vh)
+      20px
+      65px;
+  }
+
+  .loginPage{
+    max-width:600px;
+  }
+
+  .loginLogo{
+    width:150px;
+    height:150px;
+    margin-bottom:14px;
+  }
+
+  .commandTitle{
+    font-size:32px;
+  }
+
+  .eventTitle{
+    font-size:20px;
+    margin-top:14px;
+  }
+
+  .eventDate{
+    font-size:19px;
+  }
+
+  .loginCard{
+    margin-top:23px;
+    border-radius:23px;
+    border-top-width:8px;
+  }
+
+  .loginMinistry{
+    min-height:125px;
+    padding:25px 18px;
+    font-size:18px;
+  }
+
+  .loginBody{
+    padding:38px 36px 38px;
+  }
+
+  .accessTitle{
+    font-size:18px;
+  }
+
+  .loginInput{
+    height:78px;
+    font-size:19px;
+  }
+
+  .loginButton{
+    height:72px;
+    font-size:19px;
+  }
+
+  .securityNotice{
+    font-size:13px;
+  }
+
+  .kpis,
+  .two{
+    grid-template-columns:1fr;
+  }
+
+  .rag{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .detailGrid{
+    grid-template-columns:1fr 1fr;
+  }
 }
 
-@media(max-width:550px){
-  .shell{padding:9px}
-  .header h1{font-size:16px}
-  .rag,.detailGrid{grid-template-columns:1fr}
-  .search{min-width:100%}
+
+@media(max-width:480px){
+
+  #loginScreen{
+    padding:
+      34px
+      17px
+      55px;
+  }
+
+  .loginLogo{
+    width:125px;
+    height:125px;
+  }
+
+  .commandTitle{
+    font-size:27px;
+  }
+
+  .eventTitle{
+    font-size:17px;
+  }
+
+  .eventDate{
+    font-size:17px;
+  }
+
+  .loginCard{
+    border-radius:20px;
+  }
+
+  .loginMinistry{
+    min-height:105px;
+    padding:22px 14px;
+    font-size:15px;
+  }
+
+  .loginBody{
+    padding:31px 27px 32px;
+  }
+
+  .accessTitle{
+    font-size:16px;
+    margin-bottom:16px;
+  }
+
+  .loginInput{
+    height:68px;
+    font-size:17px;
+    padding:0 19px;
+  }
+
+  .loginButton{
+    height:65px;
+    font-size:17px;
+    margin-top:18px;
+  }
+
+  .securityNotice{
+    margin-top:27px;
+    font-size:11px;
+  }
+
+  .shell{
+    padding:9px;
+  }
+
+  .header h1{
+    font-size:16px;
+  }
+
+  .rag,
+  .detailGrid{
+    grid-template-columns:1fr;
+  }
+
+  .search{
+    min-width:100%;
+  }
 }
+
+/* =========================================================
+   PRINT
+========================================================= */
 
 @media print{
-  @page{size:A4 landscape;margin:7mm}
 
-  #loginScreen{display:none!important}
-  #app{display:block!important}
+  @page{
+    size:A4 landscape;
+    margin:7mm;
+  }
+
+  #loginScreen{
+    display:none!important;
+  }
+
+  #app{
+    display:block!important;
+  }
 
   body{
     background:#fff!important;
     color:#111!important;
   }
 
-  .no-print,.edit-only{
+  .no-print,
+  .edit-only{
     display:none!important;
   }
 
@@ -613,23 +909,32 @@ tbody tr:hover td{
     grid-template-columns:repeat(3,1fr);
   }
 
-  .panel,.kpi{
+  .panel,
+  .kpi{
     box-shadow:none;
     break-inside:avoid;
   }
 
-  .tableWrap{overflow:visible}
+  .tableWrap{
+    overflow:visible;
+  }
 
   table{
     min-width:0;
     font-size:8px;
   }
 
-  th,td{padding:4px}
+  th,
+  td{
+    padding:4px;
+  }
 
-  .details{display:none!important}
+  .details{
+    display:none!important;
+  }
 
-  .panelHead,th{
+  .panelHead,
+  th{
     -webkit-print-color-adjust:exact;
     print-color-adjust:exact;
   }
@@ -639,56 +944,67 @@ tbody tr:hover td{
 
 <body>
 
-<!-- LOGIN -->
+<!-- ======================================================
+     SECURE LANDING PAGE
+======================================================= -->
 
 <section id="loginScreen">
 
-<div class="loginBox">
+<div class="loginPage">
 
-  <div class="loginHeader">
+  <img
+    src="mfa365.png"
+    class="loginLogo"
+    alt="MFA365">
 
-    <div class="loginRepublic">
-      REPUBLIC OF KENYA
-    </div>
+  <h1 class="commandTitle">
+    PS COMMAND CENTER
+  </h1>
 
-    <h1>
-      PS COMMAND CENTER
-    </h1>
+  <div class="eventTitle">
+    LAMU OIL REFINERY GROUNDBREAKING
+  </div>
 
-    <div>
+  <div class="eventDate">
+    30<sup>TH</sup> SEPTEMBER 2026
+  </div>
+
+
+  <div class="loginCard">
+
+    <div class="loginMinistry">
       MINISTRY OF FOREIGN AND DIASPORA AFFAIRS
     </div>
 
-  </div>
+    <div class="loginBody">
 
-  <div class="loginBody">
+      <div class="accessTitle">
+        SECURE ACCESS
+      </div>
 
-    <label
-      class="loginLabel"
-      for="passwordInput">
-      SECURE ACCESS
-    </label>
+      <input
+        id="passwordInput"
+        class="loginInput"
+        type="password"
+        autocomplete="current-password"
+        placeholder="Enter password"
+        aria-label="Password">
 
-    <input
-      id="passwordInput"
-      class="loginInput"
-      type="password"
-      autocomplete="current-password"
-      placeholder="Enter password">
+      <button
+        class="loginButton"
+        onclick="login()">
+        LOGIN
+      </button>
 
-    <button
-      class="loginButton"
-      onclick="login()">
-      LOGIN
-    </button>
+      <div
+        id="loginError"
+        class="loginError">
+      </div>
 
-    <div
-      id="loginError"
-      class="loginError">
-    </div>
+      <div class="securityNotice">
+        CONFIDENTIAL • AUTHORISED ACCESS ONLY
+      </div>
 
-    <div class="loginFooter">
-      CONFIDENTIAL • AUTHORISED ACCESS ONLY
     </div>
 
   </div>
@@ -698,7 +1014,9 @@ tbody tr:hover td{
 </section>
 
 
-<!-- APPLICATION -->
+<!-- ======================================================
+     PS COMMAND CENTER
+======================================================= -->
 
 <div id="app">
 
@@ -745,9 +1063,7 @@ tbody tr:hover td{
 
   </div>
 
-  <div
-    class="meta"
-    style="margin-top:4px">
+  <div class="meta" style="margin-top:4px">
 
     State Luncheon:
     <b>
@@ -815,6 +1131,8 @@ tbody tr:hover td{
 
 
 <main class="shell">
+
+<!-- KPI -->
 
 <section class="kpis">
 
@@ -901,7 +1219,7 @@ tbody tr:hover td{
     The PS Command Center is the sole operational
     presentation layer.
 
-    The new Master Matrix supplies the working
+    The Master Matrix supplies the working
     VVIP/delegation structure.
 
     Baseline confirmations do not receive invented
@@ -912,6 +1230,8 @@ tbody tr:hover td{
 
 </section>
 
+
+<!-- MASTER MATRIX -->
 
 <section class="panel">
 
@@ -928,6 +1248,7 @@ tbody tr:hover td{
     </div>
 
   </div>
+
 
   <div class="filters no-print">
 
@@ -982,16 +1303,46 @@ tbody tr:hover td{
 <tr>
 
   <th>#</th>
-  <th>Country / Principal</th>
-  <th>Protocol / Liaison Officer</th>
-  <th>Contact</th>
-  <th>ADC</th>
-  <th>Escort of Honour</th>
-  <th>Accommodation</th>
-  <th>Flight Details</th>
-  <th>Status</th>
-  <th>Critical Action</th>
-  <th class="no-print">Details</th>
+
+  <th>
+    Country / Principal
+  </th>
+
+  <th>
+    Protocol / Liaison Officer
+  </th>
+
+  <th>
+    Contact
+  </th>
+
+  <th>
+    ADC
+  </th>
+
+  <th>
+    Escort of Honour
+  </th>
+
+  <th>
+    Accommodation
+  </th>
+
+  <th>
+    Flight Details
+  </th>
+
+  <th>
+    Status
+  </th>
+
+  <th>
+    Critical Action
+  </th>
+
+  <th class="no-print">
+    Details
+  </th>
 
 </tr>
 
@@ -1006,14 +1357,18 @@ tbody tr:hover td{
 </section>
 
 
+<!-- DEADLINES / DECISIONS -->
+
 <section class="two">
 
 <div class="panel">
 
   <div class="panelHead">
+
     <h2>
       CRITICAL DEADLINE CALENDAR
     </h2>
+
   </div>
 
   <div
@@ -1043,6 +1398,8 @@ tbody tr:hover td{
 
 </section>
 
+
+<!-- RAG -->
 
 <section class="panel">
 
@@ -1074,6 +1431,8 @@ tbody tr:hover td{
 </section>
 
 
+<!-- ECONOMIC DIPLOMACY -->
+
 <section class="panel">
 
 <div class="panelHead">
@@ -1086,15 +1445,75 @@ tbody tr:hover td{
 
 <div class="panelBody">
 
-  <div
-    id="economic"
-    class="rag">
+<div class="rag">
+
+  <div class="ragCard">
+
+    <b>
+      Energy Security & Import Substitution
+    </b>
+
+    Strategic infrastructure framing.
+    Quantified impact remains TBC.
+
   </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      LAPSSET Corridor Anchor
+    </b>
+
+    Position Lamu within logistics,
+    trade and industrial-development linkages.
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      FDI & Bankability Signal
+    </b>
+
+    Use high-level participation to support
+    investor conversations and follow-up.
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      Regional Integration
+    </b>
+
+    EAC/AfCFTA and cross-border value-chain framing;
+    commitments remain TBC unless cleared.
+
+  </div>
+
+
+  <div class="ragCard">
+
+    <b>
+      Local Content & County Dividends
+    </b>
+
+    Jobs, skills, enterprise and local economic activity;
+    numerical claims remain TBC.
+
+  </div>
+
+</div>
 
 </div>
 
 </section>
 
+
+<!-- DAILY COMMAND NOTE -->
 
 <section class="panel">
 
@@ -1207,7 +1626,7 @@ tbody tr:hover td{
 <script>
 
 /* =========================================================
-   SECURITY
+   ACCESS CONTROL
 ========================================================= */
 
 const ADMIN_PASSWORD =
@@ -1216,15 +1635,6 @@ const ADMIN_PASSWORD =
 const AUTH_KEY =
   "LAMU_PS_AUTH_V1";
 
-/*
-  Concealed administrative trigger.
-
-  Browser URL:
-  #*%23%26edit
-
-  Decoded value:
-  *#&edit
-*/
 
 function administrativeAccessRequested(){
 
@@ -1297,7 +1707,7 @@ function login(){
   else{
 
     error.textContent =
-      "ACCESS DENIED";
+      "ACCESS DENIED — INVALID PASSWORD";
 
     input.value = "";
 
@@ -1336,7 +1746,9 @@ function logout(){
 
 
 document
-.getElementById("passwordInput")
+.getElementById(
+  "passwordInput"
+)
 .addEventListener(
   "keydown",
   function(e){
@@ -1378,10 +1790,10 @@ if(
 ========================================================= */
 
 const KEY =
-  "LAMU_PS_MASTER_MATRIX_V9";
+  "LAMU_PS_MASTER_MATRIX_V10";
 
 const THEME =
-  "LAMU_PS_THEME_V9";
+  "LAMU_PS_THEME_V10";
 
 
 /* =========================================================
@@ -1409,7 +1821,7 @@ const cats = {
 
 
 /* =========================================================
-   MASTER DATA
+   MASTER BASELINE
 ========================================================= */
 
 const BASE = [
@@ -1737,7 +2149,7 @@ const CAL = [
 
 
 /* =========================================================
-   DECISIONS
+   PS DECISIONS
 ========================================================= */
 
 const DEC = [
@@ -1794,40 +2206,6 @@ const RAG = [
 ];
 
 
-/* =========================================================
-   ECONOMIC DIPLOMACY
-========================================================= */
-
-const ECONOMIC = [
-
-[
- "Energy Security & Import Substitution",
- "Strategic infrastructure framing. Quantified impact remains TBC."
-],
-
-[
- "LAPSSET Corridor Anchor",
- "Position Lamu within logistics, trade and industrial-development linkages."
-],
-
-[
- "FDI & Bankability Signal",
- "Use high-level participation to support investor conversations and follow-up."
-],
-
-[
- "Regional Integration",
- "EAC/AfCFTA and cross-border value-chain framing; commitments remain TBC unless cleared."
-],
-
-[
- "Local Content & County Dividends",
- "Jobs, skills, enterprise and local economic activity; numerical claims remain TBC."
-]
-
-];
-
-
 const NOTES = [
 
 "Enter material changes only.",
@@ -1868,8 +2246,6 @@ function fresh(){
 
     rag:clone(RAG),
 
-    economic:clone(ECONOMIC),
-
     notes:clone(NOTES),
 
     last:null
@@ -1889,24 +2265,20 @@ function load(){
       );
 
 
-    if(
+    return (
       x &&
       Array.isArray(x.records)
-    ){
-
-      return Object.assign(
-        fresh(),
-        x
-      );
-
-    }
+    )
+    ? x
+    : fresh();
 
   }
 
-  catch(e){}
+  catch(e){
 
+    return fresh();
 
-  return fresh();
+  }
 
 }
 
@@ -1941,48 +2313,24 @@ function esc(v){
 function statusClass(s){
 
   s =
-    String(s || "")
+    (s || "")
     .toUpperCase();
 
 
-  if(
-    s === "CONFIRMED" ||
-    s === "DONE" ||
-    s === "GREEN"
-  ){
-
+  if(s === "CONFIRMED")
     return "confirmed";
 
-  }
+  if(s === "DONE")
+    return "done";
 
-
-  if(
-    s === "RED" ||
-    s === "URGENT"
-  ){
-
+  if(s === "URGENT")
     return "urgent";
 
-  }
-
-
-  if(
-    s === "IN PROGRESS"
-  ){
-
+  if(s === "IN PROGRESS")
     return "progress";
 
-  }
-
-
-  if(
-    s === "PENDING"
-  ){
-
+  if(s === "PENDING")
     return "pending";
-
-  }
-
 
   return "tbc";
 
@@ -1996,9 +2344,7 @@ function stamp(r){
     return new Date(
       r.confirmedAt
     )
-    .toLocaleString(
-      "en-GB"
-    );
+    .toLocaleString("en-GB");
 
   }
 
@@ -2007,13 +2353,9 @@ function stamp(r){
     r.status === "CONFIRMED" &&
     r.baseline
   )
-
   ?
-
   "SOURCE BASELINE — 23 SEPT 2026"
-
   :
-
   "—";
 
 }
@@ -2023,8 +2365,7 @@ function originalIndex(r){
 
   const i =
     BASE.findIndex(
-      x =>
-      x.id === r.id
+      x => x.id === r.id
     );
 
 
@@ -2101,7 +2442,6 @@ function editable(r,f){
 function completeness(r){
 
   const f = [
-
     "liaison",
     "phone",
     "adc",
@@ -2109,16 +2449,14 @@ function completeness(r){
     "hotel",
     "flight",
     "action"
-
   ];
 
 
   return `${
     f.filter(
       k =>
-      String(
-        r[k] || ""
-      ).trim()
+      String(r[k] || "")
+      .trim()
     ).length
   }/7`;
 
@@ -2226,301 +2564,287 @@ function renderMatrix(){
 
 
   Object.keys(cats)
-  .forEach(
-    cat => {
+  .forEach(cat => {
 
-      const group =
-        pool
-        .filter(
-          r =>
-          r.cat === cat
-        )
-        .sort(sorter);
+    const group =
+      pool
+      .filter(
+        r => r.cat === cat
+      )
+      .sort(sorter);
 
 
-      if(!group.length)
-        return;
+    if(!group.length)
+      return;
+
+
+    html += `
+      <tr class="category">
+
+        <td colspan="11">
+          ${esc(cats[cat])}
+        </td>
+
+      </tr>
+    `;
+
+
+    group.forEach(
+      (r,i) => {
+
+      const tel =
+        String(r.phone || "")
+        .replace(/[^\d+]/g,"");
 
 
       html += `
-        <tr class="category">
+      <tr>
 
-          <td colspan="11">
-            ${esc(cats[cat])}
-          </td>
+        <td>
+          <b>${i+1}</b>
+        </td>
 
-        </tr>
+
+        <td>
+
+          <div class="principal">
+            ${editable(r,"country")}
+          </div>
+
+          ${editable(r,"principal")}
+
+          <div class="sub">
+            ${editable(r,"title")}
+          </div>
+
+        </td>
+
+
+        <td>
+          ${editable(r,"liaison")}
+        </td>
+
+
+        <td>
+
+          ${editable(r,"phone")}
+
+          ${
+            tel
+            ?
+            `
+            <div class="sub no-print">
+
+              <a href="tel:${esc(tel)}">
+                CALL
+              </a>
+
+            </div>
+            `
+            :
+            ""
+          }
+
+        </td>
+
+
+        <td>
+          ${editable(r,"adc")}
+        </td>
+
+
+        <td>
+          ${editable(r,"escort")}
+        </td>
+
+
+        <td>
+          ${editable(r,"hotel")}
+        </td>
+
+
+        <td>
+          ${editable(r,"flight")}
+        </td>
+
+
+        <td>
+
+          ${statusCtl(r)}
+
+          <div class="sub">
+            ${esc(stamp(r))}
+          </div>
+
+        </td>
+
+
+        <td>
+
+          ${editable(r,"action")}
+
+          <div class="sub green">
+
+            <b>
+              DATA ${completeness(r)} COMPLETE
+            </b>
+
+          </div>
+
+        </td>
+
+
+        <td class="no-print">
+
+          <button
+            class="smallbtn"
+            onclick="toggleDetails('${r.id}')">
+
+            ${
+              opened.has(r.id)
+              ? "CLOSE ▲"
+              : "DETAILS ▼"
+            }
+
+          </button>
+
+
+          ${
+            EDIT
+            ?
+            `
+            <br>
+
+            <button
+              class="smallbtn delete"
+              onclick="removeRecord('${r.id}')">
+              DELETE
+            </button>
+            `
+            :
+            ""
+          }
+
+        </td>
+
+      </tr>
       `;
 
 
-      group.forEach(
-        (r,i) => {
+      if(opened.has(r.id)){
 
-          const tel =
-            String(r.phone || "")
-            .replace(
-              /[^\d+]/g,
-              ""
-            );
+        html += `
+        <tr class="details">
 
+        <td colspan="11">
 
-          html += `
-          <tr>
+        <div class="detailGrid">
 
-            <td>
-              <b>${i+1}</b>
-            </td>
 
+          <div class="detailBox">
 
-            <td>
+            <label>
+              Remarks / Protocol Notes
+            </label>
 
-              <div class="principal">
-                ${editable(r,"country")}
-              </div>
+            ${editable(r,"remarks")}
 
-              ${editable(r,"principal")}
+          </div>
 
-              <div class="sub">
-                ${editable(r,"title")}
-              </div>
 
-            </td>
+          <div class="detailBox">
 
+            <label>
+              Confirmation Record
+            </label>
 
-            <td>
-              ${editable(r,"liaison")}
-            </td>
+            <b>
+              ${esc(stamp(r))}
+            </b>
 
+          </div>
 
-            <td>
 
-              ${editable(r,"phone")}
+          <div class="detailBox">
 
-              ${
-                tel
-                ?
-                `
-                <div class="sub no-print">
+            <label>
+              Operational Data Completeness
+            </label>
 
-                  <a
-                    href="tel:${esc(tel)}">
-                    CALL
-                  </a>
+            <b>
+              ${completeness(r)}
+            </b>
 
-                </div>
-                `
-                :
-                ""
-              }
-
-            </td>
-
-
-            <td>
-              ${editable(r,"adc")}
-            </td>
-
-
-            <td>
-              ${editable(r,"escort")}
-            </td>
-
-
-            <td>
-              ${editable(r,"hotel")}
-            </td>
-
-
-            <td>
-              ${editable(r,"flight")}
-            </td>
-
-
-            <td>
-
-              ${statusCtl(r)}
-
-              <div class="sub">
-                ${esc(stamp(r))}
-              </div>
-
-            </td>
-
-
-            <td>
-
-              ${editable(r,"action")}
-
-              <div class="sub green">
-
-                <b>
-                  DATA ${completeness(r)} COMPLETE
-                </b>
-
-              </div>
-
-            </td>
-
-
-            <td class="no-print">
-
-              <button
-                class="smallbtn"
-                onclick="toggleDetails('${r.id}')">
-
-                ${
-                  opened.has(r.id)
-                  ? "CLOSE ▲"
-                  : "DETAILS ▼"
-                }
-
-              </button>
-
-
-              ${
-                EDIT
-                ?
-                `
-                <br>
-
-                <button
-                  class="smallbtn delete"
-                  onclick="removeRecord('${r.id}')">
-                  DELETE
-                </button>
-                `
-                :
-                ""
-              }
-
-            </td>
-
-          </tr>
-          `;
-
-
-          if(
-            opened.has(r.id)
-          ){
-
-            html += `
-            <tr class="details">
-
-            <td colspan="11">
-
-            <div class="detailGrid">
-
-
-              <div class="detailBox">
-
-                <label>
-                  Remarks / Protocol Notes
-                </label>
-
-                ${editable(r,"remarks")}
-
-              </div>
-
-
-              <div class="detailBox">
-
-                <label>
-                  Confirmation Record
-                </label>
-
-                <b>
-                  ${esc(stamp(r))}
-                </b>
-
-              </div>
-
-
-              <div class="detailBox">
-
-                <label>
-                  Operational Data Completeness
-                </label>
-
-                <b>
-                  ${completeness(r)}
-                </b>
-
-                <div class="sub">
-
-                  Mechanical completeness only;
-                  not a readiness determination.
-
-                </div>
-
-              </div>
-
-
-              <div class="detailBox">
-
-                <label>
-                  Category
-                </label>
-
-
-                ${
-                  EDIT
-                  ?
-                  `
-                  <select
-                    class="statusSelect"
-                    data-cat="${r.id}">
-
-                    ${
-                      Object.keys(cats)
-                      .map(
-                        c =>
-                        `
-                        <option
-                          value="${c}"
-                          ${r.cat === c ? "selected" : ""}>
-
-                          ${c} —
-                          ${
-                            esc(
-                              cats[c]
-                              .replace(
-                                /^[A-E]\.\s*/,
-                                ""
-                              )
-                            )
-                          }
-
-                        </option>
-                        `
-                      )
-                      .join("")
-                    }
-
-                  </select>
-                  `
-                  :
-                  esc(cats[r.cat])
-                }
-
-              </div>
-
-
+            <div class="sub">
+              Mechanical completeness only;
+              not a readiness determination.
             </div>
 
-            </td>
+          </div>
 
-            </tr>
-            `;
 
-          }
+          <div class="detailBox">
 
-        }
+            <label>
+              Category
+            </label>
 
-      );
 
-    }
+            ${
+              EDIT
+              ?
+              `
+              <select
+                class="statusSelect"
+                data-cat="${r.id}">
 
-  );
+                ${
+                  Object.keys(cats)
+                  .map(
+                    c =>
+                    `
+                    <option
+                      value="${c}"
+                      ${r.cat === c ? "selected" : ""}>
+
+                      ${c} —
+                      ${
+                        esc(
+                          cats[c]
+                          .replace(
+                            /^[A-E]\.\s*/,
+                            ""
+                          )
+                        )
+                      }
+
+                    </option>
+                    `
+                  )
+                  .join("")
+                }
+
+              </select>
+              `
+              :
+              esc(cats[r.cat])
+            }
+
+          </div>
+
+
+        </div>
+
+        </td>
+
+        </tr>
+        `;
+
+      }
+
+    });
+
+  });
 
 
   document
@@ -2548,7 +2872,7 @@ function renderMatrix(){
 
 
 /* =========================================================
-   MATRIX EDITING
+   MATRIX BINDING
 ========================================================= */
 
 function bindMatrix(){
@@ -2570,26 +2894,25 @@ function bindMatrix(){
           state.records
           .find(
             x =>
-            x.id ===
-            el.dataset.id
+            x.id === el.dataset.id
           );
 
 
-        if(!r)
-          return;
+        if(r){
+
+          r[
+            el.dataset.field
+          ] =
+          el.innerText.trim();
 
 
-        r[
-          el.dataset.field
-        ] =
-        el.innerText.trim();
+          touch();
 
+          save(false);
 
-        touch();
+          renderMatrix();
 
-        save(false);
-
-        renderMatrix();
+        }
 
       };
 
@@ -2610,8 +2933,7 @@ function bindMatrix(){
           state.records
           .find(
             x =>
-            x.id ===
-            el.dataset.status
+            x.id === el.dataset.status
           );
 
 
@@ -2643,8 +2965,7 @@ function bindMatrix(){
 
 
         if(
-          r.status !==
-          "CONFIRMED"
+          r.status !== "CONFIRMED"
         ){
 
           r.confirmedAt =
@@ -2681,8 +3002,7 @@ function bindMatrix(){
           state.records
           .find(
             x =>
-            x.id ===
-            el.dataset.cat
+            x.id === el.dataset.cat
           );
 
 
@@ -2708,7 +3028,7 @@ function bindMatrix(){
 
 
 /* =========================================================
-   AUXILIARY CONTENT
+   AUXILIARY SECTIONS
 ========================================================= */
 
 function renderAux(){
@@ -2727,13 +3047,8 @@ function renderAux(){
 
         <div>
 
-          <b
-            class="editable"
-            ${EDIT ? 'contenteditable="true"' : ''}
-            data-cal-title="${i}">
-
+          <b>
             ${esc(x[0])}
-
           </b>
 
           <div
@@ -2794,105 +3109,24 @@ function renderAux(){
 
     state.rag
     .map(
-      (x,i) =>
+      x =>
       `
       <div class="ragCard">
 
-        <b
-          class="editable"
-          ${EDIT ? 'contenteditable="true"' : ''}
-          data-rag-name="${i}">
-
+        <b>
           ${esc(x[0])}
-
         </b>
 
-
-        ${
-          EDIT
-          ?
-          `
-          <select
-            class="statusSelect"
-            data-rag-status="${i}">
-
-            ${
-              [
-                "GREEN",
-                "AMBER",
-                "RED",
-                "DONE",
-                "IN PROGRESS",
-                "PENDING",
-                "URGENT"
-              ]
-
-              .map(
-                s =>
-                `
-                <option
-                  ${x[1] === s ? "selected" : ""}>
-                  ${s}
-                </option>
-                `
-              )
-
-              .join("")
-            }
-
-          </select>
-          `
-          :
-          `
-          <span
-            class="status ${statusClass(x[1])}">
-            ${esc(x[1])}
-          </span>
-          `
-        }
-
-
-        <div
-          class="editable"
-          style="margin-top:6px"
-          ${EDIT ? 'contenteditable="true"' : ''}
-          data-rag-text="${i}">
-
-          ${esc(x[2])}
-
-        </div>
-
-      </div>
-      `
-    )
-    .join("");
-
-
-  document
-  .getElementById("economic")
-  .innerHTML =
-
-    state.economic
-    .map(
-      (x,i) =>
-      `
-      <div class="ragCard">
-
-        <b
-          class="editable"
-          ${EDIT ? 'contenteditable="true"' : ''}
-          data-econ-title="${i}">
-
-          ${esc(x[0])}
-
-        </b>
-
-        <div
-          class="editable"
-          ${EDIT ? 'contenteditable="true"' : ''}
-          data-econ-text="${i}">
+        <span
+          class="status ${statusClass(x[1])}">
 
           ${esc(x[1])}
+
+        </span>
+
+        <div style="margin-top:6px">
+
+          ${esc(x[2])}
 
         </div>
 
@@ -2923,11 +3157,12 @@ function renderAux(){
         : "false";
 
 
-      el.classList
-      .toggle(
-        "editable",
-        EDIT
-      );
+      if(EDIT){
+
+        el.classList
+        .add("editable");
+
+      }
 
     }
   );
@@ -2949,29 +3184,6 @@ function renderAux(){
           ][1] =
           el.innerText.trim();
 
-          touch();
-
-          save(false);
-
-        };
-
-      }
-    );
-
-
-    document
-    .querySelectorAll(
-      "[data-cal-title]"
-    )
-    .forEach(
-      el => {
-
-        el.onblur = () => {
-
-          state.calendar[
-            +el.dataset.calTitle
-          ][0] =
-          el.innerText.trim();
 
           touch();
 
@@ -2997,127 +3209,6 @@ function renderAux(){
           ] =
           el.innerText.trim();
 
-          touch();
-
-          save(false);
-
-        };
-
-      }
-    );
-
-
-    document
-    .querySelectorAll(
-      "[data-rag-name]"
-    )
-    .forEach(
-      el => {
-
-        el.onblur = () => {
-
-          state.rag[
-            +el.dataset.ragName
-          ][0] =
-          el.innerText.trim();
-
-          touch();
-
-          save(false);
-
-        };
-
-      }
-    );
-
-
-    document
-    .querySelectorAll(
-      "[data-rag-text]"
-    )
-    .forEach(
-      el => {
-
-        el.onblur = () => {
-
-          state.rag[
-            +el.dataset.ragText
-          ][2] =
-          el.innerText.trim();
-
-          touch();
-
-          save(false);
-
-        };
-
-      }
-    );
-
-
-    document
-    .querySelectorAll(
-      "[data-rag-status]"
-    )
-    .forEach(
-      el => {
-
-        el.onchange = () => {
-
-          state.rag[
-            +el.dataset.ragStatus
-          ][1] =
-          el.value;
-
-          touch();
-
-          save(false);
-
-          renderAux();
-
-        };
-
-      }
-    );
-
-
-    document
-    .querySelectorAll(
-      "[data-econ-title]"
-    )
-    .forEach(
-      el => {
-
-        el.onblur = () => {
-
-          state.economic[
-            +el.dataset.econTitle
-          ][0] =
-          el.innerText.trim();
-
-          touch();
-
-          save(false);
-
-        };
-
-      }
-    );
-
-
-    document
-    .querySelectorAll(
-      "[data-econ-text]"
-    )
-    .forEach(
-      el => {
-
-        el.onblur = () => {
-
-          state.economic[
-            +el.dataset.econText
-          ][1] =
-          el.innerText.trim();
 
           touch();
 
@@ -3141,6 +3232,7 @@ function renderAux(){
           state.notes[i] =
             el.innerText.trim();
 
+
           touch();
 
           save(false);
@@ -3154,9 +3246,7 @@ function renderAux(){
 
 
   document
-  .getElementById(
-    "lastEdit"
-  )
+  .getElementById("lastEdit")
   .textContent =
 
     state.last
@@ -3167,9 +3257,7 @@ function renderAux(){
       new Date(
         state.last
       )
-      .toLocaleString(
-        "en-GB"
-      )
+      .toLocaleString("en-GB")
     }`
 
     :
@@ -3195,31 +3283,25 @@ function updateKPIs(){
 
 
   document
-  .getElementById(
-    "kConfirmed"
-  )
+  .getElementById("kConfirmed")
   .textContent =
 
     sovereign
     .filter(
       r =>
-      r.status ===
-      "CONFIRMED"
+      r.status === "CONFIRMED"
     )
     .length;
 
 
   document
-  .getElementById(
-    "kPending"
-  )
+  .getElementById("kPending")
   .textContent =
 
     sovereign
     .filter(
       r =>
-      r.status !==
-      "CONFIRMED"
+      r.status !== "CONFIRMED"
     )
     .length;
 
@@ -3286,7 +3368,7 @@ function save(alertUser){
 
 
 /* =========================================================
-   ADD
+   ADD RECORD
 ========================================================= */
 
 function addRecord(){
@@ -3340,6 +3422,7 @@ function addRecord(){
 
   opened.add(id);
 
+
   touch();
 
   save(false);
@@ -3371,6 +3454,7 @@ function removeRecord(id){
 
 
     opened.delete(id);
+
 
     touch();
 
@@ -3416,7 +3500,7 @@ function resetMaster(){
 
 
 /* =========================================================
-   CSV
+   CSV EXPORT
 ========================================================= */
 
 function exportCSV(){
@@ -3594,9 +3678,9 @@ function toggleTheme(){
 
 
 if(
-  localStorage.getItem(
-    THEME
-  ) === "dark"
+  localStorage.getItem(THEME)
+  ===
+  "dark"
 ){
 
   document.body
@@ -3694,7 +3778,7 @@ function renderAll(){
 
 
 /* =========================================================
-   KEYBOARD SAVE
+   CTRL / CMD + S
 ========================================================= */
 
 document
