@@ -8,21 +8,32 @@
 <title>PS Command Center | Lamu Oil Refinery Groundbreaking</title>
 
 <style>
+
 /* ============================================================
    PS COMMAND CENTER
    LAMU OIL REFINERY GROUNDBREAKING
    PRESIDENTIAL / EXECUTIVE MASTER EDITION
 
-   DESIGN RULE:
-   Preserve the presidential navy/gold executive identity.
-   Operational status colours are used only as signals:
-   GREEN  = CONFIRMED
-   AMBER  = PENDING
-   ORANGE = DOWNGRADED - Minister Rep
-   RED    = CANCELLED
+   MASTER DESIGN PRINCIPLE
+   ------------------------------------------------------------
+   1. Preserve presidential navy/gold executive identity.
+   2. The invited President/HoS/G is NEVER removed merely
+      because attendance has been delegated.
+   3. DELEGATED is an attendance outcome of the original
+      presidential invitation.
+   4. The delegated official is stored within that principal
+      invitation record.
+   5. Status colours are restrained operational indicators:
+         GREEN  = CONFIRMED
+         AMBER  = PENDING
+         BLUE   = DELEGATED
+         RED    = CANCELLED
+   6. Print output is deliberately cleaner and more presidential
+      than the editing interface.
 ============================================================ */
 
 :root{
+
     --navy:#081A33;
     --navy2:#102B50;
     --navy3:#061426;
@@ -30,11 +41,11 @@
 
     --gold:#D4AF37;
     --gold-light:#F1D675;
-    --gold-soft:#F7E9A9;
+    --gold-soft:#F8E9A4;
 
     --white:#FFFFFF;
     --offwhite:#F7F8FA;
-    --cream:#F5F1E7;
+    --cream:#FAF8F1;
 
     --ink:#172033;
     --muted:#64748B;
@@ -43,11 +54,11 @@
     --green:#15803D;
     --green-bg:#DCFCE7;
 
-    --amber:#D97706;
+    --amber:#B86F00;
     --amber-bg:#FEF3C7;
 
-    --orange:#C65D08;
-    --orange-bg:#FFEDD5;
+    --delegated:#245A91;
+    --delegated-bg:#E8F1FA;
 
     --red:#B91C1C;
     --red-bg:#FEE2E2;
@@ -70,11 +81,13 @@ body{
     color:var(--ink);
 }
 
+
 /* ============================================================
    PRESIDENTIAL HEADER
 ============================================================ */
 
 .executive-header{
+
     background:
         linear-gradient(
             135deg,
@@ -82,44 +95,63 @@ body{
             var(--navy) 48%,
             var(--navy2) 100%
         );
+
     color:white;
+
     border-top:6px solid var(--gold);
     border-bottom:4px solid var(--gold);
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.25);
 }
 
 .header-inner{
-    max-width:1600px;
+
+    max-width:1650px;
     margin:auto;
-    padding:20px 20px 18px;
+
+    padding:
+        20px 20px 18px;
 }
 
 .republic{
+
     color:var(--gold);
+
     font-weight:900;
     letter-spacing:.18em;
+
     font-size:11px;
 }
 
 .ministry{
+
     margin-top:5px;
+
     font-weight:700;
     letter-spacing:.05em;
 }
 
 .classification-row{
+
     margin-top:13px;
+
     display:flex;
     gap:8px;
     flex-wrap:wrap;
 }
 
 .classification{
+
     display:inline-block;
+
     padding:6px 10px;
+
     border-radius:5px;
+
     font-weight:900;
     font-size:10px;
+
     letter-spacing:.06em;
 }
 
@@ -128,124 +160,189 @@ body{
 }
 
 .command-badge{
+
     border:1px solid var(--gold);
+
     color:var(--gold);
 }
 
 .executive-header h1{
-    margin:15px 0 6px;
+
+    margin:
+        15px 0 6px;
+
     font-size:21px;
+
     line-height:1.25;
+
     letter-spacing:.025em;
 }
 
 .event-line{
+
     color:var(--gold-light);
+
     font-weight:800;
     font-size:13px;
 }
 
 .header-meta{
+
     margin-top:8px;
+
     opacity:.92;
 }
+
 
 /* ============================================================
    MAIN SHELL
 ============================================================ */
 
 .container{
-    max-width:1600px;
+
+    max-width:1650px;
+
     margin:auto;
+
     padding:15px;
 }
+
 
 /* ============================================================
    COMMAND TOOLBAR
 ============================================================ */
 
 .command-toolbar{
+
     background:white;
+
     border:1px solid var(--line);
+
     border-radius:10px;
+
     box-shadow:var(--shadow);
+
     padding:10px;
+
     margin-bottom:12px;
 
     display:flex;
+
     justify-content:space-between;
     align-items:center;
+
     gap:10px;
+
     flex-wrap:wrap;
 }
 
 .toolbar-left,
 .toolbar-right{
+
     display:flex;
+
     gap:7px;
+
     flex-wrap:wrap;
 }
 
 .btn{
+
     border:none;
+
     border-radius:6px;
+
     padding:8px 12px;
+
     font-weight:900;
+
     cursor:pointer;
+
     font-size:11px;
 }
 
 .btn:hover{
-    transform:translateY(-1px);
+
+    transform:
+        translateY(-1px);
 }
 
 .btn-gold{
+
     background:var(--gold);
+
     color:var(--navy);
 }
 
 .btn-navy{
+
     background:var(--navy);
+
     color:white;
 }
 
 .btn-white{
+
     background:white;
+
     color:var(--navy);
-    border:1px solid #CBD5E1;
+
+    border:
+        1px solid #CBD5E1;
 }
 
 .btn-red{
+
     background:var(--red);
+
     color:white;
 }
+
 
 /* ============================================================
    EXECUTIVE COUNTERS
 ============================================================ */
 
 .counter-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:10px;
+
     margin-bottom:12px;
 }
 
 .counter{
+
     background:white;
-    border:1px solid var(--line);
+
+    border:
+        1px solid var(--line);
+
     border-radius:10px;
-    box-shadow:var(--shadow);
+
+    box-shadow:
+        var(--shadow);
+
     padding:14px 15px;
+
     position:relative;
+
     overflow:hidden;
 }
 
 .counter::after{
+
     content:"";
+
     position:absolute;
+
     left:0;
     bottom:0;
+
     width:100%;
     height:4px;
 }
@@ -254,8 +351,8 @@ body{
     background:var(--green);
 }
 
-.counter.rep::after{
-    background:var(--orange);
+.counter.delegated::after{
+    background:var(--delegated);
 }
 
 .counter.pending::after{
@@ -267,24 +364,32 @@ body{
 }
 
 .counter-label{
+
     font-size:10px;
+
     color:var(--muted);
+
     font-weight:900;
+
     letter-spacing:.08em;
 }
 
 .counter-number{
+
     font-size:29px;
+
     font-weight:900;
-    margin:5px 0 1px;
+
+    margin:
+        5px 0 1px;
 }
 
 .counter.confirmed .counter-number{
     color:var(--green);
 }
 
-.counter.rep .counter-number{
-    color:var(--orange);
+.counter.delegated .counter-number{
+    color:var(--delegated);
 }
 
 .counter.pending .counter-number{
@@ -296,21 +401,33 @@ body{
 }
 
 .counter-note{
+
     color:var(--muted);
+
     font-size:10px;
 }
 
+
 /* ============================================================
-   EXECUTIVE NOTICE
+   EXECUTIVE CONTROL NOTE
 ============================================================ */
 
 .executive-notice{
+
     background:#FFFCF1;
-    border:1px solid #E5D292;
-    border-left:5px solid var(--gold);
+
+    border:
+        1px solid #E5D292;
+
+    border-left:
+        5px solid var(--gold);
+
     border-radius:8px;
+
     padding:11px 13px;
+
     margin-bottom:12px;
+
     line-height:1.55;
 }
 
@@ -318,46 +435,70 @@ body{
     color:var(--navy);
 }
 
+
 /* ============================================================
    PANEL
 ============================================================ */
 
 .panel{
+
     background:white;
-    border:1px solid var(--line);
+
+    border:
+        1px solid var(--line);
+
     border-radius:10px;
-    box-shadow:var(--shadow);
+
+    box-shadow:
+        var(--shadow);
+
     overflow:hidden;
+
     margin-bottom:13px;
 }
 
 .panel-header{
+
     background:
         linear-gradient(
             90deg,
             var(--navy),
             var(--navy2)
         );
+
     color:white;
+
     padding:11px 14px;
 
     display:flex;
-    justify-content:space-between;
+
+    justify-content:
+        space-between;
+
     align-items:center;
+
     gap:10px;
+
     flex-wrap:wrap;
 }
 
 .panel-header h2{
+
     margin:0;
+
     color:var(--gold);
+
     font-size:13px;
+
     letter-spacing:.05em;
 }
 
 .panel-subtitle{
+
     margin-top:3px;
+
     font-size:10px;
+
     opacity:.8;
 }
 
@@ -365,32 +506,44 @@ body{
     padding:12px;
 }
 
+
 /* ============================================================
    SEARCH / FILTERS
 ============================================================ */
 
 .filters{
+
     display:flex;
+
     gap:6px;
+
     flex-wrap:wrap;
 }
 
 .search,
 .filter-select{
-    border:1px solid #CBD5E1;
+
+    border:
+        1px solid #CBD5E1;
+
     border-radius:6px;
+
     padding:7px 9px;
+
     background:white;
+
     color:var(--ink);
+
     font-size:11px;
 }
 
 .search{
-    min-width:280px;
+    min-width:290px;
 }
 
+
 /* ============================================================
-   TABLE
+   MASTER TABLE
 ============================================================ */
 
 .table-wrap{
@@ -398,24 +551,38 @@ body{
 }
 
 table{
+
     width:100%;
+
     border-collapse:collapse;
-    min-width:1450px;
+
+    min-width:1320px;
 }
 
 th{
+
     background:#102B50;
+
     color:white;
+
     text-align:left;
+
     padding:9px 7px;
+
     font-size:10px;
+
     letter-spacing:.025em;
+
     white-space:nowrap;
 }
 
 td{
+
     padding:8px 7px;
-    border-bottom:1px solid #E5E7EB;
+
+    border-bottom:
+        1px solid #E5E7EB;
+
     vertical-align:top;
 }
 
@@ -424,175 +591,447 @@ tbody tr:hover td{
 }
 
 .country{
+
     font-weight:900;
+
     color:var(--navy);
 }
 
+.principal-name{
+
+    margin-top:4px;
+
+    font-weight:800;
+}
+
 .rank{
+
     margin-top:3px;
+
     color:var(--muted);
+
     font-size:10px;
 }
 
+
 /* ============================================================
-   REPRESENTATIVE ROW
+   DELEGATED DISPLAY
 ============================================================ */
 
-.rep-row td{
-    background:#FFF9EF;
+.delegate-summary{
+
+    margin-top:6px;
+
+    padding:6px 7px;
+
+    border-left:
+        3px solid var(--delegated);
+
+    background:#F3F7FB;
+
+    border-radius:
+        0 5px 5px 0;
+
+    font-size:10px;
 }
 
-.rep-row td:first-child{
-    border-left:4px solid var(--orange);
+.delegate-summary strong{
+    color:var(--delegated);
 }
 
-.rep-label{
-    display:inline-block;
-    background:var(--orange);
-    color:white;
-    border-radius:4px;
-    padding:2px 5px;
-    font-size:8px;
-    font-weight:900;
-    margin-bottom:4px;
-    letter-spacing:.06em;
-}
 
 /* ============================================================
    INPUTS
 ============================================================ */
 
-.cell-input{
+.cell-input,
+.cell-textarea{
+
     width:100%;
-    border:1px solid #CBD5E1;
+
+    border:
+        1px solid #CBD5E1;
+
     background:white;
+
     border-radius:5px;
+
     padding:6px;
+
     color:var(--ink);
+
     font-size:10px;
+}
+
+.cell-textarea{
+
+    min-height:55px;
+
+    resize:vertical;
 }
 
 .cell-input:focus,
+.cell-textarea:focus,
 .status-select:focus{
+
     outline:none;
+
     border-color:var(--gold);
-    box-shadow:0 0 0 2px rgba(212,175,55,.15);
+
+    box-shadow:
+        0 0 0 2px
+        rgba(212,175,55,.15);
 }
 
 .nv-input{
-    color:#8A6A00;
+
+    color:#846600;
+
     font-weight:800;
 }
 
-.status-select{
-    width:100%;
-    min-width:170px;
-    padding:6px;
-    border-radius:5px;
-    font-size:10px;
-    font-weight:900;
-    border:1px solid #CBD5E1;
-}
 
 /* ============================================================
-   STATUS COLOURS
+   STATUS
 ============================================================ */
 
+.status-select{
+
+    width:100%;
+
+    min-width:150px;
+
+    padding:6px;
+
+    border-radius:5px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    border:
+        1px solid #CBD5E1;
+}
+
+.status-pill{
+
+    display:inline-block;
+
+    padding:4px 8px;
+
+    border-radius:999px;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
 .status-confirmed{
+
     background:var(--green-bg);
+
     color:var(--green);
-    border-color:#86EFAC;
+
+    border:
+        1px solid #86EFAC;
 }
 
 .status-pending{
+
     background:var(--amber-bg);
-    color:#9A6500;
-    border-color:#F5C75B;
+
+    color:#966100;
+
+    border:
+        1px solid #F5C75B;
 }
 
-.status-downgraded{
-    background:var(--orange-bg);
-    color:#B45309;
-    border-color:#FDBA74;
+.status-delegated{
+
+    background:var(--delegated-bg);
+
+    color:var(--delegated);
+
+    border:
+        1px solid #A9C8E7;
 }
 
 .status-cancelled{
+
     background:var(--red-bg);
+
     color:var(--red);
-    border-color:#FCA5A5;
+
+    border:
+        1px solid #FCA5A5;
 }
 
+
+/* restrained row tinting */
+
 tr.row-confirmed td{
-    background:rgba(21,128,61,.025);
+    background:rgba(21,128,61,.018);
 }
 
 tr.row-pending td{
-    background:rgba(217,119,6,.025);
+    background:rgba(217,119,6,.018);
 }
 
-tr.row-downgraded td{
-    background:rgba(198,93,8,.055);
+tr.row-delegated td{
+    background:rgba(36,90,145,.035);
 }
 
 tr.row-cancelled td{
-    background:rgba(185,28,28,.045);
+    background:rgba(185,28,28,.025);
 }
 
-/* representative row overrides */
-tr.rep-row td{
-    background:#FFF9EF;
-}
 
 /* ============================================================
    ACTION BUTTONS
 ============================================================ */
 
 .action-group{
+
     display:flex;
+
     gap:4px;
+
     flex-wrap:wrap;
 }
 
 .mini-btn{
+
     border:none;
+
     border-radius:5px;
+
     padding:5px 7px;
+
     font-size:9px;
+
     font-weight:900;
+
     cursor:pointer;
 }
 
-.add-rep{
-    background:var(--orange-bg);
-    color:#A44A05;
-    border:1px solid #FDBA74;
+.details-btn{
+
+    background:#E8EEF5;
+
+    color:var(--navy);
+
+    border:
+        1px solid #C9D4E2;
 }
 
 .delete-btn{
+
     background:#F1F5F9;
+
     color:#64748B;
-    border:1px solid #CBD5E1;
+
+    border:
+        1px solid #CBD5E1;
 }
 
 .delete-btn:hover{
+
     background:var(--red-bg);
+
     color:var(--red);
 }
+
+
+/* ============================================================
+   DETAIL PANEL
+============================================================ */
+
+.detail-row td{
+
+    background:#F7F9FC !important;
+
+    padding:12px;
+}
+
+.detail-shell{
+
+    border:
+        1px solid #D9E0E9;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    background:white;
+}
+
+.detail-title{
+
+    background:#EAF0F6;
+
+    color:var(--navy);
+
+    padding:8px 10px;
+
+    font-weight:900;
+
+    border-bottom:
+        1px solid #D9E0E9;
+
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.detail-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+
+    padding:10px;
+}
+
+.detail-box{
+
+    border:
+        1px solid #E2E8F0;
+
+    border-radius:7px;
+
+    padding:8px;
+
+    background:#FCFDFE;
+}
+
+.detail-box.span2{
+    grid-column:span 2;
+}
+
+.detail-box.span4{
+    grid-column:span 4;
+}
+
+.detail-box label{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    color:#536273;
+
+    font-weight:900;
+
+    font-size:9px;
+
+    letter-spacing:.04em;
+}
+
+
+/* ============================================================
+   DELEGATION PANEL
+============================================================ */
+
+.delegation-panel{
+
+    margin:
+        0 10px 10px;
+
+    border:
+        1px solid #AFC7DF;
+
+    border-radius:8px;
+
+    background:#F5F9FD;
+
+    overflow:hidden;
+}
+
+.delegation-head{
+
+    background:
+        linear-gradient(
+            90deg,
+            #173C65,
+            #245A91
+        );
+
+    color:white;
+
+    padding:8px 10px;
+
+    font-weight:900;
+
+    letter-spacing:.04em;
+}
+
+.delegation-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+
+    padding:10px;
+}
+
+.delegation-field label{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    color:#385978;
+}
+
+.delegation-field.span2{
+    grid-column:span 2;
+}
+
+.delegation-field.span4{
+    grid-column:span 4;
+}
+
 
 /* ============================================================
    QUICK DIAL
 ============================================================ */
 
 .quick-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:8px;
 }
 
 .quick-card{
-    border:1px solid var(--line);
+
+    border:
+        1px solid var(--line);
+
     border-radius:8px;
+
     padding:9px;
+
     background:#F8FAFC;
 }
 
@@ -600,17 +1039,16 @@ tr.rep-row td{
     color:var(--navy);
 }
 
-.quick-status{
-    margin-top:3px;
-    font-size:9px;
-    font-weight:900;
-}
-
 .quick-card a{
+
     display:block;
+
     margin-top:5px;
+
     color:#1D4ED8;
+
     text-decoration:none;
+
     font-size:10px;
 }
 
@@ -618,36 +1056,59 @@ tr.rep-row td{
     text-decoration:underline;
 }
 
+
 /* ============================================================
    SAVE STATUS
 ============================================================ */
 
 .save-status{
+
     margin-top:8px;
+
     color:var(--green);
+
     font-weight:800;
+
     font-size:10px;
 }
+
 
 /* ============================================================
    FOOTER
 ============================================================ */
 
 .footer{
+
     color:#64748B;
-    padding:7px 2px 16px;
+
+    padding:
+        7px 2px 16px;
 
     display:flex;
-    justify-content:space-between;
+
+    justify-content:
+        space-between;
+
     gap:10px;
+
     flex-wrap:wrap;
 }
+
+
+/* ============================================================
+   PRINT-ONLY ELEMENTS
+============================================================ */
+
+.print-only{
+    display:none;
+}
+
 
 /* ============================================================
    RESPONSIVE
 ============================================================ */
 
-@media(max-width:1000px){
+@media(max-width:1100px){
 
     .counter-grid{
         grid-template-columns:1fr 1fr;
@@ -656,9 +1117,20 @@ tr.rep-row td{
     .quick-grid{
         grid-template-columns:1fr 1fr;
     }
+
+    .detail-grid,
+    .delegation-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .detail-box.span4,
+    .delegation-field.span4{
+        grid-column:span 2;
+    }
 }
 
-@media(max-width:600px){
+
+@media(max-width:650px){
 
     .header-inner{
         padding:15px;
@@ -672,8 +1144,17 @@ tr.rep-row td{
         grid-template-columns:1fr 1fr;
     }
 
-    .quick-grid{
+    .quick-grid,
+    .detail-grid,
+    .delegation-grid{
         grid-template-columns:1fr;
+    }
+
+    .detail-box.span2,
+    .detail-box.span4,
+    .delegation-field.span2,
+    .delegation-field.span4{
+        grid-column:span 1;
     }
 
     .search{
@@ -681,42 +1162,127 @@ tr.rep-row td{
     }
 }
 
+
 /* ============================================================
-   PRINT
+   PRESIDENTIAL PRINT / PDF VIEW
 ============================================================ */
 
 @media print{
 
     @page{
         size:A4 landscape;
-        margin:7mm;
+        margin:8mm;
     }
 
     body{
         background:white;
+        color:#111827;
     }
 
     .no-print{
         display:none !important;
     }
 
-    .container{
-        max-width:none;
-        padding:5px;
+    .print-only{
+        display:block;
     }
 
     .executive-header{
+
+        box-shadow:none;
+
+        border-top:
+            4px solid var(--gold);
+
+        border-bottom:
+            3px solid var(--gold);
+
         -webkit-print-color-adjust:exact;
         print-color-adjust:exact;
     }
 
-    .counter-grid{
-        grid-template-columns:repeat(4,1fr);
+    .header-inner{
+        padding:10px 12px;
     }
 
-    .panel,
+    .classification-row{
+        display:none;
+    }
+
+    .executive-header h1{
+        font-size:17px;
+        margin:8px 0 3px;
+    }
+
+    .header-meta{
+        display:none;
+    }
+
+    .container{
+        max-width:none;
+        padding:6px 0;
+    }
+
+    .counter-grid{
+
+        grid-template-columns:
+            repeat(4,1fr);
+
+        gap:5px;
+
+        margin-bottom:7px;
+    }
+
     .counter{
+
         box-shadow:none;
+
+        border:
+            1px solid #C8CDD4;
+
+        border-radius:4px;
+
+        padding:7px 9px;
+    }
+
+    .counter::after{
+        height:2px;
+    }
+
+    .counter-number{
+        font-size:19px;
+    }
+
+    .counter-note{
+        display:none;
+    }
+
+    .executive-notice{
+        display:none;
+    }
+
+    .panel{
+
+        box-shadow:none;
+
+        border:
+            1px solid #C8CDD4;
+
+        border-radius:3px;
+    }
+
+    .panel-header{
+
+        background:var(--navy);
+
+        padding:7px 9px;
+
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+    }
+
+    .panel-subtitle{
+        display:none;
     }
 
     .table-wrap{
@@ -725,26 +1291,79 @@ tr.rep-row td{
 
     table{
         min-width:0;
-        font-size:7px;
+        font-size:8px;
     }
 
-    th,
+    th{
+
+        background:var(--navy);
+
+        padding:5px;
+
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+    }
+
     td{
-        padding:3px;
+        padding:5px;
     }
 
     .cell-input,
+    .cell-textarea,
     .status-select{
+
         border:none;
+
         padding:0;
+
         background:transparent;
+
+        box-shadow:none;
+    }
+
+    .detail-row{
+        display:none;
+    }
+
+    tbody tr td{
+        background:white !important;
+    }
+
+    .status-select{
+
+        -webkit-appearance:none;
+        appearance:none;
+
+        font-weight:900;
+    }
+
+    .delegate-summary{
+
+        background:white;
+
+        border-left:
+            2px solid var(--gold);
+
+        padding:
+            3px 0 3px 5px;
+    }
+
+    .quick-grid{
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+    .quick-card{
+        box-shadow:none;
     }
 }
+
 </style>
 </head>
 
 
 <body>
+
 
 <!-- ============================================================
      PRESIDENTIAL / EXECUTIVE HEADER
@@ -762,6 +1381,7 @@ tr.rep-row td{
         MINISTRY OF FOREIGN AND DIASPORA AFFAIRS
     </div>
 
+
     <div class="classification-row">
 
         <span class="classification confidential">
@@ -774,18 +1394,21 @@ tr.rep-row td{
 
     </div>
 
+
     <h1>
         LAMU OIL REFINERY GROUNDBREAKING
     </h1>
+
 
     <div class="event-line">
         PRESIDENTIAL / VVIP DELEGATION CONTROL |
         30 SEPTEMBER 2026 — 13:00HRS
     </div>
 
+
     <div class="header-meta">
-        Diplomatic Confirmation • Note Verbale Control •
-        Presidential Representation • Protocol Coordination
+        Presidential Attendance • Delegated Representation •
+        Note Verbale Control • Protocol Coordination
     </div>
 
 </div>
@@ -793,10 +1416,12 @@ tr.rep-row td{
 </header>
 
 
+
 <main class="container">
 
+
 <!-- ============================================================
-     COMMAND TOOLBAR
+     TOOLBAR
 ============================================================ -->
 
 <div class="command-toolbar no-print">
@@ -809,17 +1434,20 @@ tr.rep-row td{
             + ADD COUNTRY
         </button>
 
+
         <button
             class="btn btn-navy"
             onclick="saveAll(true)">
             SAVE MASTER
         </button>
 
+
         <button
             class="btn btn-white"
             onclick="exportCSV()">
             EXPORT CSV
         </button>
+
 
         <button
             class="btn btn-white"
@@ -828,6 +1456,7 @@ tr.rep-row td{
         </button>
 
     </div>
+
 
     <div class="toolbar-right">
 
@@ -842,11 +1471,13 @@ tr.rep-row td{
 </div>
 
 
+
 <!-- ============================================================
-     LIVE EXECUTIVE COUNTERS
+     EXECUTIVE COUNTERS
 ============================================================ -->
 
 <section class="counter-grid">
+
 
     <div class="counter confirmed">
 
@@ -861,29 +1492,31 @@ tr.rep-row td{
         </div>
 
         <div class="counter-note">
-            Confirmed principal HoS/G cases
+            Personal attendance confirmed
         </div>
 
     </div>
 
 
-    <div class="counter rep">
+
+    <div class="counter delegated">
 
         <div class="counter-label">
-            MINISTER REPRESENTATIVES
+            DELEGATED REPRESENTATION
         </div>
 
         <div
-            id="cntReps"
+            id="cntDelegated"
             class="counter-number">
             0
         </div>
 
         <div class="counter-note">
-            Actual linked representative records
+            President represented by designated official
         </div>
 
     </div>
+
 
 
     <div class="counter pending">
@@ -899,16 +1532,17 @@ tr.rep-row td{
         </div>
 
         <div class="counter-note">
-            Principal country cases awaiting decision
+            Final attendance position outstanding
         </div>
 
     </div>
 
 
+
     <div class="counter total">
 
         <div class="counter-label">
-            TOTAL COUNTRIES TRACKED
+            TOTAL INVITED
         </div>
 
         <div
@@ -918,12 +1552,14 @@ tr.rep-row td{
         </div>
 
         <div class="counter-note">
-            Minister representatives are not double-counted
+            Principal presidential / HoS/G invitations
         </div>
 
     </div>
 
+
 </section>
+
 
 
 <!-- ============================================================
@@ -933,30 +1569,28 @@ tr.rep-row td{
 <div class="executive-notice">
 
     <strong>
-        PRESIDENTIAL REPRESENTATION CONTROL:
+        DELEGATED REPRESENTATION:
     </strong>
 
-    Where a Head of State/Government will no longer attend personally,
-    retain the original presidential record and change its status to
+    Where an invited President or Head of State/Government
+    will not attend personally but has designated a senior
+    state official to attend on their behalf, change the
+    attendance status to
 
-    <b style="color:#B45309">
-        DOWNGRADED - Minister Rep
-    </b>.
+    <strong style="color:#245A91">
+        DELEGATED
+    </strong>.
 
-    Record the relevant
+    The invited President remains permanently recorded as
+    the principal invitee.
 
-    <strong>NV Ref</strong>
-
-    and select
-
-    <strong>ADD REP</strong>
-
-    to create the Minister Representative immediately below the
-    presidential record.
-
-    The original HoS/G record must not be overwritten.
+    The system will then capture the delegated official,
+    rank/designation, reason for the President's
+    non-attendance, Note Verbale reference and other
+    representation details.
 
 </div>
+
 
 
 <!-- ============================================================
@@ -965,16 +1599,17 @@ tr.rep-row td{
 
 <section class="panel">
 
+
 <div class="panel-header">
 
     <div>
 
         <h2>
-            MASTER PRESIDENTIAL / VVIP PROTOCOL MATRIX
+            MASTER PRESIDENTIAL / VVIP ATTENDANCE MATRIX
         </h2>
 
         <div class="panel-subtitle">
-            Live diplomatic status • NV control • liaison • presidential team • protocol team
+            Principal invitation • attendance status • delegated representation • diplomatic control
         </div>
 
     </div>
@@ -986,7 +1621,7 @@ tr.rep-row td{
             id="searchBox"
             class="search"
             type="text"
-            placeholder="Search country, principal, officer, NV Ref..."
+            placeholder="Search country, President, delegate, officer, NV Ref..."
             oninput="render()"
         >
 
@@ -1008,8 +1643,8 @@ tr.rep-row td{
                 PENDING
             </option>
 
-            <option value="DOWNGRADED - Minister Rep">
-                DOWNGRADED - MINISTER REP
+            <option value="DELEGATED">
+                DELEGATED
             </option>
 
             <option value="CANCELLED">
@@ -1023,11 +1658,15 @@ tr.rep-row td{
 </div>
 
 
+
 <div class="panel-body">
+
 
 <div class="table-wrap">
 
+
 <table>
+
 
 <thead>
 
@@ -1036,31 +1675,31 @@ tr.rep-row td{
     <th>#</th>
 
     <th>
-        Country / VVIP
+        Country
     </th>
 
     <th>
-        Protocol Officer
+        Invited President / Principal
     </th>
 
     <th>
-        Presidential Team Mobile
+        Attendance Status
     </th>
 
     <th>
-        Protocol Team Mobile
+        Delegated Official
     </th>
 
     <th>
-        Status
+        Rank / Designation
     </th>
 
     <th>
-        NV Ref / Date
+        NV Ref
     </th>
 
     <th>
-        Notes
+        Protocol Lead
     </th>
 
     <th class="no-print">
@@ -1071,27 +1710,33 @@ tr.rep-row td{
 
 </thead>
 
+
 <tbody id="matrixBody"></tbody>
+
 
 </table>
 
+
 </div>
+
 
 <div
     id="saveStatus"
     class="save-status">
 </div>
 
+
 </div>
 
 </section>
+
 
 
 <!-- ============================================================
      QUICK DIAL
 ============================================================ -->
 
-<section class="panel">
+<section class="panel no-print">
 
 <div class="panel-header">
 
@@ -1102,12 +1747,13 @@ tr.rep-row td{
         </h2>
 
         <div class="panel-subtitle">
-            Populated automatically from the live master matrix
+            Automatically generated from the live master records
         </div>
 
     </div>
 
 </div>
+
 
 <div class="panel-body">
 
@@ -1121,81 +1767,12 @@ tr.rep-row td{
 </section>
 
 
-<!-- ============================================================
-     TRANSPORT LEAD
-============================================================ -->
-
-<section class="panel">
-
-<div class="panel-header">
-
-    <div>
-
-        <h2>
-            CENTRAL TRANSPORT LEAD
-        </h2>
-
-        <div class="panel-subtitle">
-            Executive movement coordination
-        </div>
-
-    </div>
-
-</div>
-
-<div class="panel-body">
-
-<table style="min-width:700px">
-
-<tr>
-
-    <td style="width:30%">
-
-        <strong>
-            Mr. Shunu A. Abdi
-        </strong>
-
-        <div class="rank">
-            Transport Lead
-        </div>
-
-    </td>
-
-    <td>
-
-        <input
-            id="transportPres"
-            class="cell-input"
-            placeholder="Presidential Team Mobile"
-            onchange="saveTransport()"
-        >
-
-    </td>
-
-    <td>
-
-        <input
-            id="transportProt"
-            class="cell-input"
-            placeholder="Protocol Team Mobile"
-            onchange="saveTransport()"
-        >
-
-    </td>
-
-</tr>
-
-</table>
-
-</div>
-
-</section>
-
 
 <footer class="footer">
 
     <span>
-        PS COMMAND CENTER • LAMU OIL REFINERY GROUNDBREAKING
+        PS COMMAND CENTER •
+        LAMU OIL REFINERY GROUNDBREAKING
     </span>
 
     <span id="lastSaved">
@@ -1204,29 +1781,35 @@ tr.rep-row td{
 
 </footer>
 
+
 </main>
+
 
 
 <script>
 
 /* ============================================================
-   DATA ARCHITECTURE
+   MASTER DATA ARCHITECTURE
 
-   IMPORTANT:
-   We store structured JSON records rather than storing tbody
-   HTML. This makes the logic safer and prepares the application
-   for the future Azure/API/database migration.
+   Each country has ONE principal invitation record.
+
+   DELEGATED attendance does NOT replace that record.
+
+   The delegated official is stored inside:
+
+       record.delegation
+
+   This structure is intentionally suitable for later migration
+   from localStorage to a secure API / central database.
 ============================================================ */
 
-const STORAGE_KEY =
-    "LAMU_PS_EXECUTIVE_MATRIX_V4";
 
-const TRANSPORT_KEY =
-    "LAMU_PS_TRANSPORT_V4";
+const STORAGE_KEY =
+    "LAMU_PS_EXECUTIVE_MATRIX_V5";
 
 
 /* ============================================================
-   APPROVED STATUS MODEL
+   APPROVED ATTENDANCE STATUS
 ============================================================ */
 
 const STATUS = {
@@ -1237,8 +1820,8 @@ const STATUS = {
     PENDING:
         "PENDING",
 
-    DOWNGRADED:
-        "DOWNGRADED - Minister Rep",
+    DELEGATED:
+        "DELEGATED",
 
     CANCELLED:
         "CANCELLED"
@@ -1246,230 +1829,625 @@ const STATUS = {
 };
 
 
-/* ============================================================
-   BASELINE MASTER DATA
 
-   These records preserve the supplied V3 baseline.
-   Operational fields can be updated through the interface.
+/* ============================================================
+   BASELINE RECORDS
+
+   Existing baseline data from the latest version is preserved.
+   Additional presidential names can be entered directly in the
+   interface where the baseline did not contain them.
 ============================================================ */
 
 const BASE_RECORDS = [
 
+
 {
     id:"rwanda",
-    type:"HOS",
-    parentId:null,
+
     country:"Rwanda",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Timothy Mwalimu",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.CONFIRMED,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.CONFIRMED,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Timothy Mwalimu",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"congo",
-    type:"HOS",
-    parentId:null,
+
     country:"Republic of Congo",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Sar... Congo",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Sar... Congo",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"ethiopia",
-    type:"HOS",
-    parentId:null,
+
     country:"Ethiopia",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Joshua Kariuki",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.CONFIRMED,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.CONFIRMED,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Joshua Kariuki",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"nigeria",
-    type:"HOS",
-    parentId:null,
+
     country:"Nigeria",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Mike Maiyo",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Mike Maiyo",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"uganda",
-    type:"HOS",
-    parentId:null,
+
     country:"Uganda",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Brian Riechi",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Brian Riechi",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"mozambique",
-    type:"HOS",
-    parentId:null,
+
     country:"Mozambique",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Ms. Betty Ka...",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Ms. Betty Ka...",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"burundi",
-    type:"HOS",
-    parentId:null,
+
     country:"Burundi",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Holyfield Wa...",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Holyfield Wa...",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"benin",
-    type:"HOS",
-    parentId:null,
+
     country:"Benin",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Lester Omondi",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Lester Omondi",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"drc",
-    type:"HOS",
-    parentId:null,
+
     country:"DRC",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Titus Ngota",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Titus Ngota",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"ghana",
-    type:"HOS",
-    parentId:null,
+
     country:"Ghana",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Nelson Kanja",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Nelson Kanja",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"somalia",
-    type:"HOS",
-    parentId:null,
+
     country:"Somalia",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Peter Mutui",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Peter Mutui",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"south-sudan",
-    type:"HOS",
-    parentId:null,
+
     country:"South Sudan",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Ms. Tina Kendi",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.CONFIRMED,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.CONFIRMED,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Ms. Tina Kendi",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"tanzania",
-    type:"HOS",
-    parentId:null,
+
     country:"Tanzania",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Mr. Saidi Omari",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.PENDING,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.PENDING,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Mr. Saidi Omari",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 },
+
+
 
 {
     id:"togo",
-    type:"HOS",
-    parentId:null,
+
     country:"Togo",
-    rank:"HoS/G",
-    principal:"",
-    officer:"Ms. Cynthia Njiru",
-    presMobile:"",
-    protMobile:"",
-    status:STATUS.CONFIRMED,
-    nvRef:"",
-    notes:""
+
+    invitedPrincipal:{
+        name:"",
+        rank:"HoS/G"
+    },
+
+    status:
+        STATUS.CONFIRMED,
+
+    delegation:{
+        officialName:"",
+        officialRank:"",
+        reason:"",
+        nvRef:"",
+        nvDate:"",
+        mobile:"",
+        notes:""
+    },
+
+    protocol:{
+        officer:"Ms. Cynthia Njiru",
+        presidentialTeamMobile:"",
+        protocolTeamMobile:""
+    },
+
+    logistics:{
+        adc:"",
+        escort:"",
+        accommodation:"",
+        flight:""
+    },
+
+    notes:"",
+
+    statusHistory:[]
 }
+
 
 ];
 
 
+
 /* ============================================================
-   HELPERS
+   STATE
 ============================================================ */
 
 function clone(value){
@@ -1481,7 +2459,72 @@ function clone(value){
 }
 
 
-function uid(prefix="rec"){
+function freshState(){
+
+    return {
+
+        records:
+            clone(BASE_RECORDS),
+
+        lastSaved:
+            null
+
+    };
+
+}
+
+
+function loadState(){
+
+    try{
+
+        const saved =
+            JSON.parse(
+                localStorage.getItem(
+                    STORAGE_KEY
+                )
+            );
+
+
+        if(
+            saved &&
+            Array.isArray(saved.records)
+        ){
+
+            return saved;
+
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            "Unable to restore master matrix:",
+            error
+        );
+
+    }
+
+
+    return freshState();
+
+}
+
+
+let state =
+    loadState();
+
+
+const openDetails =
+    new Set();
+
+
+
+/* ============================================================
+   GENERAL UTILITIES
+============================================================ */
+
+function uid(prefix="record"){
 
     return (
         prefix +
@@ -1501,67 +2544,33 @@ function escapeHTML(value){
     return String(value ?? "")
     .replace(
         /[&<>"']/g,
-        char => ({
+        character => ({
+
             "&":"&amp;",
             "<":"&lt;",
             ">":"&gt;",
             '"':"&quot;",
             "'":"&#39;"
-        }[char])
+
+        }[character])
     );
 
 }
 
 
-/* ============================================================
-   LOAD STATE
-============================================================ */
+function getRecord(id){
 
-function loadState(){
-
-    try{
-
-        const saved =
-            JSON.parse(
-                localStorage.getItem(
-                    STORAGE_KEY
-                )
-            );
-
-        if(
-            saved &&
-            Array.isArray(saved.records)
-        ){
-            return saved;
-        }
-
-    }catch(error){
-
-        console.error(
-            "Unable to restore master matrix:",
-            error
-        );
-
-    }
-
-    return {
-
-        records:
-            clone(BASE_RECORDS),
-
-        lastSaved:null
-
-    };
+    return state.records.find(
+        record =>
+            record.id === id
+    );
 
 }
 
 
-let state =
-    loadState();
-
 
 /* ============================================================
-   STATUS CLASS
+   STATUS PRESENTATION
 ============================================================ */
 
 function statusClass(status){
@@ -1574,8 +2583,8 @@ function statusClass(status){
         case STATUS.PENDING:
             return "status-pending";
 
-        case STATUS.DOWNGRADED:
-            return "status-downgraded";
+        case STATUS.DELEGATED:
+            return "status-delegated";
 
         case STATUS.CANCELLED:
             return "status-cancelled";
@@ -1588,13 +2597,9 @@ function statusClass(status){
 }
 
 
-function rowClass(record){
+function rowClass(status){
 
-    if(record.type === "REP"){
-        return "rep-row";
-    }
-
-    switch(record.status){
+    switch(status){
 
         case STATUS.CONFIRMED:
             return "row-confirmed";
@@ -1602,8 +2607,8 @@ function rowClass(record){
         case STATUS.PENDING:
             return "row-pending";
 
-        case STATUS.DOWNGRADED:
-            return "row-downgraded";
+        case STATUS.DELEGATED:
+            return "row-delegated";
 
         case STATUS.CANCELLED:
             return "row-cancelled";
@@ -1616,6 +2621,7 @@ function rowClass(record){
 }
 
 
+
 /* ============================================================
    STATUS SELECT
 ============================================================ */
@@ -1625,25 +2631,27 @@ function statusSelect(record){
     const statuses = [
 
         STATUS.CONFIRMED,
-
         STATUS.PENDING,
-
-        STATUS.DOWNGRADED,
-
+        STATUS.DELEGATED,
         STATUS.CANCELLED
 
     ];
 
+
     return `
 
         <select
-            class="status-select ${statusClass(record.status)}"
+            class="
+                status-select
+                ${statusClass(record.status)}
+            "
             onchange="
                 changeStatus(
                     '${record.id}',
                     this.value
                 )
-            ">
+            "
+        >
 
             ${
                 statuses
@@ -1651,7 +2659,7 @@ function statusSelect(record){
                     status => `
 
                         <option
-                            value="${escapeHTML(status)}"
+                            value="${status}"
                             ${
                                 record.status === status
                                 ?
@@ -1660,7 +2668,7 @@ function statusSelect(record){
                                 ""
                             }
                         >
-                            ${escapeHTML(status)}
+                            ${status}
                         </option>
 
                     `
@@ -1675,27 +2683,32 @@ function statusSelect(record){
 }
 
 
+
 /* ============================================================
-   FIELD INPUT
+   GENERIC INPUT
 ============================================================ */
 
-function inputField(
-    record,
-    field,
-    extraClass="",
-    placeholder=""
+function input(
+    recordId,
+    path,
+    value,
+    placeholder="",
+    extraClass=""
 ){
 
     return `
 
         <input
-            class="cell-input ${extraClass}"
-            value="${escapeHTML(record[field])}"
+            class="
+                cell-input
+                ${extraClass}
+            "
+            value="${escapeHTML(value)}"
             placeholder="${escapeHTML(placeholder)}"
             onchange="
-                updateField(
-                    '${record.id}',
-                    '${field}',
+                updateNestedField(
+                    '${recordId}',
+                    '${path}',
                     this.value
                 )
             "
@@ -1706,113 +2719,889 @@ function inputField(
 }
 
 
-/* ============================================================
-   ORDERING
+function textarea(
+    recordId,
+    path,
+    value,
+    placeholder=""
+){
 
-   Representative records remain immediately underneath
-   the relevant Head-of-State record.
-============================================================ */
+    return `
 
-function orderedRecords(){
+        <textarea
+            class="cell-textarea"
+            placeholder="${escapeHTML(placeholder)}"
+            onchange="
+                updateNestedField(
+                    '${recordId}',
+                    '${path}',
+                    this.value
+                )
+            "
+        >${escapeHTML(value)}</textarea>
 
-    const output = [];
-
-    const principals =
-        state.records.filter(
-            record =>
-                record.type === "HOS"
-        );
-
-    principals.forEach(
-        principal => {
-
-            output.push(principal);
-
-            const representatives =
-                state.records.filter(
-                    record =>
-                        record.type === "REP" &&
-                        record.parentId === principal.id
-                );
-
-            output.push(
-                ...representatives
-            );
-
-        }
-    );
-
-    return output;
+    `;
 
 }
 
 
+
 /* ============================================================
-   RENDER MASTER MATRIX
+   UPDATE NESTED FIELD
+
+   Example:
+      invitedPrincipal.name
+      delegation.officialName
+      protocol.officer
+      logistics.flight
+============================================================ */
+
+function updateNestedField(
+    recordId,
+    path,
+    value
+){
+
+    const record =
+        getRecord(recordId);
+
+
+    if(!record){
+        return;
+    }
+
+
+    const parts =
+        path.split(".");
+
+
+    let target =
+        record;
+
+
+    for(
+        let i=0;
+        i<parts.length-1;
+        i++
+    ){
+
+        if(
+            !target[
+                parts[i]
+            ]
+        ){
+
+            target[
+                parts[i]
+            ] = {};
+
+        }
+
+
+        target =
+            target[
+                parts[i]
+            ];
+
+    }
+
+
+    target[
+        parts[
+            parts.length-1
+        ]
+    ] =
+        value.trim();
+
+
+    saveAll(false);
+
+}
+
+
+
+/* ============================================================
+   STATUS CHANGE + HISTORY
+
+   Selecting DELEGATED:
+      - keeps invited President intact
+      - opens the detail panel automatically
+      - reveals delegation fields
+============================================================ */
+
+function changeStatus(
+    recordId,
+    newStatus
+){
+
+    const record =
+        getRecord(recordId);
+
+
+    if(!record){
+        return;
+    }
+
+
+    const oldStatus =
+        record.status;
+
+
+    if(
+        oldStatus !== newStatus
+    ){
+
+        record.statusHistory =
+            record.statusHistory || [];
+
+
+        record.statusHistory.push({
+
+            from:
+                oldStatus,
+
+            to:
+                newStatus,
+
+            timestamp:
+                new Date()
+                .toISOString()
+
+        });
+
+    }
+
+
+    record.status =
+        newStatus;
+
+
+    if(
+        newStatus ===
+        STATUS.DELEGATED
+    ){
+
+        openDetails.add(
+            recordId
+        );
+
+    }
+
+
+    saveAll(false);
+
+    render();
+
+}
+
+
+
+/* ============================================================
+   MAIN ROW DELEGATE SUMMARY
+============================================================ */
+
+function delegateNameDisplay(record){
+
+    if(
+        record.status !==
+        STATUS.DELEGATED
+    ){
+
+        return `
+            <span style="color:#94A3B8">
+                —
+            </span>
+        `;
+
+    }
+
+
+    if(
+        !record.delegation
+        .officialName
+    ){
+
+        return `
+
+            <div class="delegate-summary">
+
+                <strong>
+                    DELEGATE DETAILS REQUIRED
+                </strong>
+
+            </div>
+
+        `;
+
+    }
+
+
+    return `
+
+        <div class="delegate-summary">
+
+            <strong>
+                ${escapeHTML(
+                    record.delegation
+                    .officialName
+                )}
+            </strong>
+
+        </div>
+
+    `;
+
+}
+
+
+function delegateRankDisplay(record){
+
+    if(
+        record.status !==
+        STATUS.DELEGATED
+    ){
+
+        return `
+            <span style="color:#94A3B8">
+                —
+            </span>
+        `;
+
+    }
+
+
+    return `
+
+        <div class="delegate-summary">
+
+            ${
+                escapeHTML(
+                    record.delegation
+                    .officialRank ||
+                    "Rank / designation required"
+                )
+            }
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* ============================================================
+   DETAILS PANEL
+============================================================ */
+
+function detailsPanel(record){
+
+    if(
+        !openDetails.has(
+            record.id
+        )
+    ){
+
+        return "";
+
+    }
+
+
+    const delegated =
+        record.status ===
+        STATUS.DELEGATED;
+
+
+    return `
+
+    <tr class="detail-row">
+
+        <td colspan="9">
+
+            <div class="detail-shell">
+
+
+                <div class="detail-title">
+
+                    <span>
+
+                        ${escapeHTML(record.country)}
+                        — EXECUTIVE CASE DETAIL
+
+                    </span>
+
+
+                    <span>
+
+                        <span
+                            class="
+                                status-pill
+                                ${statusClass(record.status)}
+                            "
+                        >
+                            ${record.status}
+                        </span>
+
+                    </span>
+
+                </div>
+
+
+                <div class="detail-grid">
+
+
+                    <div class="detail-box">
+
+                        <label>
+                            INVITED PRESIDENT / PRINCIPAL
+                        </label>
+
+                        ${
+                            input(
+                                record.id,
+                                "invitedPrincipal.name",
+                                record.invitedPrincipal.name,
+                                "H.E. Name of invited President"
+                            )
+                        }
+
+                    </div>
+
+
+                    <div class="detail-box">
+
+                        <label>
+                            PRINCIPAL RANK / TITLE
+                        </label>
+
+                        ${
+                            input(
+                                record.id,
+                                "invitedPrincipal.rank",
+                                record.invitedPrincipal.rank,
+                                "President / Prime Minister / HoS/G"
+                            )
+                        }
+
+                    </div>
+
+
+                    <div class="detail-box">
+
+                        <label>
+                            PROTOCOL / LIAISON OFFICER
+                        </label>
+
+                        ${
+                            input(
+                                record.id,
+                                "protocol.officer",
+                                record.protocol.officer,
+                                "Officer"
+                            )
+                        }
+
+                    </div>
+
+
+                    <div class="detail-box">
+
+                        <label>
+                            PRESIDENTIAL TEAM MOBILE
+                        </label>
+
+                        ${
+                            input(
+                                record.id,
+                                "protocol.presidentialTeamMobile",
+                                record.protocol.presidentialTeamMobile,
+                                "+..."
+                            )
+                        }
+
+                    </div>
+
+
+                    <div class="detail-box">
+
+                        <label>
+                            PROTOCOL TEAM MOBILE
+                        </label>
+
+                        ${
+                            input(
+                                record.id,
+                                "protocol.protocolTeamMobile",
+                                record.protocol.protocolTeamMobile,
+                                "+254..."
+                            )
+                        }
+
+                    </div>
+
+
+                    <div class="detail-box">
+
+                        <label>
+                            ADC
+                        </label>
+
+                        ${
+                            input(
+                                record.id,
+                                "logistics.adc",
+                                record.logistics.adc,
+                                "ADC details"
+                            )
+                        }
+
+                    </div>
+
+
+                    <div class="detail-box">
+
+                        <label>
+                            ESCORT OF HONOUR
+                        </label>
+
+                        ${
+                            input(
+                                record.id,
+                                "logistics.escort",
+                                record.logistics.escort,
+                                "Escort details"
+                            )
+                        }
+
+                    </div>
+
+
+                    <div class="detail-box">
+
+                        <label>
+                            ACCOMMODATION
+                        </label>
+
+                        ${
+                            input(
+                                record.id,
+                                "logistics.accommodation",
+                                record.logistics.accommodation,
+                                "Hotel / accommodation"
+                            )
+                        }
+
+                    </div>
+
+
+                    <div class="detail-box span2">
+
+                        <label>
+                            FLIGHT / ARRIVAL DETAILS
+                        </label>
+
+                        ${
+                            input(
+                                record.id,
+                                "logistics.flight",
+                                record.logistics.flight,
+                                "Aircraft / flight / ETA / ETD"
+                            )
+                        }
+
+                    </div>
+
+
+                    <div class="detail-box span2">
+
+                        <label>
+                            GENERAL PROTOCOL / EXECUTIVE NOTES
+                        </label>
+
+                        ${
+                            textarea(
+                                record.id,
+                                "notes",
+                                record.notes,
+                                "Enter relevant protocol or executive notes"
+                            )
+                        }
+
+                    </div>
+
+
+                </div>
+
+
+                ${
+                    delegated
+                    ?
+                    delegationPanel(record)
+                    :
+                    ""
+                }
+
+
+                ${
+                    statusHistoryPanel(record)
+                }
+
+
+            </div>
+
+        </td>
+
+    </tr>
+
+    `;
+
+}
+
+
+
+/* ============================================================
+   DELEGATION PANEL
+
+   Appears ONLY when status = DELEGATED.
+============================================================ */
+
+function delegationPanel(record){
+
+    return `
+
+    <div class="delegation-panel">
+
+
+        <div class="delegation-head">
+
+            DELEGATED REPRESENTATION
+
+            <span
+                style="
+                    font-weight:400;
+                    opacity:.85;
+                "
+            >
+                — Invited President retained as principal record
+            </span>
+
+        </div>
+
+
+        <div class="delegation-grid">
+
+
+            <div class="delegation-field span2">
+
+                <label>
+                    NAME OF DELEGATED STATE OFFICIAL
+                </label>
+
+                ${
+                    input(
+                        record.id,
+                        "delegation.officialName",
+                        record.delegation.officialName,
+                        "Hon. / H.E. / Rt. Hon. Name"
+                    )
+                }
+
+            </div>
+
+
+            <div class="delegation-field span2">
+
+                <label>
+                    RANK / DESIGNATION
+                </label>
+
+                ${
+                    input(
+                        record.id,
+                        "delegation.officialRank",
+                        record.delegation.officialRank,
+                        "e.g. Minister for Foreign Affairs"
+                    )
+                }
+
+            </div>
+
+
+            <div class="delegation-field span4">
+
+                <label>
+                    REASON FOR PRESIDENT'S NON-ATTENDANCE
+                </label>
+
+                ${
+                    textarea(
+                        record.id,
+                        "delegation.reason",
+                        record.delegation.reason,
+                        "Record the official reason communicated for the President's non-attendance"
+                    )
+                }
+
+            </div>
+
+
+            <div class="delegation-field">
+
+                <label>
+                    NOTE VERBALE REFERENCE
+                </label>
+
+                ${
+                    input(
+                        record.id,
+                        "delegation.nvRef",
+                        record.delegation.nvRef,
+                        "NV Ref",
+                        "nv-input"
+                    )
+                }
+
+            </div>
+
+
+            <div class="delegation-field">
+
+                <label>
+                    NV DATE
+                </label>
+
+                ${
+                    input(
+                        record.id,
+                        "delegation.nvDate",
+                        record.delegation.nvDate,
+                        "DD/MM/YYYY"
+                    )
+                }
+
+            </div>
+
+
+            <div class="delegation-field">
+
+                <label>
+                    DELEGATE CONTACT
+                </label>
+
+                ${
+                    input(
+                        record.id,
+                        "delegation.mobile",
+                        record.delegation.mobile,
+                        "+..."
+                    )
+                }
+
+            </div>
+
+
+            <div class="delegation-field">
+
+                <label>
+                    REPRESENTATION NOTES
+                </label>
+
+                ${
+                    input(
+                        record.id,
+                        "delegation.notes",
+                        record.delegation.notes,
+                        "Additional notes"
+                    )
+                }
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    `;
+
+}
+
+
+
+/* ============================================================
+   STATUS HISTORY
+============================================================ */
+
+function statusHistoryPanel(record){
+
+    const history =
+        record.statusHistory || [];
+
+
+    if(!history.length){
+
+        return "";
+
+    }
+
+
+    return `
+
+    <div
+        style="
+            margin:0 10px 10px;
+            border-top:1px solid #E2E8F0;
+            padding-top:8px;
+        "
+    >
+
+        <strong
+            style="
+                color:#536273;
+                font-size:9px;
+                letter-spacing:.05em;
+            "
+        >
+            STATUS HISTORY
+        </strong>
+
+
+        <div
+            style="
+                margin-top:5px;
+                color:#64748B;
+                font-size:9px;
+            "
+        >
+
+            ${
+                history
+                .map(
+                    item => `
+
+                        <div style="margin-bottom:3px">
+
+                            ${escapeHTML(item.from)}
+
+                            →
+
+                            <strong>
+                                ${escapeHTML(item.to)}
+                            </strong>
+
+                            &nbsp;•&nbsp;
+
+                            ${
+                                new Date(
+                                    item.timestamp
+                                )
+                                .toLocaleString(
+                                    "en-GB"
+                                )
+                            }
+
+                        </div>
+
+                    `
+                )
+                .join("")
+            }
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+
+/* ============================================================
+   RENDER
 ============================================================ */
 
 function render(){
 
-    const body =
-        document.getElementById(
-            "matrixBody"
-        );
-
     const query =
-        document.getElementById(
+        document
+        .getElementById(
             "searchBox"
         )
         .value
         .trim()
         .toLowerCase();
 
+
     const filter =
-        document.getElementById(
+        document
+        .getElementById(
             "filterStatus"
         )
         .value;
 
-    let records =
-        orderedRecords();
 
-
-    records =
-        records.filter(
+    const records =
+        state.records
+        .filter(
             record => {
 
-                const matchesStatus =
+                const statusMatch =
                     (
                         filter === "ALL" ||
                         record.status === filter
                     );
 
-                const searchText =
+
+                const searchable =
                     [
+
                         record.country,
-                        record.rank,
-                        record.principal,
-                        record.officer,
-                        record.presMobile,
-                        record.protMobile,
-                        record.nvRef,
-                        record.notes,
-                        record.status
+
+                        record.invitedPrincipal.name,
+
+                        record.invitedPrincipal.rank,
+
+                        record.status,
+
+                        record.delegation.officialName,
+
+                        record.delegation.officialRank,
+
+                        record.delegation.reason,
+
+                        record.delegation.nvRef,
+
+                        record.protocol.officer,
+
+                        record.notes
+
                     ]
                     .join(" ")
                     .toLowerCase();
 
-                const matchesSearch =
+
+                const searchMatch =
                     (
                         !query ||
-                        searchText.includes(query)
+                        searchable.includes(query)
                     );
 
+
                 return (
-                    matchesStatus &&
-                    matchesSearch
+                    statusMatch &&
+                    searchMatch
                 );
 
             }
+        );
+
+
+    const body =
+        document
+        .getElementById(
+            "matrixBody"
         );
 
 
@@ -1823,14 +3612,19 @@ function render(){
             <tr>
 
                 <td colspan="9">
-                    No matching delegation records.
+
+                    No matching presidential /
+                    delegation records.
+
                 </td>
 
             </tr>
 
         `;
 
+
         updateCounters();
+
         buildQuickDial();
 
         return;
@@ -1843,24 +3637,26 @@ function render(){
         .map(
             (record,index) => {
 
-                const parent =
-                    record.parentId
+
+                const nvDisplay =
+                    record.status ===
+                    STATUS.DELEGATED
                     ?
-                    state.records.find(
-                        item =>
-                            item.id ===
-                            record.parentId
+                    (
+                        record.delegation.nvRef ||
+                        "—"
                     )
                     :
-                    null;
+                    "—";
 
 
                 return `
 
                 <tr
-                    class="${rowClass(record)}"
+                    class="${rowClass(record.status)}"
                     id="row_${record.id}"
                 >
+
 
                     <td>
 
@@ -1871,61 +3667,50 @@ function render(){
                     </td>
 
 
+
                     <td>
-
-                        ${
-                            record.type === "REP"
-                            ?
-                            `
-                            <span class="rep-label">
-                                MINISTER REP
-                            </span>
-                            `
-                            :
-                            ""
-                        }
-
 
                         <div class="country">
 
                             ${
-                                inputField(
-                                    record,
+                                input(
+                                    record.id,
                                     "country",
-                                    "",
+                                    record.country,
                                     "Country"
                                 )
                             }
 
                         </div>
 
+                    </td>
 
-                        <div style="margin-top:4px">
+
+
+                    <td>
+
+                        <div class="principal-name">
 
                             ${
-                                inputField(
-                                    record,
-                                    "principal",
-                                    "",
-                                    record.type === "REP"
-                                    ?
-                                    "Minister / Representative name"
-                                    :
-                                    "Head of State / Government"
+                                record.invitedPrincipal.name
+                                ?
+                                escapeHTML(
+                                    record.invitedPrincipal.name
                                 )
+                                :
+                                `<span style="color:#94A3B8">
+                                    Enter invited President
+                                </span>`
                             }
 
                         </div>
 
 
-                        <div style="margin-top:4px">
+                        <div class="rank">
 
                             ${
-                                inputField(
-                                    record,
-                                    "rank",
-                                    "",
-                                    "Rank / Designation"
+                                escapeHTML(
+                                    record.invitedPrincipal.rank
                                 )
                             }
 
@@ -1933,15 +3718,27 @@ function render(){
 
 
                         ${
-                            parent
+                            record.status ===
+                            STATUS.DELEGATED
                             ?
                             `
-                            <div class="rank">
-                                Represents:
+
+                            <div class="delegate-summary">
+
                                 <strong>
-                                    ${escapeHTML(parent.country)}
+                                    REPRESENTED BY:
                                 </strong>
+
+                                ${
+                                    escapeHTML(
+                                        record.delegation
+                                        .officialName ||
+                                        "Delegate details required"
+                                    )
+                                }
+
                             </div>
+
                             `
                             :
                             ""
@@ -1949,47 +3746,6 @@ function render(){
 
                     </td>
 
-
-                    <td>
-
-                        ${
-                            inputField(
-                                record,
-                                "officer",
-                                "",
-                                "Protocol / Liaison Officer"
-                            )
-                        }
-
-                    </td>
-
-
-                    <td>
-
-                        ${
-                            inputField(
-                                record,
-                                "presMobile",
-                                "",
-                                "+XXX..."
-                            )
-                        }
-
-                    </td>
-
-
-                    <td>
-
-                        ${
-                            inputField(
-                                record,
-                                "protMobile",
-                                "",
-                                "+254..."
-                            )
-                        }
-
-                    </td>
 
 
                     <td>
@@ -2001,60 +3757,105 @@ function render(){
                     </td>
 
 
+
                     <td>
 
                         ${
-                            inputField(
-                                record,
-                                "nvRef",
-                                "nv-input",
-                                "NV Ref / Date"
+                            delegateNameDisplay(
+                                record
                             )
                         }
 
                     </td>
 
 
+
                     <td>
 
                         ${
-                            inputField(
-                                record,
-                                "notes",
-                                "",
-                                "Protocol / diplomatic notes"
+                            delegateRankDisplay(
+                                record
                             )
                         }
 
                     </td>
+
+
+
+                    <td>
+
+                        ${
+                            record.status ===
+                            STATUS.DELEGATED
+                            ?
+                            `
+
+                            <span
+                                style="
+                                    color:#846600;
+                                    font-weight:800;
+                                "
+                            >
+                                ${escapeHTML(nvDisplay)}
+                            </span>
+
+                            `
+                            :
+                            `<span style="color:#94A3B8">—</span>`
+                        }
+
+                    </td>
+
+
+
+                    <td>
+
+                        ${
+                            escapeHTML(
+                                record.protocol.officer ||
+                                "—"
+                            )
+                        }
+
+                    </td>
+
 
 
                     <td class="no-print">
 
                         <div class="action-group">
 
-                            ${
-                                record.type === "HOS"
-                                ?
-                                `
-                                <button
-                                    class="mini-btn add-rep"
-                                    onclick="
-                                        addRepresentative(
-                                            '${record.id}'
-                                        )
-                                    "
-                                >
-                                    + ADD REP
-                                </button>
-                                `
-                                :
-                                ""
-                            }
+
+                            <button
+                                class="
+                                    mini-btn
+                                    details-btn
+                                "
+                                onclick="
+                                    toggleDetails(
+                                        '${record.id}'
+                                    )
+                                "
+                            >
+
+                                ${
+                                    openDetails.has(
+                                        record.id
+                                    )
+                                    ?
+                                    "CLOSE"
+                                    :
+                                    "DETAILS"
+                                }
+
+                            </button>
 
 
                             <button
-                                class="mini-btn delete-btn"
+                                class="
+                                    mini-btn
+                                    delete-btn
+                                "
                                 onclick="
                                     deleteRecord(
                                         '${record.id}'
@@ -2064,11 +3865,18 @@ function render(){
                                 DELETE
                             </button>
 
+
                         </div>
 
                     </td>
 
+
                 </tr>
+
+
+                ${
+                    detailsPanel(record)
+                }
 
                 `;
 
@@ -2078,226 +3886,43 @@ function render(){
 
 
     updateCounters();
+
     buildQuickDial();
 
 }
 
 
+
 /* ============================================================
-   UPDATE FIELD
+   DETAILS TOGGLE
 ============================================================ */
 
-function updateField(
-    id,
-    field,
-    value
-){
-
-    const record =
-        state.records.find(
-            item =>
-                item.id === id
-        );
-
-    if(!record){
-        return;
-    }
-
-    record[field] =
-        value.trim();
-
-    /*
-       If the country name of a principal changes,
-       linked representatives follow that country.
-    */
+function toggleDetails(id){
 
     if(
-        field === "country" &&
-        record.type === "HOS"
+        openDetails.has(id)
     ){
 
-        state.records
-        .filter(
-            item =>
-                item.parentId === record.id
-        )
-        .forEach(
-            representative => {
+        openDetails.delete(id);
 
-                representative.country =
-                    record.country;
+    }
+    else{
 
-            }
-        );
+        openDetails.add(id);
 
     }
 
-    saveAll(false);
-
-}
-
-
-/* ============================================================
-   CHANGE STATUS
-============================================================ */
-
-function changeStatus(
-    id,
-    newStatus
-){
-
-    const record =
-        state.records.find(
-            item =>
-                item.id === id
-        );
-
-    if(!record){
-        return;
-    }
-
-
-    record.status =
-        newStatus;
-
-
-    /*
-       A representative should normally be CONFIRMED,
-       PENDING or CANCELLED.
-
-       We do not automatically destroy data if a user
-       selects another status.
-    */
-
-
-    saveAll(false);
 
     render();
 
 }
 
 
-/* ============================================================
-   ADD MINISTER REPRESENTATIVE
-
-   CORE RULE:
-   1. Preserve original HoS/G record.
-   2. Mark original record DOWNGRADED.
-   3. Create a separate linked representative.
-   4. Place representative visually below principal.
-   5. Do not count representative as a second country.
-============================================================ */
-
-function addRepresentative(
-    parentId
-){
-
-    const parent =
-        state.records.find(
-            item =>
-                item.id === parentId
-        );
-
-
-    if(!parent){
-        return;
-    }
-
-
-    const activeRepresentative =
-        state.records.find(
-            item =>
-                item.type === "REP" &&
-                item.parentId === parentId &&
-                item.status !== STATUS.CANCELLED
-        );
-
-
-    if(activeRepresentative){
-
-        const proceed =
-            confirm(
-                "An active Minister Representative already exists for " +
-                parent.country +
-                ". Add another representative?"
-            );
-
-        if(!proceed){
-            return;
-        }
-
-    }
-
-
-    /*
-       ALWAYS downgrade the HoS row.
-
-       This corrects the V3 behaviour where only a
-       previously CONFIRMED row was downgraded.
-    */
-
-    parent.status =
-        STATUS.DOWNGRADED;
-
-
-    const representative = {
-
-        id:
-            uid("rep"),
-
-        type:
-            "REP",
-
-        parentId:
-            parent.id,
-
-        country:
-            parent.country,
-
-        rank:
-            "Minister - Representative of HoS/G",
-
-        principal:
-            "",
-
-        officer:
-            parent.officer || "",
-
-        presMobile:
-            "",
-
-        protMobile:
-            parent.protMobile || "",
-
-        status:
-            STATUS.CONFIRMED,
-
-        nvRef:
-            parent.nvRef || "",
-
-        notes:
-            "Minister Representative linked to downgraded HoS/G record."
-
-    };
-
-
-    state.records.push(
-        representative
-    );
-
-
-    saveAll(false);
-
-    render();
-
-}
-
 
 /* ============================================================
-   GLOBAL ADD COUNTRY
+   ADD COUNTRY
 
-   This creates a PRINCIPAL country case, not automatically
-   a Minister Representative.
+   Creates a NEW principal invitation.
 ============================================================ */
 
 function addCountry(){
@@ -2307,44 +3932,63 @@ function addCountry(){
         id:
             uid("country"),
 
-        type:
-            "HOS",
-
-        parentId:
-            null,
-
         country:
             "New Country",
 
-        rank:
-            "HoS/G",
+        invitedPrincipal:{
 
-        principal:
-            "",
+            name:"",
+            rank:"HoS/G"
 
-        officer:
-            "",
-
-        presMobile:
-            "",
-
-        protMobile:
-            "",
+        },
 
         status:
             STATUS.PENDING,
 
-        nvRef:
-            "",
+        delegation:{
+
+            officialName:"",
+            officialRank:"",
+            reason:"",
+            nvRef:"",
+            nvDate:"",
+            mobile:"",
+            notes:""
+
+        },
+
+        protocol:{
+
+            officer:"",
+            presidentialTeamMobile:"",
+            protocolTeamMobile:""
+
+        },
+
+        logistics:{
+
+            adc:"",
+            escort:"",
+            accommodation:"",
+            flight:""
+
+        },
 
         notes:
-            "Last-minute country addition."
+            "Last-minute presidential / HoS/G invitation.",
+
+        statusHistory:[]
 
     };
 
 
     state.records.push(
         record
+    );
+
+
+    openDetails.add(
+        record.id
     );
 
 
@@ -2358,14 +4002,19 @@ function addCountry(){
 
             const row =
                 document.getElementById(
-                    "row_" + record.id
+                    "row_" +
+                    record.id
                 );
+
 
             if(row){
 
                 row.scrollIntoView({
+
                     behavior:"smooth",
+
                     block:"center"
+
                 });
 
             }
@@ -2377,6 +4026,7 @@ function addCountry(){
 }
 
 
+
 /* ============================================================
    DELETE RECORD
 ============================================================ */
@@ -2384,10 +4034,7 @@ function addCountry(){
 function deleteRecord(id){
 
     const record =
-        state.records.find(
-            item =>
-                item.id === id
-        );
+        getRecord(id);
 
 
     if(!record){
@@ -2395,62 +4042,33 @@ function deleteRecord(id){
     }
 
 
-    if(record.type === "HOS"){
+    const proceed =
+        confirm(
 
-        const children =
-            state.records.filter(
-                item =>
-                    item.parentId === id
-            );
-
-
-        let message =
-            "Delete the principal record for " +
+            "Delete the invitation record for " +
             record.country +
-            "?";
+            "?\n\n" +
+
+            "This removes the President, attendance status, " +
+            "delegation details and associated operational data " +
+            "from this working copy."
+
+        );
 
 
-        if(children.length){
-
-            message +=
-                "\n\nThis will also delete " +
-                children.length +
-                " linked Minister Representative record(s).";
-
-        }
-
-
-        if(!confirm(message)){
-            return;
-        }
-
-
-        state.records =
-            state.records.filter(
-                item =>
-                    item.id !== id &&
-                    item.parentId !== id
-            );
-
+    if(!proceed){
+        return;
     }
-    else{
-
-        if(
-            !confirm(
-                "Delete this Minister Representative record?"
-            )
-        ){
-            return;
-        }
 
 
-        state.records =
-            state.records.filter(
-                item =>
-                    item.id !== id
-            );
+    state.records =
+        state.records.filter(
+            item =>
+                item.id !== id
+        );
 
-    }
+
+    openDetails.delete(id);
 
 
     saveAll(false);
@@ -2460,66 +4078,55 @@ function deleteRecord(id){
 }
 
 
+
 /* ============================================================
-   LIVE COUNTERS
+   COUNTERS
 
-   IMPORTANT CORRECTION:
+   CONFIRMED:
+       President / principal personally attending.
 
-   PRESIDENTS CONFIRMED:
-       HOS records with status CONFIRMED
-
-   MINISTER REPRESENTATIVES:
-       actual REP records that are not CANCELLED
+   DELEGATED:
+       President remains invited principal, but senior official
+       attends on their behalf.
 
    PENDING:
-       HOS records with status PENDING
+       Final attendance decision not yet recorded.
 
    TOTAL:
-       HOS / principal country cases only
-
-   Therefore a President and his Minister Representative
-   are NOT double-counted as two countries.
+       Number of principal invitations.
 ============================================================ */
 
 function updateCounters(){
 
-    const principals =
-        state.records.filter(
-            item =>
-                item.type === "HOS"
-        );
-
-
     const confirmed =
-        principals.filter(
-            item =>
-                item.status ===
+        state.records.filter(
+            record =>
+                record.status ===
                 STATUS.CONFIRMED
         )
         .length;
 
 
-    const representatives =
+    const delegated =
         state.records.filter(
-            item =>
-                item.type === "REP" &&
-                item.status !==
-                STATUS.CANCELLED
+            record =>
+                record.status ===
+                STATUS.DELEGATED
         )
         .length;
 
 
     const pending =
-        principals.filter(
-            item =>
-                item.status ===
+        state.records.filter(
+            record =>
+                record.status ===
                 STATUS.PENDING
         )
         .length;
 
 
     const total =
-        principals.length;
+        state.records.length;
 
 
     document
@@ -2532,10 +4139,10 @@ function updateCounters(){
 
     document
     .getElementById(
-        "cntReps"
+        "cntDelegated"
     )
     .textContent =
-        representatives;
+        delegated;
 
 
     document
@@ -2556,13 +4163,16 @@ function updateCounters(){
 }
 
 
+
 /* ============================================================
    QUICK DIAL
 ============================================================ */
 
 function phoneLink(number){
 
-    return String(number || "")
+    return String(
+        number || ""
+    )
     .replace(
         /[^\d+]/g,
         ""
@@ -2573,7 +4183,9 @@ function phoneLink(number){
 
 function whatsappLink(number){
 
-    return String(number || "")
+    return String(
+        number || ""
+    )
     .replace(
         /\D/g,
         ""
@@ -2585,17 +4197,36 @@ function whatsappLink(number){
 function buildQuickDial(){
 
     const container =
-        document.getElementById(
+        document
+        .getElementById(
             "quickDial"
         );
 
 
     const records =
-        orderedRecords()
+        state.records
         .filter(
-            item =>
-                item.presMobile ||
-                item.protMobile
+            record =>
+
+                record.protocol
+                .presidentialTeamMobile
+
+                ||
+
+                record.protocol
+                .protocolTeamMobile
+
+                ||
+
+                (
+                    record.status ===
+                    STATUS.DELEGATED
+
+                    &&
+
+                    record.delegation
+                    .mobile
+                )
         );
 
 
@@ -2604,7 +4235,9 @@ function buildQuickDial(){
         container.innerHTML = `
 
             <div style="color:#64748B">
+
                 No contact numbers entered yet.
+
             </div>
 
         `;
@@ -2621,61 +4254,66 @@ function buildQuickDial(){
 
             <div class="quick-card">
 
+
                 <strong>
                     ${escapeHTML(record.country)}
                 </strong>
 
-                ${
-                    record.type === "REP"
-                    ?
-                    `
-                    <div class="rep-label">
-                        MINISTER REP
-                    </div>
-                    `
-                    :
-                    ""
-                }
 
+                <div style="margin-top:4px">
 
-                <div
-                    class="quick-status"
-                    style="
-                        color:${
-                            record.status === STATUS.CONFIRMED
-                            ? "#15803D"
-                            :
-                            record.status === STATUS.PENDING
-                            ? "#D97706"
-                            :
-                            record.status === STATUS.DOWNGRADED
-                            ? "#C65D08"
-                            :
-                            "#B91C1C"
-                        }
-                    "
-                >
-                    ${escapeHTML(record.status)}
+                    <span
+                        class="
+                            status-pill
+                            ${statusClass(record.status)}
+                        "
+                    >
+                        ${record.status}
+                    </span>
+
                 </div>
 
 
                 ${
-                    record.presMobile
+                    record.protocol
+                    .presidentialTeamMobile
                     ?
                     `
-                    <a
-                        href="tel:${phoneLink(record.presMobile)}"
-                    >
-                        ☎ Presidential Team:
-                        ${escapeHTML(record.presMobile)}
-                    </a>
 
                     <a
-                        href="https://wa.me/${whatsappLink(record.presMobile)}"
+                        href="
+                            tel:${
+                                phoneLink(
+                                    record.protocol
+                                    .presidentialTeamMobile
+                                )
+                            }
+                        "
+                    >
+                        ☎ Presidential Team:
+                        ${
+                            escapeHTML(
+                                record.protocol
+                                .presidentialTeamMobile
+                            )
+                        }
+                    </a>
+
+
+                    <a
                         target="_blank"
+                        href="
+                            https://wa.me/${
+                                whatsappLink(
+                                    record.protocol
+                                    .presidentialTeamMobile
+                                )
+                            }
+                        "
                     >
                         WhatsApp Presidential Team
                     </a>
+
                     `
                     :
                     ""
@@ -2683,19 +4321,72 @@ function buildQuickDial(){
 
 
                 ${
-                    record.protMobile
+                    record.protocol
+                    .protocolTeamMobile
                     ?
                     `
+
                     <a
-                        href="tel:${phoneLink(record.protMobile)}"
+                        href="
+                            tel:${
+                                phoneLink(
+                                    record.protocol
+                                    .protocolTeamMobile
+                                )
+                            }
+                        "
                     >
                         ☎ Protocol Team:
-                        ${escapeHTML(record.protMobile)}
+                        ${
+                            escapeHTML(
+                                record.protocol
+                                .protocolTeamMobile
+                            )
+                        }
                     </a>
+
                     `
                     :
                     ""
                 }
+
+
+                ${
+                    (
+                        record.status ===
+                        STATUS.DELEGATED
+
+                        &&
+
+                        record.delegation.mobile
+                    )
+                    ?
+                    `
+
+                    <a
+                        href="
+                            tel:${
+                                phoneLink(
+                                    record.delegation
+                                    .mobile
+                                )
+                            }
+                        "
+                    >
+                        ☎ Delegated Official:
+                        ${
+                            escapeHTML(
+                                record.delegation
+                                .mobile
+                            )
+                        }
+                    </a>
+
+                    `
+                    :
+                    ""
+                }
+
 
             </div>
 
@@ -2706,14 +4397,18 @@ function buildQuickDial(){
 }
 
 
+
 /* ============================================================
    SAVE
 
-   Structured JSON only.
-   No raw tbody.innerHTML is saved.
+   Structured JSON is stored rather than HTML.
+   This is intentionally compatible with later API/database
+   migration.
 ============================================================ */
 
-function saveAll(showMessage=false){
+function saveAll(
+    showMessage=false
+){
 
     state.lastSaved =
         new Date()
@@ -2721,8 +4416,13 @@ function saveAll(showMessage=false){
 
 
     localStorage.setItem(
+
         STORAGE_KEY,
-        JSON.stringify(state)
+
+        JSON.stringify(
+            state
+        )
+
     );
 
 
@@ -2751,91 +4451,19 @@ function saveAll(showMessage=false){
             "saveStatus"
         )
         .textContent =
-            "✓ Master Command Center saved successfully at " +
+
+            "✓ Presidential delegation master saved successfully at " +
             readable;
 
     }
 
 
     updateCounters();
+
     buildQuickDial();
 
 }
 
-
-/* ============================================================
-   TRANSPORT
-============================================================ */
-
-function loadTransport(){
-
-    try{
-
-        const transport =
-            JSON.parse(
-                localStorage.getItem(
-                    TRANSPORT_KEY
-                )
-            ) || {};
-
-
-        document
-        .getElementById(
-            "transportPres"
-        )
-        .value =
-            transport.pres || "";
-
-
-        document
-        .getElementById(
-            "transportProt"
-        )
-        .value =
-            transport.prot || "";
-
-    }
-    catch(error){
-
-        console.error(
-            "Unable to load transport contacts",
-            error
-        );
-
-    }
-
-}
-
-
-function saveTransport(){
-
-    const transport = {
-
-        pres:
-            document
-            .getElementById(
-                "transportPres"
-            )
-            .value
-            .trim(),
-
-        prot:
-            document
-            .getElementById(
-                "transportProt"
-            )
-            .value
-            .trim()
-
-    };
-
-
-    localStorage.setItem(
-        TRANSPORT_KEY,
-        JSON.stringify(transport)
-    );
-
-}
 
 
 /* ============================================================
@@ -2846,49 +4474,85 @@ function exportCSV(){
 
     const headers = [
 
-        "Record Type",
-        "Parent Record",
         "Country",
-        "Principal / Representative",
-        "Rank",
-        "Protocol Officer",
+
+        "Invited President / Principal",
+
+        "Principal Rank",
+
+        "Attendance Status",
+
+        "Delegated Official",
+
+        "Delegated Official Rank",
+
+        "Reason for President Non-Attendance",
+
+        "NV Reference",
+
+        "NV Date",
+
+        "Delegate Mobile",
+
+        "Protocol / Liaison Officer",
+
         "Presidential Team Mobile",
+
         "Protocol Team Mobile",
-        "Status",
-        "NV Ref",
+
+        "ADC",
+
+        "Escort of Honour",
+
+        "Accommodation",
+
+        "Flight Details",
+
         "Notes"
 
     ];
 
 
     const rows =
-        orderedRecords()
+        state.records
         .map(
             record => [
 
-                record.type === "HOS"
-                ?
-                "HEAD OF STATE / GOVERNMENT"
-                :
-                "MINISTER REPRESENTATIVE",
-
-                record.parentId || "",
-
                 record.country,
 
-                record.principal,
+                record.invitedPrincipal.name,
 
-                record.rank,
-
-                record.officer,
-
-                record.presMobile,
-
-                record.protMobile,
+                record.invitedPrincipal.rank,
 
                 record.status,
 
-                record.nvRef,
+                record.delegation.officialName,
+
+                record.delegation.officialRank,
+
+                record.delegation.reason,
+
+                record.delegation.nvRef,
+
+                record.delegation.nvDate,
+
+                record.delegation.mobile,
+
+                record.protocol.officer,
+
+                record.protocol
+                .presidentialTeamMobile,
+
+                record.protocol
+                .protocolTeamMobile,
+
+                record.logistics.adc,
+
+                record.logistics.escort,
+
+                record.logistics.accommodation,
+
+                record.logistics.flight,
 
                 record.notes
 
@@ -2907,7 +4571,9 @@ function exportCSV(){
                 .map(
                     value =>
                         '"' +
-                        String(value ?? "")
+                        String(
+                            value ?? ""
+                        )
                         .replace(
                             /"/g,
                             '""'
@@ -2922,14 +4588,17 @@ function exportCSV(){
 
     const blob =
         new Blob(
+
             [
                 "\uFEFF" +
                 csv
             ],
+
             {
                 type:
                     "text/csv;charset=utf-8"
             }
+
         );
 
 
@@ -2950,7 +4619,7 @@ function exportCSV(){
 
 
     anchor.download =
-        "PS_Lamu_Presidential_Delegation_Master.csv";
+        "PS_Lamu_Presidential_Attendance_Master.csv";
 
 
     anchor.click();
@@ -2963,6 +4632,7 @@ function exportCSV(){
 }
 
 
+
 /* ============================================================
    RESET
 ============================================================ */
@@ -2971,7 +4641,13 @@ function resetMaster(){
 
     const proceed =
         confirm(
-            "Reset the working matrix to the original master baseline?\n\nAll locally saved changes to the matrix will be removed."
+
+            "Reset the Presidential Attendance Matrix to the " +
+            "master baseline?\n\n" +
+
+            "All locally saved changes, delegation details and " +
+            "status history will be removed."
+
         );
 
 
@@ -2980,19 +4656,16 @@ function resetMaster(){
     }
 
 
-    state = {
-
-        records:
-            clone(BASE_RECORDS),
-
-        lastSaved:null
-
-    };
+    state =
+        freshState();
 
 
     localStorage.removeItem(
         STORAGE_KEY
     );
+
+
+    openDetails.clear();
 
 
     render();
@@ -3008,21 +4681,30 @@ function resetMaster(){
 }
 
 
+
 /* ============================================================
    KEYBOARD SAVE
 ============================================================ */
 
 document.addEventListener(
+
     "keydown",
+
     event => {
 
         if(
+
             (
                 event.ctrlKey ||
                 event.metaKey
             )
+
             &&
-            event.key.toLowerCase() === "s"
+
+            event.key
+            .toLowerCase() ===
+            "s"
+
         ){
 
             event.preventDefault();
@@ -3032,7 +4714,9 @@ document.addEventListener(
         }
 
     }
+
 );
+
 
 
 /* ============================================================
@@ -3043,17 +4727,19 @@ function initialise(){
 
     render();
 
-    loadTransport();
 
-
-    if(state.lastSaved){
+    if(
+        state.lastSaved
+    ){
 
         document
         .getElementById(
             "lastSaved"
         )
         .textContent =
+
             "Last Saved: " +
+
             new Date(
                 state.lastSaved
             )
