@@ -31,6 +31,27 @@
 @media(max-width:600px){.kpis,.detailGrid,.dgrid,.rag,.uploadGrid,.commandStrip,.formGrid{grid-template-columns:1fr}.box.span2,.box.span4,.dfield.span2,.formGrid .span2{grid-column:span 1}.search{min-width:100%}.deadlineHead{grid-template-columns:7px 1fr}.deadlineStats{grid-column:2;justify-content:flex-start}.activity{grid-template-columns:28px 1fr}.trackerTools{grid-column:2}}
 @media print{@page{size:A4 landscape;margin:7mm}body{background:#fff}.no-print,.modal,.details{display:none!important}.shell{max-width:none;padding:0}.header{box-shadow:none}.kpis{grid-template-columns:repeat(4,1fr);gap:5px}.kpi,.panel{box-shadow:none}.tableWrap{overflow:visible}table{min-width:0;font-size:8px}th,td{padding:4px}.panelHead,th,.header{-webkit-print-color-adjust:exact;print-color-adjust:exact}.deadlineBody{display:block!important}}
 </style></head><body>
+ </style></head><body>
+<!-- PS SECURITY GATE - V18 -->
+<div id="ps-lock" style="position:fixed;inset:0;z-index:99999;background:#0a1931;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">
+  <div style="background:white;padding:35px;border-radius:12px;width:360px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.4)">
+    <h3 style="margin:0 0 10px;color:#0a1931">LAMU PS CENTER</h3>
+    <p style="font-size:13px;color:#666;margin-bottom:20px">AUTHORIZED ACCESS ONLY - CONFIDENTIAL FOR PS</p>
+    <input id="ps-pin" type="password" placeholder="Enter PS PIN" style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;margin-bottom:12px">
+    <button onclick="checkPSPin()" style="width:100%;padding:12px;background:#0a1931;color:white;border:none;border-radius:8px;font-weight:bold;cursor:pointer">UNLOCK</button>
+    <p id="ps-err" style="color:red;font-size:12px;margin-top:10px;display:none">Invalid PIN. Access Denied.</p>
+  </div>
+</div>
+<script>
+const CORRECT_PIN = "Onlysecurepin@#365Mattermost!";
+const saved = sessionStorage.getItem('ps_auth');
+if(saved === 'granted'){document.getElementById('ps-lock').style.display='none';}
+function checkPSPin(){
+  const v = document.getElementById('ps-pin').value;
+  if(v === CORRECT_PIN){sessionStorage.setItem('ps_auth','granted');document.getElementById('ps-lock').style.display='none';}
+  else{document.getElementById('ps-err').style.display='block';}
+}
+</script>
 <header class="header"><div class="shell"><div class="eyebrow">REPUBLIC OF KENYA</div><div class="ministry">MINISTRY OF FOREIGN AND DIASPORA AFFAIRS</div><div class="badges"><span class="badge confidential">CONFIDENTIAL — FOR PS ONLY</span><span class="badge baseline">MASTER COMMAND CENTER — V18</span></div><h1>LAMU OIL REFINERY GROUNDBREAKING | 30 SEPTEMBER 2026 — 13:00HRS</h1><div>Presidential Attendance • Delegated State Representation • Note Verbale Control • Protocol Coordination • Executive Readiness Control</div><div class="toolbar no-print"><button class="btn gold" onclick="addRecord()">+ ADD COUNTRY</button><button class="btn" onclick="openFlightBoard()">✈ FLIGHT &amp; ARRIVAL CONTROL</button><button class="btn" onclick="save(true)">SAVE MASTER</button><button class="btn" onclick="exportCSV()">EXPORT CSV</button><button class="btn" onclick="window.print()">PRINT / PDF FOR PS</button><button class="btn red" onclick="resetMaster()">RESET MASTER</button></div></div></header>
 <main class="shell">
 <section class="kpis"><div class="kpi"><div class="klabel">PRESIDENTS CONFIRMED</div><div id="kConfirmed" class="kvalue">0</div><div>Personal attendance confirmed</div></div><div class="kpi delegated"><div class="klabel">DELEGATED REPRESENTATION</div><div id="kDelegated" class="kvalue">0</div><div>Senior official attending on behalf of principal</div></div><div class="kpi pending"><div class="klabel">PENDING</div><div id="kPending" class="kvalue">0</div><div>Final position outstanding</div></div><div class="kpi total"><div class="klabel">TOTAL INVITED</div><div id="kTotal" class="kvalue">0</div><div>Principal invitation cases</div></div></section>
