@@ -30,8 +30,33 @@
 @media(max-width:1000px){.kpis{grid-template-columns:1fr 1fr}.detailGrid,.dgrid{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.rag{grid-template-columns:1fr 1fr}.uploadGrid{grid-template-columns:1fr 1fr}.nvGrid{grid-template-columns:1fr}.commandStrip{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.kpis,.detailGrid,.dgrid,.rag,.uploadGrid,.commandStrip,.formGrid{grid-template-columns:1fr}.box.span2,.box.span4,.dfield.span2,.formGrid .span2{grid-column:span 1}.search{min-width:100%}.deadlineHead{grid-template-columns:7px 1fr}.deadlineStats{grid-column:2;justify-content:flex-start}.activity{grid-template-columns:28px 1fr}.trackerTools{grid-column:2}}
 @media print{@page{size:A4 landscape;margin:7mm}body{background:#fff}.no-print,.modal,.details{display:none!important}.shell{max-width:none;padding:0}.header{box-shadow:none}.kpis{grid-template-columns:repeat(4,1fr);gap:5px}.kpi,.panel{box-shadow:none}.tableWrap{overflow:visible}table{min-width:0;font-size:8px}th,td{padding:4px}.panelHead,th,.header{-webkit-print-color-adjust:exact;print-color-adjust:exact}.deadlineBody{display:block!important}}
+
+/* V19 PRESIDENTIAL / EXECUTIVE UI */
+.header{position:relative;background:linear-gradient(135deg,#061426 0%,#0A1931 48%,#12345b 100%)}
+.govIdentity{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:24px;padding:13px 92px 12px;text-align:center}
+.govIdentity .crest{height:76px;width:auto;flex:0 0 auto;filter:drop-shadow(0 2px 3px #0005)}
+.govIdentity .mfa365{height:76px;width:auto;flex:0 0 auto;filter:drop-shadow(0 2px 3px #0005)}
+.govTitle{min-width:390px}.govTitle .eyebrow{font-size:12px;letter-spacing:.20em}.govTitle .ministry{font-size:12px;letter-spacing:.065em;line-height:1.35}
+.headerControl{position:absolute;right:18px;top:18px;display:flex;align-items:center;gap:8px;z-index:4}
+.themeToggle{border:1px solid #d4af3788;background:#ffffff10;color:#fff;border-radius:999px;padding:7px 10px;font-weight:900;display:inline-flex;align-items:center;gap:7px;backdrop-filter:blur(5px)}
+.themeToggle:hover{background:#ffffff1d;border-color:var(--gold)}.themeIcon{font-size:14px}.themeText{font-size:9px;letter-spacing:.06em}
+.eventBand{border-top:1px solid #ffffff18;background:linear-gradient(180deg,#ffffff05,#00000012)}
+.eventBand .shell{padding-top:11px;padding-bottom:12px}.eventBand .badges{margin:0 0 10px}.eventBand h1{margin:7px 0 5px;font-size:20px;letter-spacing:.015em}.eventMeta{opacity:.92}
+body.dark-mode{--bg:#07111f;--card:#0d1b2d;--soft:#122238;--ink:#edf3fa;--muted:#a9b8ca;--line:#2b4059;color-scheme:dark}
+body.dark-mode .kpi,body.dark-mode .panel,body.dark-mode .case,body.dark-mode .deadline,body.dark-mode .activity,body.dark-mode .box,body.dark-mode .commandCell,body.dark-mode .ragCard,body.dark-mode .modalCard{background:var(--card);color:var(--ink)}
+body.dark-mode .source,body.dark-mode .original,body.dark-mode .nvPanel,body.dark-mode .upload{background:#182235;color:var(--ink);border-color:#6f6230}
+body.dark-mode .field,body.dark-mode .cell,body.dark-mode .statusSelect{background:#0a1727;color:var(--ink);border-color:var(--line)}
+body.dark-mode .details td,body.dark-mode .deadlineBody,body.dark-mode .actionbar{background:#0a1727!important}
+body.dark-mode tbody tr:hover td{background:#14253a}body.dark-mode .caseHead{background:#162a42;color:#fff}body.dark-mode .delegatePanel{background:#0c1b2d;border-color:#315b84}
+body.dark-mode .delegateSummary,body.dark-mode .activityEvidence{background:#132840}body.dark-mode .dsection,body.dark-mode .deadlineTitle,body.dark-mode .attention h3,body.dark-mode .commandCell b,body.dark-mode .original .name{color:#d8e7f8}
+body.dark-mode .attention{background:#332a16;color:var(--ink)}body.dark-mode .attention.red{background:#351b21}body.dark-mode .archiveBox{background:#101e31}
+body.dark-mode .docTable th{background:#1b2c42;color:#fff}body.dark-mode .smallbtn{background:#162a42;color:#e8f1fa;border-color:#3b526c}
+body.dark-mode .smallbtn.delete{background:#301a20;color:#ffb3b3}body.dark-mode .modal{background:#020914dd}
+body.dark-mode .footer{color:#9fb0c3}
+@media(max-width:760px){.govIdentity{gap:12px;padding:13px 10px}.govIdentity .crest,.govIdentity .mfa365{height:58px}.govTitle{min-width:0}.govTitle .eyebrow{font-size:10px}.govTitle .ministry{font-size:9px}.headerControl{position:static;justify-content:center;padding:0 0 10px}.eventBand h1{font-size:17px}}
+@media print{.headerControl{display:none!important}.govIdentity{padding-left:10px;padding-right:10px}body.dark-mode{--bg:#fff;--card:#fff;--ink:#162033;--muted:#64748b;--line:#dbe2ea;color-scheme:light}}
+
 </style></head><body>
- </style></head><body>
 <!-- PS SECURITY GATE - V18 -->
 <div id="ps-lock" style="position:fixed;inset:0;z-index:99999;background:#0a1931;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">
   <div style="background:white;padding:35px;border-radius:12px;width:360px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.4)">
@@ -52,7 +77,20 @@ function checkPSPin(){
   else{document.getElementById('ps-err').style.display='block';}
 }
 </script>
-<header class="header"><div class="shell" style="display:flex;justify-content:space-between;align-items:center;gap:15px;padding:10px 0"><img src="coat_of_arms_kenya.png" style="height:75px;width:auto"><div style="text-align:center;flex:1"><div class="eyebrow">REPUBLIC OF KENYA</div><div class="ministry">MINISTRY OF FOREIGN AND DIASPORA AFFAIRS</div></div><img src="mfa365_logo.png" style="height:80px;width:auto"></div></header>badge confidential">CONFIDENTIAL — FOR PS ONLY</span><span class="badge baseline">MASTER COMMAND CENTER — V18</span></div><h1>LAMU OIL REFINERY GROUNDBREAKING | 30 SEPTEMBER 2026 — 13:00HRS</h1><div>Presidential Attendance • Delegated State Representation • Note Verbale Control • Protocol Coordination • Executive Readiness Control</div><div class="toolbar no-print"><button class="btn gold" onclick="addRecord()">+ ADD COUNTRY</button><button class="btn" onclick="openFlightBoard()">✈ FLIGHT &amp; ARRIVAL CONTROL</button><button class="btn" onclick="save(true)">SAVE MASTER</button><button class="btn" onclick="exportCSV()">EXPORT CSV</button><button class="btn" onclick="window.print()">PRINT / PDF FOR PS</button><button class="btn red" onclick="resetMaster()">RESET MASTER</button></div></div></header>
+<header class="header">
+  <div class="govIdentity">
+    <img class="crest" src="coat_of_arms_kenya.png" alt="Coat of Arms of Kenya">
+    <div class="govTitle"><div class="eyebrow">REPUBLIC OF KENYA</div><div class="ministry">MINISTRY OF FOREIGN AND DIASPORA AFFAIRS</div></div>
+    <img class="mfa365" src="mfa365_logo.png" alt="MFA365">
+  </div>
+  <div class="headerControl no-print"><button id="themeToggle" class="themeToggle" type="button" onclick="toggleTheme()" aria-label="Switch light and dark mode"><span id="themeIcon" class="themeIcon">☾</span><span id="themeText" class="themeText">DARK MODE</span></button></div>
+  <div class="eventBand"><div class="shell">
+    <div class="badges"><span class="badge confidential">CONFIDENTIAL — FOR PS ONLY</span><span class="badge baseline">MASTER COMMAND CENTER — V19</span></div>
+    <h1>LAMU OIL REFINERY GROUNDBREAKING | 30 SEPTEMBER 2026 — 13:00HRS</h1>
+    <div class="eventMeta">Presidential Attendance • Delegated State Representation • Note Verbale Control • Protocol Coordination • Executive Readiness Control</div>
+    <div class="toolbar no-print"><button class="btn gold" onclick="addRecord()">+ ADD COUNTRY</button><button class="btn" onclick="openFlightBoard()">✈ FLIGHT &amp; ARRIVAL CONTROL</button><button class="btn" onclick="save(true)">SAVE MASTER</button><button class="btn" onclick="exportCSV()">EXPORT CSV</button><button class="btn" onclick="window.print()">PRINT / PDF FOR PS</button><button class="btn red" onclick="resetMaster()">RESET MASTER</button></div>
+  </div></div>
+</header>
 <main class="shell">
 <section class="kpis"><div class="kpi"><div class="klabel">PRESIDENTS CONFIRMED</div><div id="kConfirmed" class="kvalue">0</div><div>Personal attendance confirmed</div></div><div class="kpi delegated"><div class="klabel">DELEGATED REPRESENTATION</div><div id="kDelegated" class="kvalue">0</div><div>Senior official attending on behalf of principal</div></div><div class="kpi pending"><div class="klabel">PENDING</div><div id="kPending" class="kvalue">0</div><div>Final position outstanding</div></div><div class="kpi total"><div class="klabel">TOTAL INVITED</div><div id="kTotal" class="kvalue">0</div><div>Principal invitation cases</div></div></section>
 <section class="source"><b>DELEGATED REPRESENTATION WORKFLOW:</b> When status changes to <b>DELEGATED</b>, the normal Executive Case Detail is replaced by a focused workflow: <b>Originally Invited President → Delegated Representation Details → Note Verbale Control</b>. Previously captured presidential logistics remain preserved.</section>
@@ -63,6 +101,17 @@ function checkPSPin(){
 <footer class="footer"><span>PS MASTER COMMAND CENTER • East African Oil Refinery Groundbreaking • Lamu</span><span id="lastEdit">Working master</span></footer></main>
 <div id="docModal" class="modal no-print" onclick="if(event.target===this)closeFolder()"><div class="modalCard"><div class="modalHead"><div><b>NOTE VERBALE DOCUMENT FOLDER</b><div id="docSubtitle" style="font-size:10px;margin-top:3px"></div></div><button class="btn" onclick="closeFolder()">CLOSE</button></div><div class="modalBody"><div id="docContext"></div><div class="upload"><b>ADD NOTE VERBALE PDF</b><div class="uploadGrid" style="margin-top:8px"><select id="docType" class="cell"><option>Invitation Note Verbale</option><option>Confirmation Note Verbale</option><option>Delegation Note Verbale</option><option>Protocol Communication</option><option>Other Diplomatic Communication</option></select><input id="docRef" class="cell" placeholder="NV Reference"><input id="docDate" class="cell" type="date"><input id="docFile" class="cell" type="file" accept="application/pdf,.pdf"></div><button class="btn gold" style="margin-top:8px" onclick="uploadDoc()">UPLOAD PDF</button><div class="sub">PDFs are stored in this browser/device using IndexedDB.</div></div><div id="docList"></div></div></div></div>
 <div id="trackerModal" class="modal no-print" onclick="if(event.target===this)closeTrackerModal()"><div class="modalCard"><div class="modalHead"><b id="trackerModalTitle">CONTROL TRACKER</b><button class="btn" onclick="closeTrackerModal()">CLOSE</button></div><div id="trackerModalBody" class="modalBody"></div></div></div>
+<script>
+const THEME_KEY='LAMU_PS_THEME_V19';
+function applyTheme(mode){
+  const dark=mode==='dark'; document.body.classList.toggle('dark-mode',dark);
+  const i=document.getElementById('themeIcon'),t=document.getElementById('themeText');
+  if(i)i.textContent=dark?'☀':'☾'; if(t)t.textContent=dark?'LIGHT MODE':'DARK MODE';
+  try{localStorage.setItem(THEME_KEY,mode)}catch(e){}
+}
+function toggleTheme(){applyTheme(document.body.classList.contains('dark-mode')?'light':'dark')}
+(function(){let m='light';try{m=localStorage.getItem(THEME_KEY)||'light'}catch(e){}applyTheme(m)})();
+</script>
 <script>
 
 const KEY='LAMU_PS_MASTER_MATRIX_V18',LEGACY=['LAMU_PS_MASTER_MATRIX_V17','LAMU_PS_MASTER_MATRIX_V16','LAMU_PS_MASTER_MATRIX_V15','LAMU_PS_MASTER_MATRIX_V14','LAMU_PS_MASTER_MATRIX_V13','LAMU_PS_MASTER_MATRIX_V12','LAMU_PS_MASTER_MATRIX_V11','LAMU_PS_MASTER_MATRIX_V10','LAMU_PS_MASTER_MATRIX_V9','LAMU_PS_EXECUTIVE_MATRIX_V7','LAMU_PS_MASTER_MATRIX_V8'],TRACKER_KEY='LAMU_PS_CONTROL_TRACKER_V10';
