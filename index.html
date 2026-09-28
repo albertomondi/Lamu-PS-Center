@@ -103,7 +103,7 @@ function signOutProtocol(){
   </div>
   <div class="headerControl no-print"><button id="themeToggle" class="themeToggle" type="button" onclick="toggleTheme()" aria-label="Switch light and dark mode"><span id="themeIcon" class="themeIcon">☾</span><span id="themeText" class="themeText">DARK MODE</span></button><button class="signOutBtn" type="button" onclick="signOutProtocol()" aria-label="Sign out">SIGN OUT</button></div>
   <div class="eventBand"><div class="shell">
-    <div class="badges"><span class="badge confidential">CONFIDENTIAL — FOR PS ONLY</span><span class="badge baseline">MASTER COMMAND CENTER — V26</span></div>
+    <div class="badges"><span class="badge confidential">CONFIDENTIAL — FOR PS ONLY</span><span class="badge baseline">MASTER COMMAND CENTER — V27</span></div>
     <h1>LAMU OIL REFINERY GROUNDBREAKING | 30 SEPTEMBER 2026 — 13:00HRS</h1>
     <div class="eventMeta">Presidential Attendance • Delegated State Representation • Note Verbale Control • Protocol Coordination • Executive Readiness Control</div>
     <div class="toolbar no-print"><button class="btn gold" onclick="addRecord()">+ ADD COUNTRY</button><button class="btn" onclick="openFlightBoard()">✈ FLIGHT &amp; ARRIVAL CONTROL</button><button class="btn" onclick="save(true)">SAVE MASTER</button><button class="btn" onclick="exportCSV()">EXPORT CSV</button><button class="btn" onclick="window.print()">PRINT / PDF FOR PS</button><button class="btn red" onclick="resetMaster()">RESET MASTER</button></div>
@@ -422,7 +422,7 @@ function renderMatrix(){
  const pool=state.records.filter(r=>(f==='ALL'||r.status===f)&&(!q||[
    r.country,r.principal.name,r.principal.title,r.protocol.officer,r.protocol.protMobile,r.nv.ref,
    r.delegation.name,r.delegation.rank,r.logistics.hotel,r.logistics.flight
- ].join(' ').toLowerCase().includes(q))).sort((a,b)=>{const ac=a.status==='CONFIRMED',bc=b.status==='CONFIRMED';if(ac!==bc)return ac?-1:1;if(ac&&bc){const ad=a.id==='dan'||String(a.country||'').toUpperCase()==='DANGOTE GROUP',bd=b.id==='dan'||String(b.country||'').toUpperCase()==='DANGOTE GROUP';if(ad!==bd)return ad?1:-1;const at=a.confirmedAt?Date.parse(a.confirmedAt):0,bt=b.confirmedAt?Date.parse(b.confirmedAt):0;if(at!==bt)return bt-at;}return state.records.indexOf(a)-state.records.indexOf(b);});
+ ].join(' ').toLowerCase().includes(q))).sort((a,b)=>{const rank=s=>s==='CONFIRMED'?0:s==='DELEGATED'?1:s==='PENDING'?2:3;const ar=rank(a.status),br=rank(b.status);if(ar!==br)return ar-br;if(ar===0){const ad=a.id==='dan'||String(a.country||'').toUpperCase()==='DANGOTE GROUP'||String(a.principal?.name||'').toUpperCase().includes('ALIKO DANGOTE'),bd=b.id==='dan'||String(b.country||'').toUpperCase()==='DANGOTE GROUP'||String(b.principal?.name||'').toUpperCase().includes('ALIKO DANGOTE');if(ad!==bd)return ad?1:-1;const at=a.confirmedAt?Date.parse(a.confirmedAt):0,bt=b.confirmedAt?Date.parse(b.confirmedAt):0;if(at!==bt)return bt-at;}if(ar===1){const at=a.delegation?.savedAt?Date.parse(a.delegation.savedAt):0,bt=b.delegation?.savedAt?Date.parse(b.delegation.savedAt):0;if(at!==bt)return bt-at;}return state.records.indexOf(a)-state.records.indexOf(b);});
  document.getElementById('matrix').innerHTML=pool.map((r,i)=>{const ex=caseExceptionCount(r);return`<tr>
  <td><b>${i+1}</b></td>
  <td><div class="principal">${esc(r.country)}</div><div style="font-weight:900;margin-top:4px">${esc(r.principal.name||'Invited principal not entered')}</div><div class="sub">${esc(r.principal.title||'Title required')}</div></td>
