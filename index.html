@@ -531,18 +531,25 @@ function caseExceptionCount(r){
 }
 function renderMatrix(){
  const q=document.getElementById('search').value.toLowerCase().trim(),f=document.getElementById('statusFilter').value;
- const statusRank=s=>s==='CONFIRMED'?0:s==='DELEGATED'?1:s==='PENDING'?2:3;
- const categoryRank={HEAD_STATE_GOV:0,SPECIAL_VIP:1,INTL_ORG:2};
  const pool=state.records.filter(r=>(f==='ALL'||r.status===f)&&(!q||[
    CATEGORY_META[r.category||inferCategory(r)]?.label,r.country,r.principal.name,r.principal.title,r.protocol.officer,r.protocol.protMobile,r.nv.ref,
    r.delegation.name,r.delegation.rank,r.logistics.hotel,r.logistics.flight
- ].join(' ').toLowerCase().includes(q))).sort((a,b)=>{
-   const ac=a.category||inferCategory(a),bc=b.category||inferCategory(b),cr=(categoryRank[ac]??9)-(categoryRank[bc]??9);if(cr!==0)return cr;
-   const sr=statusRank(a.status)-statusRank(b.status);if(sr!==0)return sr;
-   return state.records.indexOf(a)-state.records.indexOf(b);
- });
- let html='',n=0,lastCat='';
- pool.forEach(r=>{const cat=r.category||inferCategory(r),meta=CATEGORY_META[cat]||CATEGORY_META.HEAD_STATE_GOV;if(cat!==lastCat){const cnt=pool.filter(x=>(x.category||inferCategory(x))===cat).length;html+=`<tr class="categoryRow ${meta.cls}"><td colspan="6">${meta.label}<span class="categoryCount">${cnt} RECORD${cnt===1?'':'S'}</span></td></tr>`;lastCat=cat}n++;const ex=caseExceptionCount(r);html+=`<tr>
+ ].join(' ').toLowerCase().includes(q)));
+ const groupOf=r=>{
+   const cat=r.category||inferCategory(r);
+   if(cat===CATEGORY.HEAD_STATE_GOV){
+     if(r.status==='CONFIRMED')return{key:'A_CONFIRMED',rank:0,label:'A. HEADS OF STATE / GOVERNMENT',cls:'catA',status:'CONFIRMED'};
+     if(r.status==='DELEGATED')return{key:'A_DELEGATED',rank:1,label:'A. HEADS OF STATE / GOVERNMENT',cls:'catA',status:'DELEGATED'};
+     if(r.status==='PENDING')return{key:'A_PENDING',rank:4,label:'A. HEADS OF STATE / GOVERNMENT',cls:'catA',status:'AWAITING CONFIRMATION'};
+     return{key:'A_OTHER',rank:5,label:'A. HEADS OF STATE / GOVERNMENT',cls:'catA',status:r.status||'OTHER'};
+   }
+   if(cat===CATEGORY.SPECIAL_VIP)return{key:'B_SPECIAL',rank:2,label:CATEGORY_META.SPECIAL_VIP.label,cls:'catB',status:''};
+   if(cat===CATEGORY.INTL_ORG)return{key:'C_INTL',rank:3,label:CATEGORY_META.INTL_ORG.label,cls:'catC',status:''};
+   return{key:'Z_OTHER',rank:9,label:'OTHER PRINCIPALS / VIP',cls:'catA',status:''};
+ };
+ pool.sort((a,b)=>{const ga=groupOf(a),gb=groupOf(b),gr=ga.rank-gb.rank;if(gr!==0)return gr;return state.records.indexOf(a)-state.records.indexOf(b)});
+ let html='',n=0,lastGroup='';
+ pool.forEach(r=>{const g=groupOf(r);if(g.key!==lastGroup){const cnt=pool.filter(x=>groupOf(x).key===g.key).length;const statusHint=g.status?`<span class="categoryHint"><span class="status ${cls(g.status==='AWAITING CONFIRMATION'?'PENDING':g.status)}">${esc(g.status)}</span></span>`:'';html+=`<tr class="categoryRow ${g.cls}"><td colspan="6">${g.label}${statusHint}<span class="categoryCount">${cnt} RECORD${cnt===1?'':'S'}</span></td></tr>`;lastGroup=g.key}n++;const ex=caseExceptionCount(r);html+=`<tr>
  <td><b>${n}</b></td>
  <td><div class="principal">${esc(r.country)}</div><div style="font-weight:900;margin-top:4px">${esc(r.principal.name||'Principal not entered')}</div><div class="sub">${esc(r.principal.title||'Title required')}</div></td>
  <td>${statusCtl(r)}</td>
